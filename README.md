@@ -1,3 +1,6 @@
+# Coin App
+Consolidating RESTFUL calls from the CoinGecko API into a React application. This app will be using ant design for UI.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
