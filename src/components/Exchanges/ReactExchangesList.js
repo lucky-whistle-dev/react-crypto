@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Table, Layout, Typography } from 'antd';
+import { Table, Tag, Layout, Typography } from 'antd';
 import { contentStyle } from '../../styles';
 
 const { Content } = Layout;
@@ -20,20 +20,52 @@ export default class ReactExchangesList extends Component {
     render() {
           const columns = [
             {
+              title: 'Id',
+              dataIndex: 'id',
+              key: 'id',
+            },
+            {
               title: 'Name',
               dataIndex: 'name',
               key: 'name',
+              render: country => (<Tag color="purple">{country}</Tag>)
             },
             {
-              title: 'Age',
-              dataIndex: 'age',
-              key: 'age',
-            },
-            {
-              title: 'Address',
-              dataIndex: 'address',
-              key: 'address',
-            },
+                title: 'Year est.',
+                dataIndex: 'year_established',
+                key: 'year_established',
+              },
+              {
+                title: 'Country',
+                dataIndex: 'country',
+                key: 'country',
+                render: country => (<Tag color="blue">{country}</Tag>)
+              },
+              {
+                title: 'Trade 24h BTC',
+                dataIndex: 'trade_volume_24h_btc',
+                key: 'trade_volume_24h_btc',
+              },
+              {
+                title: '',
+                dataIndex: '',
+                key: '',
+              },
+              {
+                title: '',
+                dataIndex: '',
+                key: '',
+              },
+              {
+                title: '',
+                dataIndex: '',
+                key: '',
+              },
+              {
+                title: '',
+                dataIndex: '',
+                key: '',
+              },
             ];
 
         return (
