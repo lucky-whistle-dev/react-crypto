@@ -1,4 +1,4 @@
-# Coin App
+# React Cryptocurrency App
 Consolidating RESTFUL calls from the CoinGecko API into a React application. I'll be using v3 of the API (the most recent version at the time of starting this project) This app will be using ant design for UI. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
