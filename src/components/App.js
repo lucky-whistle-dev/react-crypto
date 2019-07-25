@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import 'antd/dist/antd.css';
+
+
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
-import 'antd/dist/antd.css';
+
 
 export default class App extends Component {
     render() {
