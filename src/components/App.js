@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-
+import { contentStyle } from '../styles';
 //[NOTE] React prefix used to differentiate from antd ui components.
 import ReactHeader from './Layout/ReactHeader';
 import ReactSider from './Layout/ReactSider';
@@ -22,12 +22,7 @@ export default class App extends Component {
                     <Breadcrumb.Item>App</Breadcrumb.Item>
                     </Breadcrumb> */}
                     <Content
-                    style={{
-                        background: '#fff',
-                        padding: 24,
-                        margin: 0,
-                        minHeight: 700,
-                    }}
+                    style={contentStyle}
                     >
                     Content
                     </Content>
