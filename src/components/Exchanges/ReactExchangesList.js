@@ -45,27 +45,7 @@ export default class ReactExchangesList extends Component {
                 title: 'Trade 24h BTC',
                 dataIndex: 'trade_volume_24h_btc',
                 key: 'trade_volume_24h_btc',
-              },
-              {
-                title: '',
-                dataIndex: '',
-                key: '',
-              },
-              {
-                title: '',
-                dataIndex: '',
-                key: '',
-              },
-              {
-                title: '',
-                dataIndex: '',
-                key: '',
-              },
-              {
-                title: '',
-                dataIndex: '',
-                key: '',
-              },
+              }
             ];
 
         return (
@@ -73,7 +53,11 @@ export default class ReactExchangesList extends Component {
                 <Content style={contentStyle}>
                     <Title level={2}>Exchanges List</Title>
                     <Paragraph>This page lists available exchanges.</Paragraph>
-                    <Table dataSource={this.state.exchanges} columns={columns} />
+                    <Table 
+                    bordered={true}
+                    loading={this.state.loading}
+                    dataSource={this.state.exchanges} 
+                    columns={columns} />
                 </Content>
             </Layout>
         )
