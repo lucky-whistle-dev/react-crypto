@@ -21,6 +21,7 @@ class ReactCoinsList extends Component {
         })
         .catch(error=>console.error(error))
     }
+    
     render() {
         return (
             <Layout style={{ padding: '1rem' }}>

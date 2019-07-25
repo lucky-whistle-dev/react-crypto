@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import ReactCoinsList from './Coins/ReactCoinsList';
 import ReactHome from './General/ReactHome';
 import ReactAbout from './General/ReactAbout';
-import { Route, Link } from 'react-router-dom';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-import { contentStyle } from '../styles';
+import ReactGlobal from './Global/ReactGlobal';
+import { Route } from 'react-router-dom';
+import { Layout } from 'antd';
 //[NOTE] React prefix used to differentiate from antd ui components.
-import ReactHeader from './Layout/ReactHeader';
-import ReactSider from './Layout/ReactSider';
+import ReactHeader from './Navigation/ReactHeader';
+import ReactSider from './Navigation/ReactSider';
 import ReactExchangesList from './Exchanges/ReactExchangesList';
 
 
@@ -25,6 +25,7 @@ export default class App extends Component {
                     <Route path='/about' exact component={ReactAbout}/>
                     <Route path='/coins' exact component={ReactCoinsList}/>
                     <Route path='/exchanges/list' exact component={ReactExchangesList}/>
+                    <Route path='/global' exact component={ReactGlobal}/>
                     
                     {/* <Layout style={{ padding: '1rem' }}>
                         <Content style={contentStyle}>

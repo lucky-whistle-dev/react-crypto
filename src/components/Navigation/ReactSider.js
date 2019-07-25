@@ -65,7 +65,7 @@ class ReactSider extends Component {
                         </span>
                         }
                     >
-                        <Menu.Item key="global-main">Main</Menu.Item>
+                        <Menu.Item key="global-main"><Link to='/global'>Data</Link></Menu.Item>
                     </SubMenu>
                     </Menu>
                 </Sider>
