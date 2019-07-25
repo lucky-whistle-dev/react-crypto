@@ -24,9 +24,9 @@ class ReactSider extends Component {
                         </span>
                         }
                         >
-                        <Menu.Item key="coin-list"><Link to='coins'>Coin List</Link></Menu.Item>
-                        <Menu.Item key="coin-detail">Detail View</Menu.Item>
-                        <Menu.Item key="coin-market">Markets</Menu.Item>
+                        <Menu.Item key="coin-list"><Link to='/coins'>Coin List</Link></Menu.Item>
+                        <Menu.Item key="coin-detail"><Link to='/empty'>Coin Detail View</Link></Menu.Item>
+                        <Menu.Item key="coin-market"><Link to='/empty'>Coin Markets</Link></Menu.Item>
                     </SubMenu>
                     
                     {/* Events Sub Menu */}
@@ -38,9 +38,9 @@ class ReactSider extends Component {
                         </span>
                         }
                         >
-                        <Menu.Item key="events-latest">Latest Events</Menu.Item>
-                        <Menu.Item key="events-all">All Events</Menu.Item>
-                        <Menu.Item key="events-countries">Countries</Menu.Item>
+                        <Menu.Item key="events-latest"><Link to='/empty'>Latest Events</Link></Menu.Item>
+                        <Menu.Item key="events-all"><Link to='/empty'>All Events</Link></Menu.Item>
+                        <Menu.Item key="events-countries"><Link to='/empty'>Countries</Link></Menu.Item>
                     </SubMenu>
                     
                     {/* Exchanges Menu */}

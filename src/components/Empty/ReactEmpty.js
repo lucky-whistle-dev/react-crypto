@@ -10,8 +10,8 @@ export default class ReactEmpty extends Component {
         return (
             <Layout style={{ padding: '1rem' }}>
                 <Content style={contentStyle}>
-                    <Title level={2}>Coins List</Title>
-                    <Paragraph>This page lists all available coins...</Paragraph>
+                    <Title level={2}>In development</Title>
+                    <Paragraph>This page is currently in development. Please check on it at a later time...</Paragraph>
                 </Content>
             </Layout>        
         )
