@@ -3,6 +3,22 @@ Consolidating RESTFUL calls from the CoinGecko API into a React application. I'l
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Requirements
+Requirements for this project can be found in the package.json. And can be installed with `npm install` from root of the project directory.
+
+I aim to use the following packages:
+**must have packages**
+- antd (ui framework for react)
+- react (front-end)
+- react-router-dom (routing for react)
+- chartjs (charting library)
+- axios (graceful api calls)
+
+**optional packages**
+- redux (may need redux for state management if number of components grows)
+- ant motion (animations for ant design ui)
+
+
 # Tests
 
 # Sources
