@@ -21,7 +21,7 @@ class ReactCoinsList extends Component {
         })
         .catch(error=>console.error(error))
     }
-    
+
     render() {
         return (
             <Layout style={{ padding: '1rem' }}>
@@ -29,7 +29,7 @@ class ReactCoinsList extends Component {
                     <Title level={2}>Coins List</Title>
                     <Paragraph>This page lists all available coins...</Paragraph>
                     <List
-                    pagination={true}
+                    pagination={ this.state.loaded ? false : true}
                     loading={this.state.loaded}
                     grid={{
                     gutter: 16, 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactCoinsList from './Coins/ReactCoinsList';
 import ReactHome from './General/ReactHome';
 import ReactAbout from './General/ReactAbout';
+import ReactEmpty from './Empty/ReactEmpty';
 import ReactGlobal from './Global/ReactGlobal';
 import { Route } from 'react-router-dom';
 import { Layout } from 'antd';
@@ -27,6 +28,7 @@ export default class App extends Component {
                     <Route path='/coins' exact component={ReactCoinsList}/>
                     <Route path='/exchanges/list' exact component={ReactExchangesList}/>
                     <Route path='/global' exact component={ReactGlobal}/>
+                    <Route path='/empty' exact component={ReactEmpty}/>
                     
                     {/* <Layout style={{ padding: '1rem' }}>
                         <Content style={contentStyle}>

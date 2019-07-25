@@ -29,13 +29,13 @@ class ReactHeader extends Component {
                             <Link to="/"><Icon type="home"/>Home</Link>
                         </Menu.Item>
                         <Menu.Item key="chart">
-                            <Icon type="area-chart"/>Dashboard
+                        <Link to="/coins"><Icon type="area-chart"/>Dashboard</Link>
                         </Menu.Item>
                         <Menu.Item key="about">
                             <Link to="/about"><Icon type="info-circle"/>About</Link>
                         </Menu.Item>
                         <Menu.Item key="source">
-                            <a href="https://github.com/danielc92/">
+                            <a href="https://github.com/danielc92/react-crypto-app">
                             <Icon theme="filled" type="github"/>Source
                             </a>
                         </Menu.Item>
