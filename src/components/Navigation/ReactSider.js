@@ -12,7 +12,7 @@ class ReactSider extends Component {
                     <Menu
                     mode="inline"
                     defaultSelectedKeys={['menu-coins']}
-                    defaultOpenKeys={['menu-coins', 'menu-events', 'menu-global']}
+                    defaultOpenKeys={['menu-coins', 'menu-events', 'menu-global', 'menu-exchanges']}
                     style={{ height: '100%', borderRight: 0 }}
                     >
                    {/* Coin Sub Menu */}
@@ -38,9 +38,7 @@ class ReactSider extends Component {
                         </span>
                         }
                         >
-                        <Menu.Item key="events-latest"><Link to='/empty'>Latest Events</Link></Menu.Item>
-                        <Menu.Item key="events-all"><Link to='/empty'>All Events</Link></Menu.Item>
-                        <Menu.Item key="events-countries"><Link to='/empty'>Countries</Link></Menu.Item>
+                        <Menu.Item key="events-list"><Link to='/events/list'>Events List</Link></Menu.Item>
                     </SubMenu>
                     
                     {/* Exchanges Menu */}
