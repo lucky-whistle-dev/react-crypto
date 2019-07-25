@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import { Layout, Menu, Icon } from 'antd';
 const { Sider } = Layout;
 const {SubMenu} = Menu;
@@ -20,13 +21,13 @@ class ReactSider extends Component {
                         key="menu-coins"
                         title={
                         <span>
-                            <Icon type="dollar" />Subnav
+                            <Icon type="dollar" />Coins
                         </span>
                         }
                         >
-                        <Menu.Item key="coin-list">List View</Menu.Item>
-                        <Menu.Item key="coin-market">Markets</Menu.Item>
+                        <Menu.Item key="coin-list"><Link to='coins'>List</Link></Menu.Item>
                         <Menu.Item key="coin-detail">Detail View</Menu.Item>
+                        <Menu.Item key="coin-market">Markets</Menu.Item>
                     </SubMenu>
                     
                     {/* Events Sub Menu */}

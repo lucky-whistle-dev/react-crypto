@@ -8,24 +8,22 @@ import ReactHeader from './Layout/ReactHeader';
 import ReactSider from './Layout/ReactSider';
 
 
-
 const { Content, Sider } = Layout;
 
 
 export default class App extends Component {
     render() {
         return (
-            <Layout>
-                <Link to='coins'>AYYY</Link>
+            <Layout>    
                 <ReactHeader/>
                 <Layout>
                 <ReactSider/>
-                    <Route path='coins' exact component={CoinsList}/>
-                    <Layout style={{ padding: '1rem' }}>
+                    <Route path='/coins' exact component={CoinsList}/>
+                    {/* <Layout style={{ padding: '1rem' }}>
                         <Content style={contentStyle}>
                         Est labore amet est occaecat ad do occaecat consectetur cillum eu exercitation ullamco.
                         </Content>
-                    </Layout>
+                    </Layout> */}
                 </Layout>
             </Layout>
         )
