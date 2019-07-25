@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import { Layout, Menu, Icon } from 'antd';
-const { Sider } = Layout;
+const { Sider, Content } = Layout;
 const {SubMenu} = Menu;
 
 class ReactSider extends Component {
@@ -15,9 +15,8 @@ class ReactSider extends Component {
                     defaultOpenKeys={['menu-coins', 'menu-events', 'menu-global']}
                     style={{ height: '100%', borderRight: 0 }}
                     >
-                   
                    {/* Coin Sub Menu */}
-                   <SubMenu
+                    <SubMenu
                         key="menu-coins"
                         title={
                         <span>
@@ -25,7 +24,7 @@ class ReactSider extends Component {
                         </span>
                         }
                         >
-                        <Menu.Item key="coin-list"><Link to='coins'>List</Link></Menu.Item>
+                        <Menu.Item key="coin-list"><Link to='coins'>Coin List</Link></Menu.Item>
                         <Menu.Item key="coin-detail">Detail View</Menu.Item>
                         <Menu.Item key="coin-market">Markets</Menu.Item>
                     </SubMenu>
@@ -43,6 +42,18 @@ class ReactSider extends Component {
                         <Menu.Item key="events-all">All Events</Menu.Item>
                         <Menu.Item key="events-countries">Countries</Menu.Item>
                     </SubMenu>
+                    
+                    {/* Exchanges Menu */}
+                    <SubMenu
+                    key="menu-exchanges"
+                    title={
+                        <span>
+                            <Icon type="global"/>
+                            Exchanges
+                        </span>
+                        }>
+                    <Menu.Item key="exchanges-list"><Link to='/exchanges/list'>Exchanges List</Link></Menu.Item>
+                    </SubMenu>
 
                     {/* Global Sub Menu */}
                     <SubMenu
@@ -56,8 +67,6 @@ class ReactSider extends Component {
                     >
                         <Menu.Item key="global-main">Main</Menu.Item>
                     </SubMenu>
-
-
                     </Menu>
                 </Sider>
             </React.Fragment>
