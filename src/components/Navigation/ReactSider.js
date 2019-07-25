@@ -48,7 +48,7 @@ class ReactSider extends Component {
                     key="menu-exchanges"
                     title={
                         <span>
-                            <Icon type="global"/>
+                            <Icon type="bank"/>
                             Exchanges
                         </span>
                         }>

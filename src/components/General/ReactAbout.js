@@ -10,7 +10,7 @@ class ReactAbout extends Component {
     render() {
         return (
             <Layout style={{ padding: '1rem' }}>
-                <Content style={contentStyle}>
+                <Content className="text-focus-in" style={contentStyle}>
                     <Title level={2}>About Page</Title>
                     <Paragraph>Consequat fugiat exercitation cillum proident aliquip irure non. Ad ad qui labore do nulla. Est pariatur culpa laborum labore aliqua incididunt. Sunt do ex aliqua irure magna adipisicing sint exercitation pariatur adipisicing. Tempor eiusmod minim officia nostrud eiusmod sunt veniam ipsum cillum enim ut consequat. Fugiat eiusmod ut sit ea commodo do eiusmod ex deserunt.</Paragraph>
                 </Content>

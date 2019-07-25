@@ -9,6 +9,7 @@ import { Layout } from 'antd';
 import ReactHeader from './Navigation/ReactHeader';
 import ReactSider from './Navigation/ReactSider';
 import ReactExchangesList from './Exchanges/ReactExchangesList';
+import './App.css'
 
 
 const { Content, Sider } = Layout;
