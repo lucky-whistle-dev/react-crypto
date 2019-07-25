@@ -19,7 +19,7 @@ const { Content, Sider } = Layout;
 export default class App extends Component {
     render() {
         return (
-            <Layout style={{minHeight: '100vh'}}>    
+            <Layout style={{minHeight: '100vh', lineHeight: '1.6rem'}}>    
                 <ReactHeader/>
                 <Layout>
                 <ReactSider/>

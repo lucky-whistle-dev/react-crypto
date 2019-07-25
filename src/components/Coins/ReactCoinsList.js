@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Layout, Typography, Button, Card, List} from 'antd';
+import { Layout, Typography, Button, Card, List } from 'antd';
 import { contentStyle } from '../../styles';
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -19,7 +19,7 @@ class ReactCoinsList extends Component {
             this.setState({coinsList: res.data}, 
                 () => {this.setState({loaded: !this.state.loaded })})
         })
-        .catch(error=>console.error(error))
+        .catch(error => console.error(error))
     }
 
     render() {
