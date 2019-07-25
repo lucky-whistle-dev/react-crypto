@@ -21,7 +21,7 @@ class ReactSider extends Component {
                         key="menu-coins"
                         title={
                         <span>
-                            <Icon type="dollar" />Coins
+                            <Icon type="dollar"/>Coins
                         </span>
                         }
                         >
@@ -35,7 +35,7 @@ class ReactSider extends Component {
                         key="menu-events"
                         title={
                         <span>
-                            <Icon type="team" />Events
+                            <Icon type="team"/>Events
                         </span>
                         }
                         >
@@ -49,12 +49,12 @@ class ReactSider extends Component {
                         key="menu-global"
                         title={
                         <span>
-                            <Icon type="global" />
+                            <Icon type="global"/>
                             Global
                         </span>
                         }
                     >
-                        <Menu.Item key="9">Main</Menu.Item>
+                        <Menu.Item key="global-main">Main</Menu.Item>
                     </SubMenu>
 
 

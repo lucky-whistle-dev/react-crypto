@@ -1,11 +1,20 @@
-import React, { Component } from 'react'
-import { Layout, Menu, Icon } from 'antd';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Layout, Menu, Icon, Button } from 'antd';
 
 const { Header } = Layout;
 
 
 class ReactHeader extends Component {
+
+    state = {
+        iconType: 'twoTone'
+    }
+
     render() {
+        
+        const { iconType } = this.state;
+
         return (
             <React.Fragment>
                 <Header className="header">
@@ -13,13 +22,23 @@ class ReactHeader extends Component {
                     <Menu
                         theme="dark"
                         mode="horizontal"
-                        defaultSelectedKeys={['2']}
+                        defaultSelectedKeys={['home']}
                         style={{ lineHeight: '64px' }}
                     >
-                        <Menu.Item key="1"><Icon type="user" />Home</Menu.Item>
-                        <Menu.Item key="2">Dashboard</Menu.Item>
-                        <Menu.Item key="3">About</Menu.Item>
-                        <Menu.Item key="4">Source</Menu.Item>
+                        <Menu.Item key="home">
+                            <Link to="/"><Icon type="home"/>Home</Link>
+                        </Menu.Item>
+                        <Menu.Item key="chart">
+                            <Icon type="area-chart"/>Dashboard
+                        </Menu.Item>
+                        <Menu.Item key="about">
+                            <Link to="/about"><Icon type="info-circle"/>About</Link>
+                        </Menu.Item>
+                        <Menu.Item key="source">
+                            <a href="https://github.com/danielc92/">
+                            <Icon theme="filled" type="github"/>Source
+                            </a>
+                        </Menu.Item>
                     </Menu>
                 </Header>
             </React.Fragment>

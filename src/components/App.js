@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import CoinsList from './Coins/CoinsList';
+import ReactCoinsList from './Coins/ReactCoinsList';
+import ReactHome from './General/ReactHome';
+import ReactAbout from './General/ReactAbout';
 import { Route, Link } from 'react-router-dom';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import { contentStyle } from '../styles';
@@ -18,7 +20,9 @@ export default class App extends Component {
                 <ReactHeader/>
                 <Layout>
                 <ReactSider/>
-                    <Route path='/coins' exact component={CoinsList}/>
+                    <Route path='/' exact component={ReactHome}/>
+                    <Route path='/about' exact component={ReactAbout}/>
+                    <Route path='/coins' exact component={ReactCoinsList}/>
                     {/* <Layout style={{ padding: '1rem' }}>
                         <Content style={contentStyle}>
                         Est labore amet est occaecat ad do occaecat consectetur cillum eu exercitation ullamco.

@@ -6,7 +6,7 @@ const { Content } = Layout;
 const { Title, Paragraph } = Typography;
 
 
-class CoinsList extends Component {
+class ReactCoinsList extends Component {
 
     state = {
         coinsList: [],
@@ -34,7 +34,7 @@ class CoinsList extends Component {
                     gutter: 16, 
                     xs: 1, 
                     sm: 1, 
-                    md: 3, 
+                    md: 3,
                     lg: 4, 
                     xl: 4, 
                     xxl: 5,
@@ -58,4 +58,4 @@ class CoinsList extends Component {
     }
 }
 
-export default CoinsList;
+export default ReactCoinsList;
