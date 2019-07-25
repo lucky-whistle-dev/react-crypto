@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactCoinsList from './Coins/ReactCoinsList';
+import ReactCoinsDetail from './Coins/ReactCoinsDetail';
 import ReactHome from './General/ReactHome';
 import ReactAbout from './General/ReactAbout';
 import ReactEvents from './Events/ReactEvents';
@@ -26,6 +27,7 @@ export default class App extends Component {
                     <Route path='/' exact component={ReactHome}/>
                     <Route path='/about' exact component={ReactAbout}/>
                     <Route path='/coins' exact component={ReactCoinsList}/>
+                    <Route path='/coins/:coinId/' exact component={ReactCoinsDetail}/>
                     <Route path='/exchanges/list' exact component={ReactExchangesList}/>
                     <Route path='/global' exact component={ReactGlobal}/>
                     <Route path='/empty' exact component={ReactEmpty}/>
