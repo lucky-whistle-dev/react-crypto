@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Project Structure 
 Generated with `tree` command.
-
+```
 .
 ├── Branding
 │   └── CoinGecko.png
@@ -31,6 +31,7 @@ Generated with `tree` command.
 ├── index.js
 └── styles
     └── index.js
+```
 
 # Themes
 The themes for this app will directly correlate to the api endpoints provided by the CoinGecko API. I want to split up the app into digestible React components in the following areas, which will most likely form part of a larger dashboard interface.
