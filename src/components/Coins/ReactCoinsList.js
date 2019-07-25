@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { Layout, Typography, Button, Card, List } from 'antd';
+import { Layout, Table, Typography, Button, Card, List } from 'antd';
 import { contentStyle } from '../../styles';
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -23,36 +24,16 @@ class ReactCoinsList extends Component {
     }
 
     render() {
+
+        const columns=[
+            {}
+        ];
         return (
             <Layout style={{ padding: '1rem' }}>
                 <Content style={contentStyle}>
                     <Title level={2}>Coins List</Title>
                     <Paragraph>This page lists all available coins...</Paragraph>
-                    <List
-                    pagination={ this.state.loaded ? false : true}
-                    loading={this.state.loaded}
-                    grid={{
-                    gutter: 16, 
-                    xs: 1, 
-                    sm: 1, 
-                    md: 3,
-                    lg: 4, 
-                    xl: 4, 
-                    xxl: 5,
-                    }}
-                    dataSource={this.state.coinsList}
-                    renderItem={(item) => (
-                    <List.Item>
-                        <Card
-                        title={item.name}
-                        actions={[<Button>View details</Button>]}>
-                            Id: {item.id}
-                            Symbol: {item.symbol}
-                        </Card>
-
-                    </List.Item>
-                    )}
-                />
+                    <Table dataSource={this.state.coinsList} columns={columns}/>
                 </Content>
             </Layout>
         )

@@ -3,6 +3,35 @@ Consolidating RESTFUL calls from the CoinGecko API into a React application. I'l
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Project Structure 
+Generated with `tree` command.
+
+.
+├── Branding
+│   └── CoinGecko.png
+├── components
+│   ├── App.css
+│   ├── App.js
+│   ├── Coins
+│   │   └── ReactCoinsList.js
+│   ├── Empty
+│   │   └── ReactEmpty.js
+│   ├── Events
+│   │   └── ReactEvents.js
+│   ├── Exchanges
+│   │   └── ReactExchangesList.js
+│   ├── General
+│   │   ├── ReactAbout.js
+│   │   └── ReactHome.js
+│   ├── Global
+│   │   └── ReactGlobal.js
+│   └── Navigation
+│       ├── ReactHeader.js
+│       └── ReactSider.js
+├── index.js
+└── styles
+    └── index.js
+
 # Themes
 The themes for this app will directly correlate to the api endpoints provided by the CoinGecko API. I want to split up the app into digestible React components in the following areas, which will most likely form part of a larger dashboard interface.
 
