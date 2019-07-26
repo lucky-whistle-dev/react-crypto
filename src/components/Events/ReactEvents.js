@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Layout, List, Tag, Icon, Typography } from 'antd';
+import { Layout, List, Tag, Timeline, Typography } from 'antd';
 import { contentStyle } from '../../styles';
 import Axios from 'axios';
 
@@ -55,12 +55,15 @@ export default class ReactEvents extends Component {
                         description={item.venue}
                         />
                         {item.description.slice(0, 500)}...
-                        <div style={{marginTop: '1rem'}} >
+                        <div style={{margin: '1.5rem 0rem'}} >
                         <Tag color="blue">Type: {item.type}</Tag>
                         <Tag color="blue">Location: {item.country}</Tag>
-                        <Tag color="green">Start: {item.start_date}</Tag>
-                        <Tag color="green">End: {item.end_date}</Tag>
                         </div>
+
+                        <Timeline>
+                            <Timeline.Item color="green">Event starts on { item.start_date }</Timeline.Item>
+                            <Timeline.Item color="red">Event ends on { item.end_date }</Timeline.Item>
+                        </Timeline>
                         
                     </List.Item>
                     )}
