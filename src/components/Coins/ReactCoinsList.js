@@ -44,9 +44,9 @@ class ReactCoinsList extends Component {
             },
             {
                 title:'View Details',
-                dataIndex:'symbol',
-                key:'symbol',
-                render: item => (<Button type="primary"><Link to="/empty">View</Link></Button>)
+                dataIndex:'id',
+                key:'id',
+                render: id => (<Button type="primary"><Link to={`/coins/${id}`}>View</Link></Button>)
             }
         ];
         return (
