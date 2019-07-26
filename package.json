@@ -5,7 +5,6 @@
   "homepage": "https://danielc92.github.io/react-crypto-app",
   "dependencies": {
     "antd": "^3.20.6",
-    "bizcharts": "^3.5.4",
     "chart.js": "^2.8.0",
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",

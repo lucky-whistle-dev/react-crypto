@@ -47,6 +47,11 @@ class ReactAbout extends Component {
                 version: '3.0.1',
                 purpose: ''
             },
+            {
+                name: 'react-chartjs-2',
+                version: '^2.7.6',
+                purpose: ''
+            }
             ];
 
             const columns = [
