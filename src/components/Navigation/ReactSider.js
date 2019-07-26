@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import { Layout, Menu, Icon, Badge } from 'antd';
+import { iconStyle } from '../../styles';
+
 const { Sider, Content } = Layout;
 const {SubMenu} = Menu;
 
@@ -20,7 +22,7 @@ class ReactSider extends Component {
                         key="menu-updates"
                         title={
                         <span>
-                            <Icon type="alert"/>Updates
+                            <Icon type="alert" style={iconStyle}/>Updates
                         </span>
                         }
                         >
@@ -31,7 +33,7 @@ class ReactSider extends Component {
                         key="menu-coins"
                         title={
                         <span>
-                            <Icon type="dollar"/>Coins
+                            <Icon type="dollar" style={iconStyle}/>Coins
                         </span>
                         }
                         >
@@ -45,7 +47,7 @@ class ReactSider extends Component {
                         key="menu-events"
                         title={
                         <span>
-                            <Icon type="team"/>Events
+                            <Icon type="team" style={iconStyle}/>Events
                         </span>
                         }
                         >
@@ -57,7 +59,7 @@ class ReactSider extends Component {
                     key="menu-exchanges"
                     title={
                         <span>
-                            <Icon type="bank"/>
+                            <Icon type="bank" style={iconStyle}/>
                             Exchanges
                         </span>
                         }>
@@ -69,7 +71,7 @@ class ReactSider extends Component {
                         key="menu-global"
                         title={
                         <span>
-                            <Icon type="global"/>
+                            <Icon type="global" style={iconStyle}/>
                             Global
                         </span>
                         }

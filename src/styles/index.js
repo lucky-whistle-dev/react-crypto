@@ -18,3 +18,7 @@ export const footerStyle = {
     color:'white', 
     textAlign: 'center'
 }
+
+export const iconStyle = {
+    fontSize: '1.25rem'
+}
