@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Layout, Skeleton, Row, Col, Button, Card, Typography, Avatar, Statistic } from 'antd';
 import { contentStyle } from '../../styles';
+import ReactCoinScores from './ReactCoinScores';
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
 
@@ -30,8 +31,7 @@ export default class ReactCoinsDetail extends Component {
     }
 
     render() {
-        const cardStyle = {height: '100%'};
-        const colStyle = {marginBottom: '1rem'};
+
         return (
             <Layout style={{ padding: '1rem' }}>
                 <Content style={contentStyle}>
@@ -60,38 +60,15 @@ export default class ReactCoinsDetail extends Component {
                             <Button style={{marginBottom: '1rem'}}>
                                 <Link to='/coins'>Back to coins list</Link>
                             </Button>
-
-                            <Row gutter={16} style={{textAlign: 'center'}} type="flex">
-                                <Col xs={24} sm={24} md={8} lg={8} xl={8} style={colStyle}>
-                                    <Card style={cardStyle}>
-                                        <Statistic title="community_score" value={this.state.data.community_score}/>
-                                    </Card>
-                                </Col>
-
-                                <Col xs={24} sm={24} md={8} lg={8} xl={8} style={colStyle}>
-                                    <Card style={cardStyle}>
-                                        <Statistic title="coingecko_score" value={this.state.data.coingecko_score}/>
-                                    </Card>
-                                </Col>
-
-                                <Col xs={24} sm={24} md={8} lg={8} xl={8} style={colStyle}>
-                                    <Card style={cardStyle}>
-                                        <Statistic title="developer_score" value={this.state.data.developer_score}/>
-                                    </Card>
-                                </Col>
-
-                                <Col xs={24} sm={24} md={8} lg={8} xl={8} style={colStyle}>
-                                    <Card style={cardStyle}>
-                                        <Statistic title="market_cap_rank" value={this.state.data.market_cap_rank}/>
-                                    </Card>
-                                </Col>
-
-                                <Col xs={24} sm={24} md={8} lg={8} xl={8} style={colStyle}>
-                                    <Card style={cardStyle}>
-                                        <Statistic title="coingecko_rank" value={this.state.data.coingecko_rank}/>
-                                    </Card>
-                                </Col>
-                            </Row>
+                            <Title level={3}>
+                                Scores and Ranks
+                            </Title>
+                            <ReactCoinScores
+                            coingecko_rank={this.state.data.coingecko_rank}
+                            market_cap_rank={this.state.data.market_cap_rank}
+                            developer_score={this.state.data.developer_score}
+                            community_score={this.state.data.community_score}
+                            coingecko_score={this.state.data.coingecko_score}/>
 
                         </React.Fragment>
                     }                    
@@ -101,10 +78,4 @@ export default class ReactCoinsDetail extends Component {
     }
 }
 
-//coingecko_rank
-//market_cap_rank
 
-
-//developer_score
-//community_score
-//coingecko_score
