@@ -13,6 +13,7 @@ import ReactSider from './Navigation/ReactSider';
 import ReactExchangesList from './Exchanges/ReactExchangesList';
 import ReactFooter from './Navigation/ReactFooter';
 import './App.css'
+import ReactStatusUpdates from './StatusUpdates/ReactStatusUpdates';
 
 
 //[NOTE] React prefix used with React.Components in order to differentiate from Ant Design UI components.
@@ -35,6 +36,7 @@ export default class App extends Component {
                     <Route path='/global' exact component={ReactGlobal}/>
                     <Route path='/empty' exact component={ReactEmpty}/>
                     <Route path='/events/list' exact component={ReactEvents}/>
+                    <Route path='/status/list' exact component={ReactStatusUpdates}/>
                 </Layout>
                 <ReactFooter/>
             </Layout>

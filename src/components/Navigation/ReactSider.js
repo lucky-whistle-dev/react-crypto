@@ -24,7 +24,7 @@ class ReactSider extends Component {
                         </span>
                         }
                         >
-                        <Menu.Item key="updates-list"><Link to='/updates/list'>Updates Listing</Link></Menu.Item>
+                        <Menu.Item key="status-list"><Link to='/status/list'>Updates Listing</Link></Menu.Item>
                     </SubMenu>
                    {/* Coin Sub Menu */}
                     <SubMenu

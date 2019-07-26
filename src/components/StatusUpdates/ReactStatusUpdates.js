@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Layout } from 'antd';
+import { Layout, Typography, Row, Col, List, Tag} from 'antd';
+import { colStyle, contentStyle } from '../../styles';
 
-const { Sider } = Layout;
+const { Content } = Layout;
+const { Title, Paragraph } = Typography;
+
 
 export default class ReactStatusUpdates extends Component {
     
     state = {
-        data: null,
+        data: [],
         loading: true
     }
 
@@ -17,7 +20,7 @@ export default class ReactStatusUpdates extends Component {
 
         axios.get(url)
         .then(res => {
-            this.setState({ data: res.data },
+            this.setState({ data: res.data.status_updates },
                 () => {
                     this.setState({ loading: !this.state.loading })
                 })
@@ -36,6 +39,35 @@ export default class ReactStatusUpdates extends Component {
                         <Col xs={24} sm={24} md={8} lg={8} xl={8} style={colStyle}>
                         </Col>
                     </Row>
+
+                    <List
+                    pagination={this.state.loading ? false : true}
+                    loading={this.state.loading}
+                    itemLayout="vertical"
+                    size="large"
+                    dataSource={this.state.data}
+                    renderItem={item => (
+                    <List.Item
+                        key={item.project.name}
+                        extra={
+                        <img
+                            width={120}
+                            alt={item.project.name}
+                            src={item.project.image.large}
+                        />
+                        }
+                    >
+                        <List.Item.Meta
+                        title={item.project.name}
+                        description={`Posted by: ${item.user} - ${item.user_title} on ${item.created_at}`}
+                        />
+                        { item.description }
+                        <div style={{marginTop: '1rem'}} >
+                            <Tag color="orange">{item.category}</Tag>
+                        </div>
+                        
+                    </List.Item>)}
+                ></List>
                 </Content>
             </Layout>
         )
