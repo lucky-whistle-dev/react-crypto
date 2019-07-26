@@ -9,7 +9,6 @@ import { Line } from 'react-chartjs-2';
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
 
-
 export default class ReactCoinsDetail extends Component {
     
     state = {

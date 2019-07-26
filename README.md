@@ -9,10 +9,16 @@ Generated with `tree` command.
 .
 ├── Branding
 │   └── CoinGecko.png
+├── FlatIcon
+│   ├── 001-bitcoin.svg
+│   ├── 002-bitcoin-1.svg
+│   └── 003-bitcoin-2.svg
 ├── components
 │   ├── App.css
 │   ├── App.js
 │   ├── Coins
+│   │   ├── ReactCoinScores.js
+│   │   ├── ReactCoinsDetail.js
 │   │   └── ReactCoinsList.js
 │   ├── Empty
 │   │   └── ReactEmpty.js
@@ -25,9 +31,12 @@ Generated with `tree` command.
 │   │   └── ReactHome.js
 │   ├── Global
 │   │   └── ReactGlobal.js
-│   └── Navigation
-│       ├── ReactHeader.js
-│       └── ReactSider.js
+│   ├── Navigation
+│   │   ├── ReactFooter.js
+│   │   ├── ReactHeader.js
+│   │   └── ReactSider.js
+│   └── StatusUpdates
+│       └── ReactStatusUpdates.js
 ├── index.js
 └── styles
     └── index.js
