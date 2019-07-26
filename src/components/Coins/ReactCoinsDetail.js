@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Layout, Skeleton, Row, Col, Button, Card, Typography, Avatar, Statistic } from 'antd';
-import { contentStyle, cardStyle, colStyle } from '../../styles';
+import { Layout, Tag, Skeleton, Row, Col, Button, Card, Typography, Avatar, Statistic } from 'antd';
+import { contentStyle, cardStyle, colStyle, titleStyle } from '../../styles';
 import ReactCoinScores from './ReactCoinScores';
 import { Line } from 'react-chartjs-2';
-
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -22,8 +21,6 @@ export default class ReactCoinsDetail extends Component {
 
         const { coinId } = this.props.match.params
         const url =  `https://api.coingecko.com/api/v3/coins/${coinId}?localization=false&tickers=false&market_data=true&community_data=false&sparkline=true&developer_data=false`
-        
-        console.log('%cAttempting to make a request to ', url)
         
         axios.get(url)
         .then(res => {
@@ -104,12 +101,12 @@ export default class ReactCoinsDetail extends Component {
                                 { this.state.data.name }
                             </Title>
 
-                            <Paragraph>Last updated on {this.state.data.last_updated}</Paragraph>
+                            <Paragraph>Last updated on <Tag color="green">{this.state.data.last_updated}</Tag></Paragraph>
 
                             <Button style={{marginBottom: '1rem'}}>
                                 <Link to='/coins'>Back to coins list</Link>
                             </Button>
-                            <Title level={3}>
+                            <Title level={3} style={{marginTop: '3rem'}}>
                                 Scores and Ranks
                             </Title>
                             <ReactCoinScores
@@ -120,7 +117,7 @@ export default class ReactCoinsDetail extends Component {
                             liquidity_score={this.state.data.liquidity_score}
                             coingecko_score={this.state.data.coingecko_score}/>
                             
-                            <Title level={3}>
+                            <Title level={3} style={titleStyle}>
                                 Market Stats
                             </Title>
                             <Row gutter={16} style={{textAlign: 'center'}} type="flex">
@@ -135,9 +132,10 @@ export default class ReactCoinsDetail extends Component {
                                 }
                             </Row>
 
-                            <Title level={3}>
+                            <Title level={3} style={titleStyle}>
                                 7 Day Sparkline
                             </Title>
+                            <Paragraph>Each unit on the x-axis represents 1 hour.</Paragraph>
 
                             <Line data={chartData} options={options}/>
 
