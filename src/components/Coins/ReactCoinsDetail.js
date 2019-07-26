@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Layout, Skeleton, Row, Col, Button, Card, Typography, Avatar, Statistic } from 'antd';
-import { contentStyle } from '../../styles';
+import { contentStyle, cardStyle, colStyle } from '../../styles';
 import ReactCoinScores from './ReactCoinScores';
+import { Line } from 'react-chartjs-2';
+
+
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
 
@@ -31,6 +34,45 @@ export default class ReactCoinsDetail extends Component {
     }
 
     render() {
+        const keyCount = Object.keys(this.state.data).length;
+        const chartData = {
+            labels: keyCount > 0 ? this.state.data.market_data.sparkline_7d.price.map((item, index) => index) : [],
+            datasets: [
+                {
+                    label: 'Sparkline 7d',
+                    data: keyCount > 0 ? this.state.data.market_data.sparkline_7d.price : [],
+                    backgroundColor: 'rgba(55, 144, 255, 0.8)'
+                }
+            ]
+        }
+
+        const marketKeys = ["circulating_supply",
+            "total_supply",
+            "public_interest_score",
+            "market_cap_change_24h",
+            "market_cap_change_percentage_24h",
+            "price_change_percentage_14d",
+            "price_change_percentage_1y",
+            "price_change_percentage_200d",
+            "price_change_percentage_24h",
+            "price_change_percentage_30d",
+            "price_change_percentage_60d",
+            "price_change_percentage_7d"]            
+
+        const options = {
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display:false
+                    }
+                }],
+                yAxes: [{
+                    gridLines: {
+                        display:false
+                    }   
+                }]
+            }
+        }
 
         return (
             <Layout style={{ padding: '1rem' }}>
@@ -70,6 +112,27 @@ export default class ReactCoinsDetail extends Component {
                             community_score={this.state.data.community_score}
                             liquidity_score={this.state.data.liquidity_score}
                             coingecko_score={this.state.data.coingecko_score}/>
+                            
+                            <Title level={3}>
+                                Market Stats
+                            </Title>
+                            {/* <Row gutter={16} style={{textAlign: 'center'}} type="flex">
+                                {
+                                    marketKeys.map(key => (
+                                        <Col xs={24} sm={24} md={8} lg={8} xl={8} style={colStyle}>
+                                            <Card style={cardStyle}>
+                                                <Statistic title="key" value={this.state.data.market[key]}/>
+                                            </Card>
+                                        </Col>
+                                    ))
+                                }
+                            </Row> */}
+
+                            <Title level={3}>
+                                7 Day Sparkline
+                            </Title>
+
+                            <Line data={chartData} options={options}/>
 
                         </React.Fragment>
                     }                    
