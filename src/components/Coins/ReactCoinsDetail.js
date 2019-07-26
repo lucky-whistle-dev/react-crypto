@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Layout, Tag, Skeleton, Row, Col, Button, Card, Typography, Avatar, Statistic } from 'antd';
+import { Layout, Tag, Icon, Skeleton, Row, Col, Button, Card, Typography, Avatar, Statistic } from 'antd';
 import { contentStyle, cardStyle, colStyle, titleStyle } from '../../styles';
 import ReactCoinScores from './ReactCoinScores';
 import { Line } from 'react-chartjs-2';
@@ -103,6 +103,7 @@ export default class ReactCoinsDetail extends Component {
                             <Paragraph>Last updated on <Tag color="green">{this.state.data.last_updated}</Tag></Paragraph>
 
                             <Button style={{marginBottom: '1rem'}}>
+                                <Icon type="left" />
                                 <Link to='/coins'>Back to coins list</Link>
                             </Button>
                             <Title level={3} style={{marginTop: '3rem'}}>
