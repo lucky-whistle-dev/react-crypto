@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Layout, Button, Typography, Table } from 'antd';
+import { Layout, Button, Tag, Typography, Table } from 'antd';
 import { contentStyle } from '../../styles';
 import geckoImage from '../../Branding/CoinGecko.png';
 
@@ -59,6 +59,7 @@ class ReactAbout extends Component {
                 title: 'Version',
                 dataIndex: 'version',
                 key: 'version',
+                render: item => <Tag color="green">{item}</Tag>
             }];
         
         return (
@@ -80,7 +81,11 @@ class ReactAbout extends Component {
                     <Title level={4}>Data source</Title>
                     <Paragraph>All the data which this application ingests and displays is processed from the CoinGecko API. A free and publicly available cryptocurrency api. Click below to visit CoinGecko official website.</Paragraph>
                     <a href="https://www.coingecko.com/en/api#">
-                        <img style={{border: '1px solid #f3f3f3'}} width="550" src={geckoImage}></img>
+                        <img 
+                        style={{border: '1px solid #f3f3f3'}} 
+                        width="550" 
+                        src={geckoImage}>
+                        </img>
                     </a>
                 </Content>
             </Layout>

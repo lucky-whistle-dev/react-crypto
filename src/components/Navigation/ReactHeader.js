@@ -23,7 +23,7 @@ class ReactHeader extends Component {
                         theme="dark"
                         mode="horizontal"
                         defaultSelectedKeys={['home']}
-                        style={{ lineHeight: '64px' }}
+                        style={{ lineHeight: '64px'}}
                     >
                         <Menu.Item key="home">
                             <Link to="/"><Icon type="home"/>Home</Link>
