@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Col, Skeleton, Statistic, Card, Row, Layout, Typography } from 'antd';
-import { contentStyle } from '../../styles';
+import { contentStyle, colStyle, cardStyle } from '../../styles';
 const { Meta } = Card;
 const { Content } = Layout;
 const { Paragraph, Title } = Typography;
@@ -18,8 +18,6 @@ export default class ReactGlobal extends Component {
             this.setState({ loading: !this.state.loading })))
     }
     render() {
-        const cardStyle = {height: '100%'};
-        const colStyle = {marginBottom: '1rem'};
         const { loading,
             active_cryptocurrencies, 
             market_cap_change_percentage_24h_usd,

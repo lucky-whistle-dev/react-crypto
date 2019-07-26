@@ -4,3 +4,11 @@ export const contentStyle = {
     margin: 0,
     minHeight: 700,
 }
+
+export const cardStyle = {
+    height: '100%'
+};
+
+export const colStyle = {
+    marginBottom: '1rem'
+};

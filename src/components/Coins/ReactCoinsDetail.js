@@ -68,6 +68,7 @@ export default class ReactCoinsDetail extends Component {
                             market_cap_rank={this.state.data.market_cap_rank}
                             developer_score={this.state.data.developer_score}
                             community_score={this.state.data.community_score}
+                            liquidity_score={this.state.data.liquidity_score}
                             coingecko_score={this.state.data.coingecko_score}/>
 
                         </React.Fragment>

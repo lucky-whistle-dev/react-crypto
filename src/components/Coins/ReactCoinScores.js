@@ -1,11 +1,9 @@
 import React from 'react'
 import { Row, Col, Card, Statistic } from 'antd';
+import { cardStyle, colStyle } from '../../styles';
 
 
 export default function ReactCoinScores(props) {
-    
-    const cardStyle = {height: '100%'};
-    const colStyle = {marginBottom: '1rem'};
 
     return (
         <React.Fragment>
@@ -25,6 +23,12 @@ export default function ReactCoinScores(props) {
                 <Col xs={24} sm={24} md={8} lg={8} xl={8} style={colStyle}>
                     <Card style={cardStyle}>
                         <Statistic title="developer_score" value={props.developer_score}/>
+                    </Card>
+                </Col>
+
+                <Col xs={24} sm={24} md={8} lg={8} xl={8} style={colStyle}>
+                    <Card style={cardStyle}>
+                        <Statistic title="liquitidy_score" value={props.liquitidy_score}/>
                     </Card>
                 </Col>
 
