@@ -47,17 +47,18 @@ export default class ReactCoinsDetail extends Component {
         }
 
         const marketKeys = ["circulating_supply",
-            "total_supply",
-            "public_interest_score",
-            "market_cap_change_24h",
-            "market_cap_change_percentage_24h",
-            "price_change_percentage_14d",
-            "price_change_percentage_1y",
-            "price_change_percentage_200d",
-            "price_change_percentage_24h",
-            "price_change_percentage_30d",
-            "price_change_percentage_60d",
-            "price_change_percentage_7d"]            
+                            "total_supply",
+                            "public_interest_score",
+                            "market_cap_change_24h",
+                            "market_cap_change_percentage_24h",
+                            "price_change_percentage_14d",
+                            "price_change_percentage_1y",
+                            "price_change_percentage_200d",
+                            "price_change_percentage_24h",
+                            "price_change_percentage_30d",
+                            "price_change_percentage_60d",
+                            "price_change_percentage_7d"
+        ]            
 
         const options = {
             scales: {
@@ -125,7 +126,7 @@ export default class ReactCoinsDetail extends Component {
                             <Row gutter={16} style={{textAlign: 'center'}} type="flex">
                                 {
                                     marketKeys.map(key => (
-                                        <Col xs={24} sm={24} md={8} lg={8} xl={8} style={colStyle}>
+                                        <Col xs={24} sm={24} md={12} lg={8} xl={8} style={colStyle}>
                                             <Card style={cardStyle}>
                                                 <Statistic title={key} value={this.state.data.market_data[key]}/>
                                             </Card>
