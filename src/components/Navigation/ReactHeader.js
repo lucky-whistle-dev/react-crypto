@@ -28,9 +28,6 @@ class ReactHeader extends Component {
                         <Menu.Item key="home">
                             <Link to="/"><Icon type="home"/>Home</Link>
                         </Menu.Item>
-                        <Menu.Item key="chart">
-                            <Link to="/coins"><Icon type="area-chart"/>Dashboard</Link>
-                        </Menu.Item>
                         <Menu.Item key="about">
                             <Link to="/about"><Icon type="info-circle"/>About</Link>
                         </Menu.Item>

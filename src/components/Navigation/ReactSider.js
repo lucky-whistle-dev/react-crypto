@@ -25,7 +25,7 @@ class ReactSider extends Component {
                         }
                         >
                         <Menu.Item key="coin-list"><Link to='/coins'>Coin List</Link></Menu.Item>
-                        <Menu.Item key="coin-detail"><Link to='/empty'>Coin Detail View</Link></Menu.Item>
+                        <Menu.Item key="coin-detail"><Link to='/coins/bitcoin'>Coin Detail View</Link></Menu.Item>
                         <Menu.Item key="coin-market"><Link to='/empty'>Coin Markets</Link></Menu.Item>
                     </SubMenu>
                     

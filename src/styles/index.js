@@ -12,3 +12,9 @@ export const cardStyle = {
 export const colStyle = {
     marginBottom: '1rem'
 };
+
+export const footerStyle = {
+    backgroundColor: '#031529', 
+    color:'white', 
+    textAlign: 'center'
+}

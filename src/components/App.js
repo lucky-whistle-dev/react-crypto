@@ -11,10 +11,13 @@ import { Layout } from 'antd';
 import ReactHeader from './Navigation/ReactHeader';
 import ReactSider from './Navigation/ReactSider';
 import ReactExchangesList from './Exchanges/ReactExchangesList';
+import ReactFooter from './Navigation/ReactFooter';
 import './App.css'
+
+
 //[NOTE] React prefix used with React.Components in order to differentiate from Ant Design UI components.
 
-const { Content, Sider } = Layout;
+const { Content, Sider, Footer } = Layout;
 
 
 export default class App extends Component {
@@ -33,6 +36,7 @@ export default class App extends Component {
                     <Route path='/empty' exact component={ReactEmpty}/>
                     <Route path='/events/list' exact component={ReactEvents}/>
                 </Layout>
+                <ReactFooter/>
             </Layout>
         )
     }
