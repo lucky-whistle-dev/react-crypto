@@ -64,12 +64,18 @@ export default class ReactCoinsDetail extends Component {
                 xAxes: [{
                     gridLines: {
                         display:false
+                    },
+                    ticks: {
+                        maxTicksLimit: 16
                     }
                 }],
                 yAxes: [{
                     gridLines: {
                         display:false
-                    }   
+                    },
+                    ticks: {
+                        maxTicksLimit: 6
+                    }
                 }]
             }
         }
@@ -116,17 +122,17 @@ export default class ReactCoinsDetail extends Component {
                             <Title level={3}>
                                 Market Stats
                             </Title>
-                            {/* <Row gutter={16} style={{textAlign: 'center'}} type="flex">
+                            <Row gutter={16} style={{textAlign: 'center'}} type="flex">
                                 {
                                     marketKeys.map(key => (
                                         <Col xs={24} sm={24} md={8} lg={8} xl={8} style={colStyle}>
                                             <Card style={cardStyle}>
-                                                <Statistic title="key" value={this.state.data.market[key]}/>
+                                                <Statistic title={key} value={this.state.data.market_data[key]}/>
                                             </Card>
                                         </Col>
                                     ))
                                 }
-                            </Row> */}
+                            </Row>
 
                             <Title level={3}>
                                 7 Day Sparkline
