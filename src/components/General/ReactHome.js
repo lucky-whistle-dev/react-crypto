@@ -7,6 +7,7 @@ import svgExchangeRate from '../../FlatIcon/004-exchange.svg';
 import svgChat from '../../FlatIcon/001-chat.svg';
 import svgMobile from '../../FlatIcon/003-smartphone.svg';
 import svgUpdate from '../../FlatIcon/005-idea.svg';
+import svgWorldwide from '../../FlatIcon/worldwide.svg';
 import { colStyle } from '../../styles';
 
 const { Content } = Layout;
@@ -17,7 +18,8 @@ const features = [{svg: svg1, title:'Statistics', description: 'Stay informed wi
 {svg: svgChat, title:'Community', description: 'Be informed about upcoming cryptocurrency events in your area.'},
 {svg: svgExchangeRate, title:'Exchange Rates', description: 'View up to date exchange rates for your favourite cryptocurrencies.'},
 {svg: svgMobile, title:'Mobile Friendly', description: 'This site aims to be mobile friendly. View website on any device you like.'},
-{svg: svgUpdate, title:'Updates', description: 'App is continuously updated with'}
+{svg: svgUpdate, title:'Updates', description: 'App is continuously updated with'},
+{svg: svgWorldwide, title:'Global', description: 'Data availability on a global scale'}
 ];
 
 class ReactHome extends Component {
@@ -25,11 +27,11 @@ class ReactHome extends Component {
     render() {
         return (
             <Layout style={{ padding: '1rem' }}>
-                <Content  className="text-focus-in" style={contentStyle}>
-                    <Title level={2}>Cryto</Title>
+                <Content style={contentStyle}>
+                    <Title level={2}>Crypto</Title>
                     <Paragraph>Bringing you cryptocurrency related data in a user friendly, digestible dashboard platform.</Paragraph>
 
-                    <Title level={2}>Features</Title>
+                    <Title level={3}>Features</Title>
                     
                     <Row gutter={16} style={{textAlign: 'center'}} type="flex">
                         {
