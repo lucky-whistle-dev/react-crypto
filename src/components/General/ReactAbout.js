@@ -94,7 +94,7 @@ class ReactAbout extends Component {
                         href="https://www.coingecko.com/en/api#">
                         <img 
                         alt="coingecko api link"
-                        style={{border: '1px solid #f3f3f3', maxWidth: '400px'}} 
+                        style={{border: '1px solid #f3f3f3', maxWidth: '400px', width: '100%', height:'auto'}} 
                         src={geckoImage}>
                         </img>
                     </a>
