@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Layout, Menu, Icon, Button } from 'antd';
 import { iconStyle } from '../../styles';
-import geckoImage from '../../Branding/CoinGecko.png';
+import logoImage from '../../Logo/ConcertOne-Regular_ttf.png';
 
 const { Header } = Layout;
 
@@ -26,9 +26,9 @@ class ReactHeader extends Component {
                         defaultSelectedKeys={['home']}
                         style={{ lineHeight: '64px'}}
                     >
-                        {/* Logo code <Menu.Item key="logo">
-                            <img style={{ padding: '0', maxWidth: '100px'}} src={geckoImage}></img>
-                        </Menu.Item> */}
+                        <Menu.Item key="logo">
+                            <img style={{ maxHeight: '40px'}} src={logoImage}></img>
+                        </Menu.Item>
                         <Menu.Item key="home">
                             <Link to="/">
                                 <Icon type="home" style={iconStyle}/>Home
