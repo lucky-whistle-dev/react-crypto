@@ -44,7 +44,8 @@ export default class ReactEvents extends Component {
                         key={item.title}
                         extra={
                         <img
-                            width={450}
+                            className="responsive-image"
+                            style={{maxWidth: '400px'}}
                             alt={item.title}
                             src={item.screenshot}
                         />

@@ -93,8 +93,9 @@ class ReactAbout extends Component {
                         target="_blank" 
                         href="https://www.coingecko.com/en/api#">
                         <img 
+                        className="responsive-image"
                         alt="coingecko api link"
-                        style={{border: '1px solid #f3f3f3', maxWidth: '400px', width: '100%', height:'auto'}} 
+                        style={{border: '1px solid #f3f3f3', maxWidth: '400px'}} 
                         src={geckoImage}>
                         </img>
                     </a>
