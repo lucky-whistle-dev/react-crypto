@@ -71,7 +71,7 @@ class ReactSider extends Component {
                     key="menu-exchange-rates"
                     title={
                         <span>
-                            <Icon type="bank" style={iconStyle}/>
+                            <Icon type="dollar" style={iconStyle}/>
                             Exchange Rates
                         </span>
                         }>
