@@ -32,7 +32,7 @@ export default class ReactGlobal extends Component {
                 <Row gutter={16} style={{textAlign: 'center'}} type="flex">
 
                     <Col xs={24} sm={24} md={8} lg={8} xl={8} style={colStyle}>
-                        <Card style={cardStyle} loading={loading}>
+                        <Card style={cardStyle} loading={this.state.loading}>
                             <Statistic title="Markets" value={markets}/>
                         </Card>
                     </Col>
