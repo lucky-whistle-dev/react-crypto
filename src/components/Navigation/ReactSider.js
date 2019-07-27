@@ -14,7 +14,7 @@ class ReactSider extends Component {
                     <Menu
                     mode="inline"
                     defaultSelectedKeys={['menu-updates']}
-                    defaultOpenKeys={['menu-updates', 'menu-coins', 'menu-events', 'menu-global', 'menu-exchanges']}
+                    defaultOpenKeys={['menu-exchange-rates', 'menu-updates', 'menu-coins', 'menu-events', 'menu-global', 'menu-exchanges']}
                     style={{ height: '100%', borderRight: 0 }}
                     >
                     {/* Status updates */}
@@ -65,6 +65,19 @@ class ReactSider extends Component {
                         }>
                     <Menu.Item key="exchanges-list"><Link to='/exchanges/list'>Exchanges Listing</Link></Menu.Item>
                     </SubMenu>
+
+                    {/* Exchange Rates Menu */}
+                    <SubMenu
+                    key="menu-exchange-rates"
+                    title={
+                        <span>
+                            <Icon type="bank" style={iconStyle}/>
+                            Exchange Rates
+                        </span>
+                        }>
+                    <Menu.Item key="exchange-rates-list"><Link to='/exchange-rates'>Exchange Rates Listing</Link></Menu.Item>
+                    </SubMenu>
+
 
                     {/* Global Sub Menu */}
                     <SubMenu

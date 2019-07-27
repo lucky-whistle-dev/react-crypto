@@ -11,6 +11,7 @@ import { Layout } from 'antd';
 import ReactHeader from './Navigation/ReactHeader';
 import ReactSider from './Navigation/ReactSider';
 import ReactExchangesList from './Exchanges/ReactExchangesList';
+import ReactExchangeRates from './ExchangeRates/ReactExchangeRates';
 import ReactFooter from './Navigation/ReactFooter';
 import './App.css'
 import ReactStatusUpdates from './StatusUpdates/ReactStatusUpdates';
@@ -34,6 +35,7 @@ export default class App extends Component {
                     <Route path='/global' exact component={ReactGlobal}/>
                     <Route path='/empty' exact component={ReactEmpty}/>
                     <Route path='/events/list' exact component={ReactEvents}/>
+                    <Route path='/exchange-rates' exact component={ReactExchangeRates}/>
                     <Route path='/status/list' exact component={ReactStatusUpdates}/>
                 </Layout>
                 <ReactFooter/>
