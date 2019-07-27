@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Layout, Typography, Empty } from 'antd';
 import { contentStyle } from '../../styles';
 const { Content } = Layout;
-const { Title, Paragraph } = Typography;
+const { Title } = Typography;
 
 
 export default class ReactEmpty extends Component {

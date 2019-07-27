@@ -18,8 +18,6 @@ import ReactStatusUpdates from './StatusUpdates/ReactStatusUpdates';
 
 //[NOTE] React prefix used with React.Components in order to differentiate from Ant Design UI components.
 
-const { Content, Sider, Footer } = Layout;
-
 
 export default class App extends Component {
     render() {

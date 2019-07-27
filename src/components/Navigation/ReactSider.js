@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import { Layout, Menu, Icon, Badge } from 'antd';
+import { Layout, Menu, Icon } from 'antd';
 import { iconStyle } from '../../styles';
 
-const { Sider, Content } = Layout;
+const { Sider } = Layout;
 const {SubMenu} = Menu;
 
 class ReactSider extends Component {

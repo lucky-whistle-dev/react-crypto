@@ -23,11 +23,11 @@ class ReactHome extends Component {
                     <Title level={2}>Cards</Title>
                     <Row gutter={16} style={{textAlign: 'center'}} type="flex">
                         {
-                            svgs.map(svg => (
-                                <Col xs={24} sm={24} md={8} lg={8} xl={8} style={colStyle}>
+                            svgs.map((svg, index) => (
+                                <Col key={index} xs={24} sm={24} md={8} lg={8} xl={8} style={colStyle}>
                                     <Card 
                                     style={{border: 'none'}}
-                                    cover={<img style={{padding:'2rem', maxWidth: '200px', margin: 'auto'}} src={svg}/>} 
+                                    cover={<img alt="Home page crypto svg" style={{padding:'2rem', maxWidth: '200px', margin: 'auto'}} src={svg}/>} 
                                     >
                                         <Meta 
                                         title="svg-image" 

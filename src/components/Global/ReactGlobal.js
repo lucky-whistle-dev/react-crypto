@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Col, Skeleton, Statistic, Card, Row, Layout, Typography } from 'antd';
+import { Col, Statistic, Card, Row, Layout, Typography } from 'antd';
 import { contentStyle, colStyle, cardStyle } from '../../styles';
-const { Meta } = Card;
 const { Content } = Layout;
 const { Paragraph, Title } = Typography;
 
@@ -24,17 +23,16 @@ export default class ReactGlobal extends Component {
             ongoing_icos, 
             upcoming_icos, 
             ended_icos, 
-            updated_at,
             markets} = this.state.data
         return (
         <Layout style={{ padding: '1rem' }}>
             <Content style={contentStyle}>
                 <Title level={2}>Global Data</Title>
-                <Paragraph>This page lists global data. Prices were last updated at {}</Paragraph>
+                <Paragraph>This page lists global data attributes and values.</Paragraph>
                 <Row gutter={16} style={{textAlign: 'center'}} type="flex">
 
                     <Col xs={24} sm={24} md={8} lg={8} xl={8} style={colStyle}>
-                        <Card style={cardStyle} loading={this.state.loading}>
+                        <Card style={cardStyle} loading={loading}>
                             <Statistic title="Markets" value={markets}/>
                         </Card>
                     </Col>

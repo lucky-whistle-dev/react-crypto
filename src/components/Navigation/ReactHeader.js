@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Layout, Menu, Icon, Button } from 'antd';
+import { Layout, Menu, Icon } from 'antd';
 import { iconStyle } from '../../styles';
 import logoImage from '../../Logo/ConcertOne-Regular_ttf.png';
 
@@ -9,14 +9,7 @@ const { Header } = Layout;
 
 class ReactHeader extends Component {
 
-    state = {
-        iconType: 'twoTone'
-    }
-
     render() {
-        
-        const { iconType } = this.state;
-
         return (
             <React.Fragment>
                 <Header className="header">
@@ -27,7 +20,9 @@ class ReactHeader extends Component {
                         style={{ lineHeight: '64px'}}
                     >
                         <Menu.Item key="logo">
-                            <img style={{ maxHeight: '40px'}} src={logoImage}></img>
+                            <img alt="daniel corcorans crypto react app logo" 
+                            style={{ maxHeight: '40px'}} 
+                            src={logoImage}></img>
                         </Menu.Item>
                         <Menu.Item key="home">
                             <Link to="/">
@@ -40,7 +35,7 @@ class ReactHeader extends Component {
                             </Link>
                         </Menu.Item>
                         <Menu.Item key="source">
-                            <a target="_blank" href="https://github.com/danielc92/react-crypto-app">
+                            <a rel="noopener noreferrer" target="_blank" href="https://github.com/danielc92/react-crypto-app">
                                 <Icon theme="filled" type="github" style={iconStyle}/>Source
                             </a>
                         </Menu.Item>

@@ -88,8 +88,12 @@ class ReactAbout extends Component {
                     <Title level={3}>Data source</Title>
                     <Paragraph>All the data which this application ingests and displays is processed from the CoinGecko API. A free and publicly available cryptocurrency api. Click below to visit CoinGecko official website.</Paragraph>
                     
-                        <a href="https://www.coingecko.com/en/api#">
+                        <a 
+                        rel="noopener noreferrer" 
+                        target="_blank" 
+                        href="https://www.coingecko.com/en/api#">
                         <img 
+                        alt="coingecko api link"
                         style={{border: '1px solid #f3f3f3', maxWidth: '400px'}} 
                         src={geckoImage}>
                         </img>
