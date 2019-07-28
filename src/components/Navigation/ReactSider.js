@@ -10,7 +10,11 @@ class ReactSider extends Component {
     render() {
         return (
             <React.Fragment>
-                <Sider width={200} style={{ background: '#fff' }}>
+                <Sider 
+                breakpoint="md"
+                collapsedWidth="0"
+                width={200} 
+                style={{ background: '#fff' }}>
                     <Menu
                     mode="inline"
                     defaultSelectedKeys={['menu-updates']}
