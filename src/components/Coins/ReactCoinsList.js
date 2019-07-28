@@ -118,7 +118,7 @@ class ReactCoinsList extends Component {
             <Layout style={{ padding: '1rem' }}>
                 <Content style={contentStyle}>
                     <Title level={2}>Coins List</Title>
-                    <Paragraph>This page lists all available coins...</Paragraph>
+                    <Paragraph>This page lists cryptocurrencies available through the CoinGecko API. To view details of a given coin, click 'View' button. You can also filter by Id, Symbol or Name to drill down and find a coin.</Paragraph>
                     <Table 
                     bordered={true}
                     loading={loading} 
