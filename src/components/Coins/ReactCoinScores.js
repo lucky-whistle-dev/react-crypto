@@ -10,19 +10,19 @@ export default function ReactCoinScores(props) {
             <Row gutter={16} style={{textAlign: 'center'}} type="flex">
                 <Col xs={24} sm={24} md={12} lg={8} xl={8} style={colStyle}>
                     <Card style={cardStyle}>
-                        <Statistic title="community_score" value={props.community_score}/>
+                        <Statistic precision={1} title="community_score" value={props.community_score}/>
                     </Card>
                 </Col>
 
                 <Col xs={24} sm={24} md={12} lg={8} xl={8} style={colStyle}>
                     <Card style={cardStyle}>
-                        <Statistic title="coingecko_score" value={props.coingecko_score}/>
+                        <Statistic precision={1} title="coingecko_score" value={props.coingecko_score}/>
                     </Card>
                 </Col>
 
                 <Col xs={24} sm={24} md={12} lg={8} xl={8} style={colStyle}>
                     <Card style={cardStyle}>
-                        <Statistic title="developer_score" value={props.developer_score}/>
+                        <Statistic precision={1} title="developer_score" value={props.developer_score}/>
                     </Card>
                 </Col>
 

@@ -126,7 +126,7 @@ export default class ReactCoinsDetail extends Component {
                                     marketKeys.map(key => (
                                         <Col xs={24} sm={24} md={12} lg={8} xl={8} style={colStyle}>
                                             <Card style={cardStyle}>
-                                                <Statistic title={key} value={this.state.data.market_data[key]}/>
+                                                <Statistic precision={1} title={key} value={this.state.data.market_data[key]}/>
                                             </Card>
                                         </Col>
                                     ))
