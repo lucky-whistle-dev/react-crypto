@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Layout, Typography, Card, Row, Col } from "antd";
 import { contentStyle } from "../../styles";
 import svg1 from "../../FlatIcon/001-bitcoin.svg";
-import svg2 from "../../FlatIcon/002-bitcoin-1.svg";
 import svgExchangeRate from "../../FlatIcon/004-exchange.svg";
 import svgChat from "../../FlatIcon/001-chat.svg";
 import svgMobile from "../../FlatIcon/003-smartphone.svg";

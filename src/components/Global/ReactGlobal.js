@@ -32,37 +32,37 @@ export default class ReactGlobal extends Component {
                 <Row gutter={16} style={{textAlign: 'center'}} type="flex">
 
                     <Col xs={24} sm={24} md={8} lg={8} xl={8} style={colStyle}>
-                        <Card style={cardStyle} loading={this.state.loading}>
+                        <Card style={cardStyle} loading={loading}>
                             <Statistic title="Markets" value={markets}/>
                         </Card>
                     </Col>
 
                     <Col xs={24} sm={24} md={8} lg={8} xl={8} style={colStyle}>
-                        <Card style={cardStyle} loading={this.state.loading}>
+                        <Card style={cardStyle} loading={loading}>
                             <Statistic suffix='%' precision={2} title="Market Cap Change Percent (24hr USD)" value={market_cap_change_percentage_24h_usd}/>
                         </Card>
                     </Col>
 
                     <Col xs={24} sm={24} md={8} lg={8} xl={8} style={colStyle}>
-                        <Card style={cardStyle} loading={this.state.loading}>
+                        <Card style={cardStyle} loading={loading}>
                             <Statistic title="Active Cryptocurrencies" value={active_cryptocurrencies}/>
                         </Card>
                     </Col>
 
                     <Col xs={24} sm={24} md={8} lg={8} xl={8} style={colStyle}>
-                    <Card style={cardStyle} loading={this.state.loading}>
+                    <Card style={cardStyle} loading={loading}>
                             <Statistic title="Ongoing Initial Coin Offerings (ICOS)" value={ongoing_icos}/>
                         </Card>
                     </Col>
 
                     <Col xs={24} sm={24} md={8} lg={8} xl={8} style={colStyle}>
-                        <Card style={cardStyle} loading={this.state.loading}>
+                        <Card style={cardStyle} loading={loading}>
                             <Statistic title="Upcoming Initial Coin Offerings (ICOS)" value={upcoming_icos}/>
                         </Card>
                     </Col>
 
                     <Col xs={24} sm={24} md={8} lg={8} xl={8} style={colStyle}>
-                        <Card style={cardStyle} loading={this.state.loading}>
+                        <Card style={cardStyle} loading={loading}>
                             <Statistic title="Ended Initial Coin Offerings (ICOS)" value={ended_icos} />
                         </Card>
                     </Col>

@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Layout, Tag, Icon, Skeleton, Row, Col, Button, Card, Typography, Avatar, Statistic } from 'antd';
+import { Layout, Tag, Icon, Table, Skeleton, Row, Col, Button, Card, Typography, Avatar, Statistic } from 'antd';
 import { contentStyle, cardStyle, colStyle, titleStyle } from '../../styles';
 import ReactCoinScores from './ReactCoinScores';
 import { Line } from 'react-chartjs-2';
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
+const fields = ["ath"
+        ,"ath_change_percentage"
+        ,"current_price"
+        ,"high_24h"
+        ,"low_24h"
+        ,"market_cap"
+        ,"price_change_percentage_7d_in_currency"
+        ,"price_change_percentage_30d_in_currency"
+        ,"total_volume"]
 
 export default class ReactCoinsDetail extends Component {
     
@@ -15,6 +24,30 @@ export default class ReactCoinsDetail extends Component {
         data: {},
         loading: true
     }
+
+    compileMarketData = () => {
+        
+        let tableData = {}
+        let marketData = this.state.data.market_data;
+
+        fields.map(field => {
+            let entries = Object.entries(marketData[field])
+            for (let i = 0; i < entries.length; i ++) {
+                let key = entries[i][0]
+                let value = entries[i][1]
+                if (Object.keys(tableData).includes(key)){
+                    tableData[key] = { ...tableData[key], [field]: value, currency: key }
+                } else {
+                    tableData[key] = { [field]: value, currency: key }
+                }
+                
+            }
+        })
+
+        let data = Object.values(tableData)
+
+        this.setState({marketData: data})
+    } 
 
     componentDidMount() {
 
@@ -24,12 +57,20 @@ export default class ReactCoinsDetail extends Component {
         axios.get(url)
         .then(res => {
             this.setState({data: res.data},
-                ()=>this.setState({ loading: !this.state.loading }))
+                ()=>this.setState({ loading: !this.state.loading },
+                    ()=>this.compileMarketData()    
+                ))
         })
         .catch(err => console.error(err))
+
+            
+            
+            
+
     }
 
     render() {
+        let finalColumns = [{title:'currency', key: 'currency', dataIndex: 'currency', render: item=> <Tag color="purple">{item}</Tag>}, ...fields.map(item => ({title: item, key: item, dataIndex: item}))]
         const keyCount = Object.keys(this.state.data).length;
         const chartData = {
             labels: keyCount > 0 ? this.state.data.market_data.sparkline_7d.price.map((item, index) => index) : [],
@@ -123,8 +164,8 @@ export default class ReactCoinsDetail extends Component {
                             </Title>
                             <Row gutter={16} style={{textAlign: 'center'}} type="flex">
                                 {
-                                    marketKeys.map(key => (
-                                        <Col xs={24} sm={24} md={12} lg={8} xl={8} style={colStyle}>
+                                    marketKeys.map((key, index) => (
+                                        <Col key={index} xs={24} sm={24} md={12} lg={8} xl={8} style={colStyle}>
                                             <Card style={cardStyle}>
                                                 <Statistic precision={1} title={key} value={this.state.data.market_data[key]}/>
                                             </Card>
@@ -132,6 +173,14 @@ export default class ReactCoinsDetail extends Component {
                                     ))
                                 }
                             </Row>
+
+                            <Title level={3} style={titleStyle}>Detailed market data</Title>
+                            <Table 
+                            style={{overflowX:'auto'}}
+                            bordered 
+                            dataSource={this.state.marketData} 
+                            columns={finalColumns}>
+                            </Table>
 
                             <Title level={3} style={titleStyle}>
                                 7 Day Sparkline
