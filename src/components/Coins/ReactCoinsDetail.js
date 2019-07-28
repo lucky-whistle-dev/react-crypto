@@ -56,7 +56,8 @@ export default class ReactCoinsDetail extends Component {
                             "price_change_percentage_7d"
         ]            
 
-        const options = {
+        const chartOptions = {
+            responsive: true,
             scales: {
                 xAxes: [{
                     gridLines: {
@@ -137,7 +138,7 @@ export default class ReactCoinsDetail extends Component {
                             </Title>
                             <Paragraph>Each unit on the x-axis represents 1 hour.</Paragraph>
 
-                            <Line data={chartData} options={options}/>
+                            <Line data={chartData} options={chartOptions}/>
 
                         </React.Fragment>
                     }                    
