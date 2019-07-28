@@ -14,10 +14,12 @@ export default class ReactGlobal extends Component {
     componentDidMount() {
         axios.get("https://api.coingecko.com/api/v3/global")
         .then(res => this.setState({ data: res.data.data },
-            this.setState({ loading: !this.state.loading })))
+            ()=>this.setState({ loading: !this.state.loading })))
     }
+
     render() {
-        const { loading,
+        const { loading } = this.state;
+        const {
             active_cryptocurrencies, 
             market_cap_change_percentage_24h_usd,
             ongoing_icos, 
