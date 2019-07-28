@@ -115,6 +115,7 @@ class ReactAbout extends Component {
                     <Paragraph>The following packages were installed via <strong>npm</strong></Paragraph>
                     
                     <Table
+                    bordered
                     pagination={false} 
                     dataSource={packages} 
                     columns={columns}></Table>
