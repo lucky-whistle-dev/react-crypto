@@ -10,15 +10,11 @@ import 'antd/dist/antd.css';
 import { HashRouter } from 'react-router-dom';
 import thunk from 'redux-thunk';
 
-const middlewares = compose(
-    applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-
-const store = createStore(rootReducer,
-    middlewares)
-
+const store = createStore(rootReducer, /* preloadedState, */ composeEnhancers(
+    applyMiddleware(thunk)
+    ));
 
 ReactDOM.render(
     <Provider store={store}>
