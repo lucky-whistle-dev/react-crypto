@@ -8,6 +8,9 @@ import svgMobile from "../../images/flaticon/003-smartphone.svg";
 import svgUpdate from "../../images/flaticon/005-idea.svg";
 import svgWorldwide from "../../images/flaticon/worldwide.svg";
 import { colStyle } from "../../styles";
+import { connect } from 'react-redux';
+import { setHeaderMenuItem } from '../../redux_actions';
+
 
 const { Content } = Layout;
 const { Meta } = Card;
@@ -51,6 +54,12 @@ const features = [
 ];
 
 class ReactHome extends Component {
+
+  componentDidMount() {
+    this.props.setHeaderMenuItem('home')
+  }
+
+
   render() {
     return (
       <Layout style={{ padding: "1rem" }}>
@@ -100,4 +109,8 @@ class ReactHome extends Component {
   }
 }
 
-export default ReactHome;
+const mapActionsToProps = {
+  setHeaderMenuItem
+}
+
+export default connect(null, mapActionsToProps)(ReactHome);

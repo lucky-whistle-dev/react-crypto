@@ -107,7 +107,7 @@ const statusUpdatesReducer = (state=[], action) => {
     }
 }
 
-const headerMenuItemReducer = (state='home', action) => {
+const headerMenuItemReducer = (state='', action) => {
     const { type, payload } = action;
     
     switch(type) {

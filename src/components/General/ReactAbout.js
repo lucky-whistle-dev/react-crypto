@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import { Layout, List, Tag, Typography, Table } from 'antd';
 import { contentStyle } from '../../styles';
 import coinGeckoLogo from '../../images/branding/CoinGecko.png';
-
+import {connect} from 'react-redux';
+import { setHeaderMenuItem } from '../../redux_actions';
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
 
 
 class ReactAbout extends Component {
+    
+    componentDidMount() {
+        this.props.setHeaderMenuItem('about')
+    }
 
     render() {
 
@@ -141,8 +146,11 @@ class ReactAbout extends Component {
     }
 }
 
+const mapActionsToProps = {
+    setHeaderMenuItem
+}
 
-export default ReactAbout;
+export default connect(null, mapActionsToProps)(ReactAbout);
 
 
 
