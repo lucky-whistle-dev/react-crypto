@@ -17,13 +17,19 @@ const { Title, Paragraph } = Typography;
 class ReactCoinsDetail extends Component {
 
     componentDidMount() {
-
         const { coinId } = this.props.match.params
         this.props.fetchCoinDetails(coinId)
     }
 
     render() {
-        let finalColumns = [{title:'currency', key: 'currency', dataIndex: 'currency', render: item=> <Tag color="purple">{item}</Tag>}, ...fields.map(item => ({title: item, key: item, dataIndex: item}))]
+        let finalColumns = [
+            {
+                title:'currency', 
+                key: 'currency', 
+                dataIndex: 'currency', 
+                render: item=> <Tag color="purple">{item}</Tag>}, ...fields.map(item => ({title: item, key: item, dataIndex: item
+                }))
+            ]
         const keyCount = Object.keys(this.props.data).length;
         const chartData = {
             labels: keyCount > 0 ? this.props.data.market_data.sparkline_7d.price.map((item, index) => index) : [],
@@ -71,7 +77,6 @@ class ReactCoinsDetail extends Component {
                 }]
             }
         }
-        const loading = Object.keys(this.props.data).length > 0 ? false : true;
 
         const { coingecko_rank } = this.props.data;
         const { market_cap_rank } = this.props.data;
@@ -82,8 +87,9 @@ class ReactCoinsDetail extends Component {
 
         const { market_data } = this.props.data;
         const { last_updated } = this.props.data; 
+        
+        const loading = Object.keys(this.props.data).length > 0 ? false : true;
 
-        console.log(this.props.data)
         return (
             <Layout style={{ padding: '1rem' }}>
                 <Content style={contentStyle}>
@@ -141,9 +147,10 @@ class ReactCoinsDetail extends Component {
 
                             <Title level={3} style={titleStyle}>Detailed market data</Title>
                             <Table 
+                            rowKey = "currency"
                             style={{overflowX:'auto'}}
                             bordered 
-                            dataSource={this.props.market_data_processed} 
+                            dataSource={this.props.data.market_data_processed} 
                             columns={finalColumns}>
                             </Table>
 
