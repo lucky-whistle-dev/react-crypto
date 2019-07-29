@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import { Layout, Menu, Icon } from 'antd';
 import { iconStyle } from '../../styles';
+import { connect } from 'react-redux';
 
 const { Sider } = Layout;
 const {SubMenu} = Menu;
@@ -17,7 +18,7 @@ class ReactSider extends Component {
                 style={{ background: '#fff' }}>
                     <Menu
                     mode="inline"
-                    defaultSelectedKeys={['status-list']}
+                    selectedKeys={[this.props.sider_selected]}
                     defaultOpenKeys={['menu-exchange-rates', 'menu-updates', 'menu-coins', 'menu-events', 'menu-global', 'menu-exchanges']}
                     style={{ height: '100%', borderRight: 0 }}
                     >
@@ -101,4 +102,11 @@ class ReactSider extends Component {
     }
 }
 
-export default ReactSider;
+const mapStateToProps = (state) => {
+    return {
+        sider_selected: state.sider_selected
+    }
+
+}
+
+export default connect(mapStateToProps)(ReactSider)

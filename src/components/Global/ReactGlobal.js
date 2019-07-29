@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchGlobal } from '../../redux_actions';
+import { fetchGlobal, setSiderMenuItem } from '../../redux_actions';
 import ReactSider from '../Navigation/ReactSider';
 import { Col, Statistic, Card, Row, Layout, Typography } from 'antd';
 import { contentStyle, colStyle, cardStyle } from '../../styles';
@@ -12,7 +12,8 @@ const { Paragraph, Title } = Typography;
 class ReactGlobal extends Component {
 
     componentDidMount() {
-        this.props.fetchGlobal()
+        this.props.fetchGlobal();
+        this.props.setSiderMenuItem('global-main');
     }
 
     render() {
@@ -84,7 +85,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapActionsToProps = {
-    fetchGlobal
+    fetchGlobal,
+    setSiderMenuItem
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(ReactGlobal);

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Layout, List, Tag, Timeline, Typography, Icon } from 'antd';
 import { contentStyle } from '../../styles';
 import ReactSider from '../Navigation/ReactSider';
-import { fetchEvents } from '../../redux_actions';
+import { fetchEvents, setSiderMenuItem } from '../../redux_actions';
 import { connect } from 'react-redux';
 const { Title, Paragraph } = Typography;
 const { Content } = Layout;
@@ -11,6 +11,7 @@ class ReactEvents extends Component {
 
     componentDidMount() {
         this.props.fetchEvents()
+        this.props.setSiderMenuItem('events-list')
     }
 
     render() {
@@ -78,4 +79,9 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { fetchEvents })(ReactEvents);
+const mapActionsToProps = {
+    fetchEvents, 
+    setSiderMenuItem
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(ReactEvents);

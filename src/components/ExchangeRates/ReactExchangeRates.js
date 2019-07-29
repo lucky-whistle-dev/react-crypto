@@ -5,7 +5,7 @@ import ReactSider from '../Navigation/ReactSider';
 import { Layout, Typography, Table, Tag } from 'antd';
 import { contentStyle } from '../../styles';
 import { connect } from 'react-redux';
-import { fetchExchangeRates } from '../../redux_actions';
+import { fetchExchangeRates, setSiderMenuItem } from '../../redux_actions';
 
 
 const { Content } = Layout;
@@ -15,7 +15,8 @@ const { Title, Paragraph } = Typography;
 class ReactExchangeRates extends Component {
 
     componentDidMount() {
-        this.props.fetchExchangeRates()
+        this.props.fetchExchangeRates();
+        this.props.setSiderMenuItem('exchange-rates-list');
     };
 
     render() {
@@ -72,7 +73,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapActionsToProps = {
-    fetchExchangeRates
+    fetchExchangeRates,
+    setSiderMenuItem
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(ReactExchangeRates);

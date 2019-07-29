@@ -118,6 +118,17 @@ const headerMenuItemReducer = (state='home', action) => {
     }
 }
 
+const siderMenuItemReducer = (state='status-list', action) => {
+    const { type, payload } = action;
+    
+    switch(type) {
+        case 'SET_SIDER_MENU_ITEM':
+            return payload.item; 
+        default:
+            return state;
+    }
+}
+
 export const rootReducer = combineReducers({
     events: eventReducer,
     status_updates: statusUpdatesReducer,
@@ -126,5 +137,6 @@ export const rootReducer = combineReducers({
     exchange_rates: exchangeRatesReducer,
     coins: coinsReducer,
     coin_details: coinDetailsReducer,
-    header_selected: headerMenuItemReducer
+    header_selected: headerMenuItemReducer,
+    sider_selected: siderMenuItemReducer
 })

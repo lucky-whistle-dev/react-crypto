@@ -62,3 +62,11 @@ export const setHeaderMenuItem = (item) => {
         payload: { item }
     }
 }
+
+export const setSiderMenuItem = (item) => {
+    return {
+        type: 'SET_SIDER_MENU_ITEM',
+        payload: { item }
+    }
+}
+

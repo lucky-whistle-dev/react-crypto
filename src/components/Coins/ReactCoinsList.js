@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactSider from '../Navigation/ReactSider';
 import { Link } from 'react-router-dom';
 import Highlighter from 'react-highlight-words';
-import { fetchCoins } from '../../redux_actions';
+import { fetchCoins, setSiderMenuItem } from '../../redux_actions';
 import { connect } from 'react-redux';
 import { Layout, Table, Typography, Button, Tag, Input, Icon } from 'antd';
 import { contentStyle } from '../../styles';
@@ -13,9 +13,7 @@ const { Title, Paragraph } = Typography;
 class ReactCoinsList extends Component {
 
     state = {
-        searchText: '',
-        coinsList: [],
-        loading: true
+        searchText: ''
     }
 
     getColumnSearchProps = dataIndex => ({
@@ -79,7 +77,8 @@ class ReactCoinsList extends Component {
     };
 
     componentDidMount () {
-        this.props.fetchCoins()
+        this.props.fetchCoins();
+        this.props.setSiderMenuItem('coin-list');
     }
 
     render() {
@@ -138,6 +137,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapActionsToProps = { fetchCoins }
+const mapActionsToProps = { fetchCoins, setSiderMenuItem
+ }
 
 export default connect(mapStateToProps, mapActionsToProps)(ReactCoinsList);

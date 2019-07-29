@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Layout, Typography, Row, Col, List, Tag} from 'antd';
 import { colStyle, contentStyle } from '../../styles';
 import { connect } from 'react-redux';
-import { fetchStatusUpdates } from '../../redux_actions';
+import { fetchStatusUpdates, setSiderMenuItem } from '../../redux_actions';
 import ReactSider from '../Navigation/ReactSider';
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -11,6 +11,7 @@ class ReactStatusUpdates extends Component {
 
     componentDidMount() {
         this.props.fetchStatusUpdates();
+        this.props.setSiderMenuItem('status-list');
     }
 
     render() {
@@ -71,7 +72,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapActionsToProps = {
-    fetchStatusUpdates
+    fetchStatusUpdates,
+    setSiderMenuItem
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(ReactStatusUpdates)

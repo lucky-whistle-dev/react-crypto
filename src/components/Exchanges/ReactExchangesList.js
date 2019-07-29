@@ -3,7 +3,7 @@ import { Table, Tag, Layout, Typography } from 'antd';
 import { contentStyle } from '../../styles';
 import { connect } from 'react-redux';
 import ReactSider from '../Navigation/ReactSider';
-import { fetchExchanges } from '../../redux_actions';
+import { fetchExchanges, setSiderMenuItem } from '../../redux_actions';
 
 const { Content } = Layout;
 const { Paragraph, Title } = Typography;
@@ -13,6 +13,7 @@ class ReactExchangesList extends Component {
 
     componentDidMount() {
         this.props.fetchExchanges()
+        this.props.setSiderMenuItem('exchanges-list')
     }
 
     render() {
@@ -76,7 +77,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapActionsToProps = {
-  fetchExchanges
+  fetchExchanges,
+  setSiderMenuItem
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(ReactExchangesList);

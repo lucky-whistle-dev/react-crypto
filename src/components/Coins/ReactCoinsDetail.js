@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCoinDetails } from '../../redux_actions';
+import { fetchCoinDetails, setSiderMenuItem } from '../../redux_actions';
 import { Link } from 'react-router-dom';
 import { Layout, Tag, Icon, Table, Skeleton, Row, Col, Button, Card, Typography, Avatar, Statistic } from 'antd';
 import { contentStyle, cardStyle, colStyle, titleStyle } from '../../styles';
@@ -17,8 +17,9 @@ const { Title, Paragraph } = Typography;
 class ReactCoinsDetail extends Component {
 
     componentDidMount() {
-        const { coinId } = this.props.match.params
-        this.props.fetchCoinDetails(coinId)
+        const { coinId } = this.props.match.params;
+        this.props.fetchCoinDetails(coinId);
+        this.props.setSiderMenuItem('coin-detail');
     }
 
     render() {
@@ -144,6 +145,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapActionsToProps = { fetchCoinDetails }
+const mapActionsToProps = { fetchCoinDetails, setSiderMenuItem }
 
 export default connect(mapStateToProps, mapActionsToProps)(ReactCoinsDetail)
