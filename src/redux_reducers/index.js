@@ -107,6 +107,17 @@ const statusUpdatesReducer = (state=[], action) => {
     }
 }
 
+const headerMenuItemReducer = (state='home', action) => {
+    const { type, payload } = action;
+    
+    switch(type) {
+        case 'SET_HEADER_MENU_ITEM':
+            return payload.item; 
+        default:
+            return state;
+    }
+}
+
 export const rootReducer = combineReducers({
     events: eventReducer,
     status_updates: statusUpdatesReducer,
@@ -114,5 +125,6 @@ export const rootReducer = combineReducers({
     exchanges: exchangesReducer,
     exchange_rates: exchangeRatesReducer,
     coins: coinsReducer,
-    coin_details: coinDetailsReducer
+    coin_details: coinDetailsReducer,
+    header_selected: headerMenuItemReducer
 })

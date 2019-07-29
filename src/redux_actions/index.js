@@ -55,3 +55,10 @@ export const fetchGlobal = () => async (dispatch, getState) => {
         payload: response.data
     })
 }
+
+export const setHeaderMenuItem = (item) => {
+    return {
+        type: 'SET_HEADER_MENU_ITEM',
+        payload: { item }
+    }
+}
