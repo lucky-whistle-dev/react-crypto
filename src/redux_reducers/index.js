@@ -1,6 +1,18 @@
 import { combineReducers } from 'redux';
 
 
+const globalReducer = (state={}, action) => {
+    const { type, payload } = action;
+
+    switch(type) {
+        case 'GET_GLOBAL':
+            return payload.data.data
+        default:
+            return state
+    }
+}
+
+
 const eventReducer = (state=[], action) => {
     const { type, payload } = action;
     
@@ -26,5 +38,6 @@ const statusUpdatesReducer = (state=[], action) => {
 
 export const rootReducer = combineReducers({
     events: eventReducer,
-    status_updates: statusUpdatesReducer
+    status_updates: statusUpdatesReducer,
+    global: globalReducer
 })

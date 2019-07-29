@@ -15,3 +15,11 @@ export const fetchStatusUpdates = () => async (dispatch, getState ) => {
         payload: response.data
     })
 }
+
+export const fetchGlobal = () => async (dispatch, getState) => {
+    const response = await coinGecko.get('/gloabl')
+    dispatch({
+        type: 'GET_GLOBAL',
+        payload: response.data
+    })
+}
