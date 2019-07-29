@@ -25,14 +25,14 @@ class ReactCoinsDetail extends Component {
     }
 
     // helper function to generate chart data from props
-    getChartData = (loading, data, key, title) => {
+    getChartData = (loading, data, key, title, colour) => {
         return {
             labels: !loading ? data[key].map(item => new Date(item[0]).toLocaleString()) : [],
             datasets: [
                 {
                     label: title,
                     data: !loading ? data[key].map(item => item[1]) : [],
-                    backgroundColor: 'rgba(55, 144, 255, 0.7)'
+                    backgroundColor: colour
                 }
             ]
         }
@@ -68,9 +68,21 @@ class ReactCoinsDetail extends Component {
         
         // Generate chart data for Chart.js 
         const { chart_data } = this.props;
-        const chartPricesData = this.getChartData(pricesLoading, chart_data, 'prices', 'Prices 7 Day')
-        const chartMarketCapsData = this.getChartData(marketCapsLoading, chart_data, 'market_caps','Market Caps 7 Day')
-        const chartTotalVolumesData = this.getChartData(totalVolumesLoading, chart_data, 'total_volumes', 'Total Volumes 7 Day')
+        const chartPricesData = this.getChartData(pricesLoading, 
+            chart_data, 
+            'prices', 
+            'Prices 7 Day', 
+            'rgba(55, 144, 255, 0.7)')
+        const chartMarketCapsData = this.getChartData(marketCapsLoading, 
+            chart_data, 
+            'market_caps',
+            'Market Caps 7 Day', 
+            'rgba(114, 17, 198, 0.7)')
+        const chartTotalVolumesData = this.getChartData(totalVolumesLoading, 
+            chart_data, 
+            'total_volumes', 
+            'Total Volumes 7 Day', 
+            'rgba(26, 201, 166, 0.7)')
 
         return (
             <React.Fragment>
