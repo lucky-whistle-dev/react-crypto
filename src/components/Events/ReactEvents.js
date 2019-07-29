@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Layout, List, Tag, Timeline, Typography, Icon } from 'antd';
 import { contentStyle } from '../../styles';
+import ReactSider from '../Navigation/ReactSider';
 import { fetchEvents } from '../../redux_actions';
 import { connect } from 'react-redux';
 const { Title, Paragraph } = Typography;
@@ -15,7 +16,9 @@ class ReactEvents extends Component {
     render() {
         const loading = this.props.data.length > 0 ? false : true;
         return (
-            <Layout style={{ padding: '1rem' }}>
+            <React.Fragment>
+                <ReactSider/>
+                <Layout style={{ padding: '1rem' }}>
                 <Content style={contentStyle}>
                     <Title level={2}>Events</Title>
                     <Paragraph>This page shows cryptocurrency related events around the globe...</Paragraph>
@@ -62,9 +65,9 @@ class ReactEvents extends Component {
                     </List.Item>
                     )}
                 />
-
                 </Content>
             </Layout>
+            </React.Fragment>
         )
     }
 }

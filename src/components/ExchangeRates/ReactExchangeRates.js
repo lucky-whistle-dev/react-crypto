@@ -1,6 +1,7 @@
 //
 
 import React, { Component } from 'react';
+import ReactSider from '../Navigation/ReactSider';
 import { Layout, Typography, Table, Tag } from 'antd';
 import { contentStyle } from '../../styles';
 import { connect } from 'react-redux';
@@ -45,19 +46,21 @@ class ReactExchangeRates extends Component {
 
         const loading = this.props.data.length > 0 ? false : true;
         return (
-            <Layout style={{ padding: '1rem' }}>
-                <Content className="text-focus-in" style={{...contentStyle}}>
-                    <Title level={2}>Exchange Rates</Title>
-                    <Paragraph>View BTC-to-Currency exchange rates.</Paragraph>
-                    <Table
-                    dataSource={this.props.data}
-                    loading={loading}
-                    columns={columns}
-                    >
-
-                    </Table>
-                </Content>
-            </Layout>
+            <React.Fragment>
+                <ReactSider/>
+                <Layout style={{ padding: '1rem' }}>
+                    <Content className="text-focus-in" style={{...contentStyle}}>
+                        <Title level={2}>Exchange Rates</Title>
+                        <Paragraph>View BTC-to-Currency exchange rates.</Paragraph>
+                        <Table
+                        dataSource={this.props.data}
+                        loading={loading}
+                        columns={columns}
+                        >
+                        </Table>
+                    </Content>
+                </Layout>
+            </React.Fragment>
         )
     }
 }

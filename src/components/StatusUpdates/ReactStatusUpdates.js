@@ -3,7 +3,7 @@ import { Layout, Typography, Row, Col, List, Tag} from 'antd';
 import { colStyle, contentStyle } from '../../styles';
 import { connect } from 'react-redux';
 import { fetchStatusUpdates } from '../../redux_actions';
-
+import ReactSider from '../Navigation/ReactSider';
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
 
@@ -16,7 +16,9 @@ class ReactStatusUpdates extends Component {
     render() {
         const loading = this.props.data.length > 0 ? false : true;
         return (
-            <Layout style={{ padding: '1rem' }}>
+            <React.Fragment>
+                <ReactSider/>
+                <Layout style={{ padding: '1rem' }}>
                 <Content style={contentStyle}>
                     <Title level={2}>Status Updates</Title>
                     <Paragraph>This feature is currently in beta. List all status_updates with data (description, category, created_at, user, user_title and pin)</Paragraph>
@@ -56,6 +58,7 @@ class ReactStatusUpdates extends Component {
                 ></List>
                 </Content>
             </Layout>
+            </React.Fragment>
         )
     }
 }

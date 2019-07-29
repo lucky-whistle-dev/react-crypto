@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactSider from '../Navigation/ReactSider';
 import { Link } from 'react-router-dom';
 import Highlighter from 'react-highlight-words';
 import { fetchCoins } from '../../redux_actions';
@@ -112,17 +113,21 @@ class ReactCoinsList extends Component {
             }
         ];
         return (
-            <Layout style={{ padding: '1rem' }}>
-                <Content style={contentStyle}>
-                    <Title level={2}>Coins List</Title>
-                    <Paragraph>This page lists cryptocurrencies available through the CoinGecko API. To view details of a given coin, click 'View' button. You can also filter by Id, Symbol or Name to drill down and find a coin.</Paragraph>
-                    <Table 
-                    bordered={true}
-                    loading={loading} 
-                    dataSource={this.props.data} 
-                    columns={columns}/>
-                </Content>
-            </Layout>
+            <React.Fragment>
+                <ReactSider/>
+                <Layout style={{ padding: '1rem' }}>
+                    <Content style={contentStyle}>
+                        <Title level={2}>Coins List</Title>
+                        <Paragraph>This page lists cryptocurrencies available through the CoinGecko API. To view details of a given coin, click 'View' button. You can also filter by Id, Symbol or Name to drill down and find a coin.</Paragraph>
+                        <Table 
+                        bordered={true}
+                        loading={loading} 
+                        dataSource={this.props.data} 
+                        columns={columns}/>
+                    </Content>
+                </Layout>
+            </React.Fragment>
+           
         )
     }
 }

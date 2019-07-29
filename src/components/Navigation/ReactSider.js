@@ -13,11 +13,11 @@ class ReactSider extends Component {
                 <Sider 
                 breakpoint="md"
                 collapsedWidth="0"
-                width={200} 
+                width={240} 
                 style={{ background: '#fff' }}>
                     <Menu
                     mode="inline"
-                    defaultSelectedKeys={['menu-updates']}
+                    defaultSelectedKeys={['status-list']}
                     defaultOpenKeys={['menu-exchange-rates', 'menu-updates', 'menu-coins', 'menu-events', 'menu-global', 'menu-exchanges']}
                     style={{ height: '100%', borderRight: 0 }}
                     >

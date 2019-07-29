@@ -26,7 +26,6 @@ export default class App extends Component {
             <Layout style={{minHeight: '100vh', lineHeight: '1.6rem'}}>    
                 <ReactHeader/>
                 <Layout>
-                <ReactSider/>
                     <Route path='/' exact component={ReactHome}/>
                     <Route path='/about' exact component={ReactAbout}/>
                     <Route path='/coins' exact component={ReactCoinsList}/>

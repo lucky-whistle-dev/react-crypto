@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Table, Tag, Layout, Typography } from 'antd';
 import { contentStyle } from '../../styles';
 import { connect } from 'react-redux';
+import ReactSider from '../Navigation/ReactSider';
 import { fetchExchanges } from '../../redux_actions';
 
 const { Content } = Layout;
@@ -50,6 +51,8 @@ class ReactExchangesList extends Component {
 
 
         return (
+          <React.Fragment>
+          <ReactSider/>
             <Layout style={{ padding: '1rem' }}>
                 <Content style={contentStyle}>
                     <Title level={2}>Exchanges List</Title>
@@ -61,6 +64,7 @@ class ReactExchangesList extends Component {
                     columns={columns} />
                 </Content>
             </Layout>
+            </React.Fragment>
         )
     }
 }
