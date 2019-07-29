@@ -19,7 +19,8 @@ const compileMarketData = (marketData) => {
 
     let data = {}
 
-    market_processed_table_keys.map(field => {
+    for (let market_index = 0; market_index < market_processed_table_keys.length; market_index++) {
+        let field = market_processed_table_keys[market_index]
         let entries = Object.entries(marketData[field])
         for (let i = 0; i < entries.length; i ++) {
             let key = entries[i][0]
@@ -30,7 +31,7 @@ const compileMarketData = (marketData) => {
                 data[key] = { [field]: value, currency: key }
             }   
         }
-    })
+    }
 
     return Object.values(data)
 

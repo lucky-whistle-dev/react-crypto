@@ -9,16 +9,13 @@ import ReactGlobal from './Global/ReactGlobal';
 import { Route } from 'react-router-dom';
 import { Layout } from 'antd';
 import ReactHeader from './Navigation/ReactHeader';
-import ReactSider from './Navigation/ReactSider';
 import ReactExchangesList from './Exchanges/ReactExchangesList';
 import ReactExchangeRates from './ExchangeRates/ReactExchangeRates';
 import ReactFooter from './Navigation/ReactFooter';
 import './App.css'
 import ReactStatusUpdates from './StatusUpdates/ReactStatusUpdates';
 
-
 //[NOTE] React prefix used with React.Components in order to differentiate from Ant Design UI components.
-
 
 export default class App extends Component {
     render() {
