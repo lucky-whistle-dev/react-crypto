@@ -3,29 +3,18 @@
 import React, { Component } from 'react';
 import { Layout, Typography, Table, Tag } from 'antd';
 import { contentStyle } from '../../styles';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { fetchExchangeRates } from '../../redux_actions';
 
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
 
 
-class ReactAbout extends Component {
-
-    state = {
-        data: [],
-        loading: true
-    }
+class ReactExchangeRates extends Component {
 
     componentDidMount() {
-        axios.get('https://api.coingecko.com/api/v3/exchange_rates')
-        .then(res => {
-            this.setState({ data: Object.values(res.data.rates) }, ()=> {
-                this.setState({ loading: !this.state.loading})
-            })
-        })
-        .catch(err => console.error(err))
-
+        this.props.fetchExchangeRates()
     };
 
     render() {
@@ -54,16 +43,15 @@ class ReactAbout extends Component {
             }
         ]
 
-
-        console.log(this.state.data)
+        const loading = this.props.data.length > 0 ? false : true;
         return (
             <Layout style={{ padding: '1rem' }}>
                 <Content className="text-focus-in" style={{...contentStyle}}>
                     <Title level={2}>Exchange Rates</Title>
                     <Paragraph>View BTC-to-Currency exchange rates.</Paragraph>
                     <Table
-                    dataSource={this.state.data}
-                    loading={this.state.loading}
+                    dataSource={this.props.data}
+                    loading={loading}
                     columns={columns}
                     >
 
@@ -74,8 +62,17 @@ class ReactAbout extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        data: state.exchange_rates
+    }
+}
 
-export default ReactAbout;
+const mapActionsToProps = {
+    fetchExchangeRates
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(ReactExchangeRates);
 
 
 
