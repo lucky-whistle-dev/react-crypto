@@ -16,6 +16,15 @@ export const fetchCoinDetails = (coinId) => async (dispatch, getState) => {
     })
 }
 
+export const fetchCoinMarketDetails = (coinId) => async (dispatch, getState) => {
+    const response = await coinGecko.get(`coins/${coinId}/market_chart?vs_currency=usd&days=7`);
+    dispatch({
+        type: 'GET_COIN_MARKET_DETAILS',
+        payload: response.data
+    })
+}
+
+
 export const fetchEvents = () => async (dispatch, getState ) => {
     const response = await coinGecko.get('/events')
     dispatch({

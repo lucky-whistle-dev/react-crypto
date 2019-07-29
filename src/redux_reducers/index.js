@@ -50,6 +50,18 @@ const coinDetailsReducer = (state = {}, action) => {
 
 }
 
+const coinMarketDetailsReducer = (state={}, action) => {
+    const { type, payload } = action;
+
+    switch(type) {
+        case 'GET_COIN_MARKET_DETAILS':
+            console.log(payload);
+            return state;
+        default:
+            return state;
+    }
+}
+
 const globalReducer = (state={}, action) => {
     const { type, payload } = action;
 
@@ -138,6 +150,7 @@ export const rootReducer = combineReducers({
     exchange_rates: exchangeRatesReducer,
     coins: coinsReducer,
     coin_details: coinDetailsReducer,
+    coin_market_details: coinMarketDetailsReducer,
     header_selected: headerMenuItemReducer,
     sider_selected: siderMenuItemReducer
 })

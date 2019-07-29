@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCoinDetails, setSiderMenuItem } from '../../redux_actions';
+import { fetchCoinDetails, setSiderMenuItem, fetchCoinMarketDetails } from '../../redux_actions';
 import { Link } from 'react-router-dom';
 import { Layout, Tag, Icon, Table, Skeleton, Row, Col, Button, Card, Typography, Avatar, Statistic } from 'antd';
 import { contentStyle, cardStyle, colStyle, titleStyle } from '../../styles';
@@ -9,6 +9,7 @@ import { Line } from 'react-chartjs-2';
 import { market_processed_table_keys, market_stat_keys } from '../../constants';
 import chartOptions from '../../ChartConfig';
 import ReactSider from '../Navigation/ReactSider';
+import { thisExpression } from '@babel/types';
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -19,6 +20,7 @@ class ReactCoinsDetail extends Component {
     componentDidMount() {
         const { coinId } = this.props.match.params;
         this.props.fetchCoinDetails(coinId);
+        this.props.fetchCoinMarketDetails(coinId);
         this.props.setSiderMenuItem('coin-detail');
     }
 
@@ -145,6 +147,9 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapActionsToProps = { fetchCoinDetails, setSiderMenuItem }
+const mapActionsToProps = { 
+    fetchCoinDetails, 
+    fetchCoinMarketDetails,
+    setSiderMenuItem }
 
 export default connect(mapStateToProps, mapActionsToProps)(ReactCoinsDetail)
