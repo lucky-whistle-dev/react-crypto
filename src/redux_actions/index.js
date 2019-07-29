@@ -8,6 +8,14 @@ export const fetchEvents = () => async (dispatch, getState ) => {
     })
 }
 
+export const fetchExchangeRates = () => async (dispatch, getState ) => {
+    const response = await coinGecko.get('/exchange_rates')
+    dispatch({
+        type: 'GET_EXCHANGE_RATES',
+        payload: response.data
+    })
+}
+
 export const fetchExchanges = () => async (dispatch, getState ) => {
     const response = await coinGecko.get('/exchanges')
     dispatch({

@@ -23,6 +23,18 @@ const exchangesReducer = (state=[], action) => {
     }
 }
 
+const exchangeRatesReducer = (state=[], action) => {
+    const { type, payload } = action;
+
+    switch(type) {
+        case 'GET_EXCHANGE_RATES':
+            let rates = Object.values(payload.rates)
+            return rates
+        default:
+            return state
+    }
+}
+
 
 const eventReducer = (state=[], action) => {
     const { type, payload } = action;
@@ -51,5 +63,6 @@ export const rootReducer = combineReducers({
     events: eventReducer,
     status_updates: statusUpdatesReducer,
     global: globalReducer,
-    exchanges: exchangesReducer
+    exchanges: exchangesReducer,
+    exchange_rates: exchangeRatesReducer
 })
