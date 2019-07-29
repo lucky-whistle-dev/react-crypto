@@ -1,5 +1,15 @@
 import { combineReducers } from 'redux';
 
+const coinsReducer = (state=[], action) => {
+    const { type, payload } = action;
+
+    switch(type) {
+        case 'GET_COINS':
+            return payload.data
+        default:
+            return state
+    }
+}
 
 const globalReducer = (state={}, action) => {
     const { type, payload } = action;
@@ -64,5 +74,6 @@ export const rootReducer = combineReducers({
     status_updates: statusUpdatesReducer,
     global: globalReducer,
     exchanges: exchangesReducer,
-    exchange_rates: exchangeRatesReducer
+    exchange_rates: exchangeRatesReducer,
+    coins: coinsReducer
 })

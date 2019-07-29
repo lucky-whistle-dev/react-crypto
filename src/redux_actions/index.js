@@ -1,5 +1,13 @@
 import coinGecko from '../API';
 
+export const fetchCoins = () => async (dispatch, getState ) => {
+    const response = await coinGecko.get('/coins/list')
+    dispatch({
+        type: 'GET_COINS',
+        payload: response.data
+    })
+}
+
 export const fetchEvents = () => async (dispatch, getState ) => {
     const response = await coinGecko.get('/events')
     dispatch({
