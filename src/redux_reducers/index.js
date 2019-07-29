@@ -5,7 +5,7 @@ const coinsReducer = (state=[], action) => {
 
     switch(type) {
         case 'GET_COINS':
-            return payload.data
+            return payload
         default:
             return state
     }

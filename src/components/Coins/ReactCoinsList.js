@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Highlighter from 'react-highlight-words';
-import axios from 'axios';
+import { fetchCoins } from '../../redux_actions';
+import { connect } from 'react-redux';
 import { Layout, Table, Typography, Button, Tag, Input, Icon } from 'antd';
 import { contentStyle } from '../../styles';
 const { Content } = Layout;
@@ -77,16 +78,12 @@ class ReactCoinsList extends Component {
     };
 
     componentDidMount () {
-        axios.get('https://api.coingecko.com/api/v3/coins/list')
-        .then(res => {
-            this.setState({coinsList: res.data}, 
-                () => {this.setState({loading: !this.state.loading })})
-        })
-        .catch(error => console.error(error))
+        this.props.fetchCoins()
     }
 
     render() {
-        const { coinsList, loading } = this.state;
+        const loading = this.props.data.length > 0 ? false: true;
+
         const columns=[
             {
                 title:'Id',
@@ -122,7 +119,7 @@ class ReactCoinsList extends Component {
                     <Table 
                     bordered={true}
                     loading={loading} 
-                    dataSource={coinsList} 
+                    dataSource={this.props.data} 
                     columns={columns}/>
                 </Content>
             </Layout>
@@ -130,4 +127,12 @@ class ReactCoinsList extends Component {
     }
 }
 
-export default ReactCoinsList;
+const mapStateToProps = (state) => {
+    return {
+        data: state.coins
+    }
+}
+
+const mapActionsToProps = { fetchCoins }
+
+export default connect(mapStateToProps, mapActionsToProps)(ReactCoinsList);
