@@ -47,7 +47,7 @@ export const fetchEvents = () => async (dispatch, getState ) => {
 export const fetchExchangeRates = () => async (dispatch, getState ) => {
     const response = await coinGecko.get('/exchange_rates')
     dispatch({
-        type: GET_EXCHANGES_LIST,
+        type: GET_EXCHANGE_RATES,
         payload: response.data
     })
 }
