@@ -11,6 +11,18 @@ const coinsReducer = (state=[], action) => {
     }
 }
 
+const coinDetailsReducer = (state = {}, action) => {
+    const { type, payload } = action;
+    
+    switch(type) {
+        case 'GET_COIN_DETAILS':
+            return payload
+        default:
+            return state
+    }
+
+}
+
 const globalReducer = (state={}, action) => {
     const { type, payload } = action;
 

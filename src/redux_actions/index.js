@@ -8,6 +8,14 @@ export const fetchCoins = () => async (dispatch, getState ) => {
     })
 }
 
+export const fetchCoinDetails = (coinId) => async (dispatch, getState) => {
+    const response = await coinGecko.get(`coins/${coinId}?localization=false&tickers=false&market_data=true&community_data=false&sparkline=true&developer_data=false`);
+    dispatch({
+        type: 'GET_COIN_DETAILS',
+        payload: response.data
+    })
+}
+
 export const fetchEvents = () => async (dispatch, getState ) => {
     const response = await coinGecko.get('/events')
     dispatch({
