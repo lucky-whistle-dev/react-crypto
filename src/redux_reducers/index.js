@@ -1,4 +1,6 @@
 import { combineReducers } from 'redux';
+import { market_processed_table_keys } from '../constants';
+
 
 const coinsReducer = (state=[], action) => {
     const { type, payload } = action;
@@ -11,21 +13,13 @@ const coinsReducer = (state=[], action) => {
     }
 }
 
-export const fields = ["ath"
-        ,"ath_change_percentage"
-        ,"current_price"
-        ,"high_24h"
-        ,"low_24h"
-        ,"market_cap"
-        ,"price_change_percentage_7d_in_currency"
-        ,"price_change_percentage_30d_in_currency"
-        ,"total_volume"]
+
 
 const compileMarketData = (marketData) => {
-    
+
     let data = {}
 
-    fields.map(field => {
+    market_processed_table_keys.map(field => {
         let entries = Object.entries(marketData[field])
         for (let i = 0; i < entries.length; i ++) {
             let key = entries[i][0]

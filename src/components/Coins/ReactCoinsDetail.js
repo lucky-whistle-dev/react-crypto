@@ -6,7 +6,7 @@ import { Layout, Tag, Icon, Table, Skeleton, Row, Col, Button, Card, Typography,
 import { contentStyle, cardStyle, colStyle, titleStyle } from '../../styles';
 import ReactCoinScores from './ReactCoinScores';
 import { Line } from 'react-chartjs-2';
-import {fields } from '../../redux_reducers';
+import { market_processed_table_keys, market_stat_keys } from '../../constants';
 import chartOptions from '../../ChartConfig';
 
 
@@ -22,13 +22,13 @@ class ReactCoinsDetail extends Component {
     }
 
     render() {
-        
+
         let finalColumns = [
             {
                 title:'currency', 
                 key: 'currency', 
                 dataIndex: 'currency', 
-                render: item=> <Tag color="purple">{item}</Tag>}, ...fields.map(item => ({title: item, key: item, dataIndex: item
+                render: item=> <Tag color="purple">{item}</Tag>}, ...market_processed_table_keys.map(item => ({title: item, key: item, dataIndex: item
                 }))
             ]
 
@@ -44,19 +44,7 @@ class ReactCoinsDetail extends Component {
             ]
         }
 
-        const marketKeys = ["circulating_supply",
-                            "total_supply",
-                            "public_interest_score",
-                            "market_cap_change_24h",
-                            "market_cap_change_percentage_24h",
-                            "price_change_percentage_14d",
-                            "price_change_percentage_1y",
-                            "price_change_percentage_200d",
-                            "price_change_percentage_24h",
-                            "price_change_percentage_30d",
-                            "price_change_percentage_60d",
-                            "price_change_percentage_7d"
-        ]            
+          
 
 
         const { coingecko_rank } = this.props.data;
@@ -116,7 +104,7 @@ class ReactCoinsDetail extends Component {
                             </Title>
                             <Row gutter={16} style={{textAlign: 'center'}} type="flex">
                                 {
-                                    marketKeys.map((key, index) => (
+                                    market_stat_keys.map((key, index) => (
                                         <Col key={index} xs={24} sm={24} md={12} lg={8} xl={8} style={colStyle}>
                                             <Card style={cardStyle}>
                                                 <Statistic precision={1} title={key} value={market_data[key]}/>
