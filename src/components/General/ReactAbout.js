@@ -51,6 +51,21 @@ class ReactAbout extends Component {
                 name: 'axios',
                 version :'^0.19.0',
                 purpose: ''
+            },
+            {
+                name: 'redux-thunk',
+                version :'^2.3.0',
+                purpose: ''
+            },
+            {
+                name: 'redux',
+                version :'^4.0.4',
+                purpose: ''
+            },
+            {
+                name: 'react-redux',
+                version: '^7.1.0',
+                purpose: ''
             }
             ];
 
