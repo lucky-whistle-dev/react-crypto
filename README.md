@@ -7,12 +7,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Generated with `tree` command.
 ```
 .
-├── Branding
-│   └── CoinGecko.png
-├── FlatIcon
-│   ├── 001-bitcoin.svg
-│   ├── 002-bitcoin-1.svg
-│   └── 003-bitcoin-2.svg
+├── API
+│   └── index.js
+├── ChartConfig
+│   └── index.js
 ├── components
 │   ├── App.css
 │   ├── App.js
@@ -24,6 +22,8 @@ Generated with `tree` command.
 │   │   └── ReactEmpty.js
 │   ├── Events
 │   │   └── ReactEvents.js
+│   ├── ExchangeRates
+│   │   └── ReactExchangeRates.js
 │   ├── Exchanges
 │   │   └── ReactExchangesList.js
 │   ├── General
@@ -37,7 +37,29 @@ Generated with `tree` command.
 │   │   └── ReactSider.js
 │   └── StatusUpdates
 │       └── ReactStatusUpdates.js
+├── constants
+│   └── index.js
+├── images
+│   ├── branding
+│   │   └── CoinGecko.png
+│   ├── flaticon
+│   │   ├── 001-bitcoin.svg
+│   │   ├── 001-chat.svg
+│   │   ├── 002-bitcoin-1.svg
+│   │   ├── 002-bitcoin.svg
+│   │   ├── 003-bitcoin-2.svg
+│   │   ├── 003-smartphone.svg
+│   │   ├── 004-exchange.svg
+│   │   ├── 005-idea.svg
+│   │   ├── 006-binary.svg
+│   │   └── worldwide.svg
+│   └── logo
+│       └── logo.png
 ├── index.js
+├── redux_actions
+│   └── index.js
+├── redux_reducers
+│   └── index.js
 └── styles
     └── index.js
 ```
