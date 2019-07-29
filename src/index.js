@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
-import { rootReducer } from './reducers';
+import { rootReducer } from './redux_reducers/';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 // [NOTE] import antd css so that it becomes available for all components in App

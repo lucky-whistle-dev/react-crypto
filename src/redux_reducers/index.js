@@ -17,7 +17,8 @@ const statusUpdatesReducer = (state=[], action) => {
 
     switch(type) {
         case 'GET_STATUS_UPDATES':
-            return payload.data
+            console.log(payload)
+            return payload.status_updates
         default: 
             return state
     }

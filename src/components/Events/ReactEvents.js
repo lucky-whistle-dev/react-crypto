@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Layout, List, Tag, Timeline, Typography, Icon } from 'antd';
 import { contentStyle } from '../../styles';
-import Axios from 'axios';
 import { fetchEvents } from '../../actions';
 import { connect } from 'react-redux';
 const { Title, Paragraph } = Typography;

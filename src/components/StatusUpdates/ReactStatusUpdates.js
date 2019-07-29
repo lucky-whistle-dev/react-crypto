@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Layout, Typography, Row, Col, List, Tag} from 'antd';
 import { colStyle, contentStyle } from '../../styles';
 import { connect } from 'react-redux';
@@ -15,6 +14,7 @@ class ReactStatusUpdates extends Component {
     }
 
     render() {
+        const loading = this.props.data.length > 0 ? false : true;
         return (
             <Layout style={{ padding: '1rem' }}>
                 <Content style={contentStyle}>
@@ -27,8 +27,8 @@ class ReactStatusUpdates extends Component {
                     </Row>
 
                     <List
-                    pagination={this.props.data.length > 0 ? false : true}
-                    loading={this.props.data.length > 0 ? false : true}
+                    pagination={!loading}
+                    loading={loading}
                     itemLayout="vertical"
                     size="large"
                     dataSource={this.props.data}
