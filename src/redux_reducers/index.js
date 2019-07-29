@@ -11,12 +11,44 @@ const coinsReducer = (state=[], action) => {
     }
 }
 
+export const fields = ["ath"
+        ,"ath_change_percentage"
+        ,"current_price"
+        ,"high_24h"
+        ,"low_24h"
+        ,"market_cap"
+        ,"price_change_percentage_7d_in_currency"
+        ,"price_change_percentage_30d_in_currency"
+        ,"total_volume"]
+
+const compileMarketData = (marketData) => {
+    
+    let data = {}
+
+    fields.map(field => {
+        let entries = Object.entries(marketData[field])
+        for (let i = 0; i < entries.length; i ++) {
+            let key = entries[i][0]
+            let value = entries[i][1]
+            if (Object.keys(data).includes(key)){
+                data[key] = { ...data[key], [field]: value, currency: key }
+            } else {
+                data[key] = { [field]: value, currency: key }
+            }   
+        }
+    })
+
+    return Object.values(data)
+
+} 
+
 const coinDetailsReducer = (state = {}, action) => {
     const { type, payload } = action;
     
     switch(type) {
         case 'GET_COIN_DETAILS':
-            return payload
+            const market_data_processed = compileMarketData(payload.market_data)
+            return {...payload, market_data_processed}
         default:
             return state
     }
@@ -87,5 +119,6 @@ export const rootReducer = combineReducers({
     global: globalReducer,
     exchanges: exchangesReducer,
     exchange_rates: exchangeRatesReducer,
-    coins: coinsReducer
+    coins: coinsReducer,
+    coin_details: coinDetailsReducer
 })

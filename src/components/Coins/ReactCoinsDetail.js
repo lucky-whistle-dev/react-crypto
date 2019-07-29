@@ -1,83 +1,36 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { fetchCoinDetails } from '../../redux_actions';
 import { Link } from 'react-router-dom';
 import { Layout, Tag, Icon, Table, Skeleton, Row, Col, Button, Card, Typography, Avatar, Statistic } from 'antd';
 import { contentStyle, cardStyle, colStyle, titleStyle } from '../../styles';
 import ReactCoinScores from './ReactCoinScores';
 import { Line } from 'react-chartjs-2';
+import {fields } from '../../redux_reducers';
+
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
-const fields = ["ath"
-        ,"ath_change_percentage"
-        ,"current_price"
-        ,"high_24h"
-        ,"low_24h"
-        ,"market_cap"
-        ,"price_change_percentage_7d_in_currency"
-        ,"price_change_percentage_30d_in_currency"
-        ,"total_volume"]
 
-export default class ReactCoinsDetail extends Component {
-    
-    state = {
-        data: {},
-        loading: true
-    }
 
-    compileMarketData = () => {
-        
-        let tableData = {}
-        let marketData = this.state.data.market_data;
 
-        fields.map(field => {
-            let entries = Object.entries(marketData[field])
-            for (let i = 0; i < entries.length; i ++) {
-                let key = entries[i][0]
-                let value = entries[i][1]
-                if (Object.keys(tableData).includes(key)){
-                    tableData[key] = { ...tableData[key], [field]: value, currency: key }
-                } else {
-                    tableData[key] = { [field]: value, currency: key }
-                }
-                
-            }
-        })
-
-        let data = Object.values(tableData)
-
-        this.setState({marketData: data})
-    } 
+class ReactCoinsDetail extends Component {
 
     componentDidMount() {
 
         const { coinId } = this.props.match.params
-        const url =  `https://api.coingecko.com/api/v3/coins/${coinId}?localization=false&tickers=false&market_data=true&community_data=false&sparkline=true&developer_data=false`
-        
-        axios.get(url)
-        .then(res => {
-            this.setState({data: res.data},
-                ()=>this.setState({ loading: !this.state.loading },
-                    ()=>this.compileMarketData()    
-                ))
-        })
-        .catch(err => console.error(err))
-
-            
-            
-            
-
+        this.props.fetchCoinDetails(coinId)
     }
 
     render() {
         let finalColumns = [{title:'currency', key: 'currency', dataIndex: 'currency', render: item=> <Tag color="purple">{item}</Tag>}, ...fields.map(item => ({title: item, key: item, dataIndex: item}))]
-        const keyCount = Object.keys(this.state.data).length;
+        const keyCount = Object.keys(this.props.data).length;
         const chartData = {
-            labels: keyCount > 0 ? this.state.data.market_data.sparkline_7d.price.map((item, index) => index) : [],
+            labels: keyCount > 0 ? this.props.data.market_data.sparkline_7d.price.map((item, index) => index) : [],
             datasets: [
                 {
                     label: 'Sparkline 7d',
-                    data: keyCount > 0 ? this.state.data.market_data.sparkline_7d.price : [],
+                    data: keyCount > 0 ? this.props.data.market_data.sparkline_7d.price : [],
                     backgroundColor: 'rgba(55, 144, 255, 0.8)'
                 }
             ]
@@ -118,12 +71,24 @@ export default class ReactCoinsDetail extends Component {
                 }]
             }
         }
+        const loading = Object.keys(this.props.data).length > 0 ? false : true;
 
+        const { coingecko_rank } = this.props.data;
+        const { market_cap_rank } = this.props.data;
+        const { developer_score } = this.props.data;
+        const { community_score } = this.props.data;
+        const { liquidity_score } = this.props.data;
+        const { coingecko_score } = this.props.data;
+
+        const { market_data } = this.props.data;
+        const { last_updated } = this.props.data; 
+
+        console.log(this.props.data)
         return (
             <Layout style={{ padding: '1rem' }}>
                 <Content style={contentStyle}>
                     { 
-                        this.state.loading ?
+                        loading ?
                         <React.Fragment>
                             <Skeleton active/>
                             <Skeleton active/>
@@ -137,12 +102,12 @@ export default class ReactCoinsDetail extends Component {
                                 <Avatar 
                                 shape="square" 
                                 size="large" 
-                                src={this.state.data.image.large}
+                                src={this.props.data.image.large}
                                 style={{marginRight:'1rem'}}/>
-                                { this.state.data.name }
+                                { this.props.data.name }
                             </Title>
 
-                            <Paragraph>Last updated on <Tag color="green">{this.state.data.last_updated}</Tag></Paragraph>
+                            <Paragraph>Last updated on <Tag color="green">{last_updated}</Tag></Paragraph>
 
                             <Button style={{marginBottom: '1rem'}}>
                                 <Icon type="left" />
@@ -152,12 +117,12 @@ export default class ReactCoinsDetail extends Component {
                                 Scores and Ranks
                             </Title>
                             <ReactCoinScores
-                            coingecko_rank={this.state.data.coingecko_rank}
-                            market_cap_rank={this.state.data.market_cap_rank}
-                            developer_score={this.state.data.developer_score}
-                            community_score={this.state.data.community_score}
-                            liquidity_score={this.state.data.liquidity_score}
-                            coingecko_score={this.state.data.coingecko_score}/>
+                            coingecko_rank={coingecko_rank}
+                            market_cap_rank={market_cap_rank}
+                            developer_score={developer_score}
+                            community_score={community_score}
+                            liquidity_score={liquidity_score}
+                            coingecko_score={coingecko_score}/>
                             
                             <Title level={3} style={titleStyle}>
                                 Market Stats
@@ -167,7 +132,7 @@ export default class ReactCoinsDetail extends Component {
                                     marketKeys.map((key, index) => (
                                         <Col key={index} xs={24} sm={24} md={12} lg={8} xl={8} style={colStyle}>
                                             <Card style={cardStyle}>
-                                                <Statistic precision={1} title={key} value={this.state.data.market_data[key]}/>
+                                                <Statistic precision={1} title={key} value={market_data[key]}/>
                                             </Card>
                                         </Col>
                                     ))
@@ -178,7 +143,7 @@ export default class ReactCoinsDetail extends Component {
                             <Table 
                             style={{overflowX:'auto'}}
                             bordered 
-                            dataSource={this.state.marketData} 
+                            dataSource={this.props.market_data_processed} 
                             columns={finalColumns}>
                             </Table>
 
@@ -197,4 +162,12 @@ export default class ReactCoinsDetail extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        data: state.coin_details
+    }
+}
 
+const mapActionsToProps = { fetchCoinDetails }
+
+export default connect(mapStateToProps, mapActionsToProps)(ReactCoinsDetail)
