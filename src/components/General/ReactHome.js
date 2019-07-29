@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Layout, Typography, Card, Row, Col } from "antd";
 import { contentStyle } from "../../styles";
-import svg1 from "../../FlatIcon/001-bitcoin.svg";
-import svgExchangeRate from "../../FlatIcon/004-exchange.svg";
-import svgChat from "../../FlatIcon/001-chat.svg";
-import svgMobile from "../../FlatIcon/003-smartphone.svg";
-import svgUpdate from "../../FlatIcon/005-idea.svg";
-import svgWorldwide from "../../FlatIcon/worldwide.svg";
+import svg1 from "../../images/flaticon/001-bitcoin.svg";
+import svgExchangeRate from "../../images/flaticon/004-exchange.svg";
+import svgChat from "../../images/flaticon/001-chat.svg";
+import svgMobile from "../../images/flaticon/003-smartphone.svg";
+import svgUpdate from "../../images/flaticon/005-idea.svg";
+import svgWorldwide from "../../images/flaticon/worldwide.svg";
 import { colStyle } from "../../styles";
 
 const { Content } = Layout;

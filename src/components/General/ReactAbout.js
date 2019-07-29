@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Layout, List, Tag, Typography, Table } from 'antd';
 import { contentStyle } from '../../styles';
-import geckoImage from '../../Branding/CoinGecko.png';
+import coinGeckoLogo from '../../images/branding/CoinGecko.png';
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -96,7 +96,7 @@ class ReactAbout extends Component {
                         className="responsive-image"
                         alt="coingecko api link"
                         style={{border: '1px solid #f3f3f3', maxWidth: '400px'}} 
-                        src={geckoImage}>
+                        src={coinGeckoLogo}>
                         </img>
                     </a>
                     <Paragraph/>
