@@ -7,11 +7,11 @@ import { contentStyle, cardStyle, colStyle, titleStyle } from '../../styles';
 import ReactCoinScores from './ReactCoinScores';
 import { Line } from 'react-chartjs-2';
 import {fields } from '../../redux_reducers';
+import chartOptions from '../../ChartConfig';
 
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
-
 
 
 class ReactCoinsDetail extends Component {
@@ -22,6 +22,7 @@ class ReactCoinsDetail extends Component {
     }
 
     render() {
+        
         let finalColumns = [
             {
                 title:'currency', 
@@ -30,6 +31,7 @@ class ReactCoinsDetail extends Component {
                 render: item=> <Tag color="purple">{item}</Tag>}, ...fields.map(item => ({title: item, key: item, dataIndex: item
                 }))
             ]
+
         const keyCount = Object.keys(this.props.data).length;
         const chartData = {
             labels: keyCount > 0 ? this.props.data.market_data.sparkline_7d.price.map((item, index) => index) : [],
@@ -56,27 +58,6 @@ class ReactCoinsDetail extends Component {
                             "price_change_percentage_7d"
         ]            
 
-        const chartOptions = {
-            responsive: true,
-            scales: {
-                xAxes: [{
-                    gridLines: {
-                        display:false
-                    },
-                    ticks: {
-                        maxTicksLimit: 16
-                    }
-                }],
-                yAxes: [{
-                    gridLines: {
-                        display:false
-                    },
-                    ticks: {
-                        maxTicksLimit: 6
-                    }
-                }]
-            }
-        }
 
         const { coingecko_rank } = this.props.data;
         const { market_cap_rank } = this.props.data;
