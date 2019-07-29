@@ -90,7 +90,7 @@ class ReactHome extends Component {
                       alt="Home page crypto svg"
                       style={{
                         padding: "2rem",
-                        maxWidth: "200px",
+                        maxWidth: "160px",
                         margin: "auto"
                       }}
                       src={item.svg}
