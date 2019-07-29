@@ -2,30 +2,16 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Layout, Typography, Row, Col, List, Tag} from 'antd';
 import { colStyle, contentStyle } from '../../styles';
+import { connect } from 'react-redux';
+import { fetchStatusUpdates } from '../../redux_actions';
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
 
-
-export default class ReactStatusUpdates extends Component {
-    
-    state = {
-        data: [],
-        loading: true
-    }
+class ReactStatusUpdates extends Component {
 
     componentDidMount() {
-        
-        const url = 'https://api.coingecko.com/api/v3/status_updates'
-
-        axios.get(url)
-        .then(res => {
-            this.setState({ data: res.data.status_updates },
-                () => {
-                    this.setState({ loading: !this.state.loading })
-                })
-        })
-        .catch(error=>console.error(error))
+        this.props.fetchStatusUpdates();
     }
 
     render() {
@@ -41,11 +27,11 @@ export default class ReactStatusUpdates extends Component {
                     </Row>
 
                     <List
-                    pagination={this.state.loading ? false : true}
-                    loading={this.state.loading}
+                    pagination={this.props.data.length > 0 ? false : true}
+                    loading={this.props.data.length > 0 ? false : true}
                     itemLayout="vertical"
                     size="large"
-                    dataSource={this.state.data}
+                    dataSource={this.props.data}
                     renderItem={item => (
                     <List.Item
                         key={item.project.name}
@@ -73,3 +59,16 @@ export default class ReactStatusUpdates extends Component {
         )
     }
 }
+
+
+const mapStateToProps = (state) => {
+    return {
+        data: state.status_updates
+    }
+}
+
+const mapActionsToProps = {
+    fetchStatusUpdates
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(ReactStatusUpdates)
