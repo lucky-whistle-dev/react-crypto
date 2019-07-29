@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
+import { rootReducer } from './reducers';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 // [NOTE] import antd css so that it becomes available for all components in App
@@ -14,11 +15,7 @@ const middlewares = compose(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
-const rootReducer = () => {
-    return {
-        test: [1,2,3,4,5]
-    }
-}
+
 const store = createStore(rootReducer,
     middlewares)
 

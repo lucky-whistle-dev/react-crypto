@@ -2,32 +2,19 @@ import React, { Component } from 'react';
 import { Layout, List, Tag, Timeline, Typography, Icon } from 'antd';
 import { contentStyle } from '../../styles';
 import Axios from 'axios';
-
+import { fetchEvents } from '../../actions';
+import { connect } from 'react-redux';
 const { Title, Paragraph } = Typography;
 const { Content } = Layout;
 
-export default class ReactEvents extends Component {
-
-    state = {
-        data: [],
-        count: null,
-        loading: true
-    }
-
+class ReactEvents extends Component {
 
     componentDidMount() {
-        Axios.get('https://api.coingecko.com/api/v3/events')
-        .then(res => {
-            console.log(res.data.data);
-            this.setState({data: res.data.data, count: res.data.count}, ()=>{
-                this.setState({loading: !this.state.loading})
-            })
-        })
-        .catch(error => console.error(error))
+        this.props.fetchEvents()
     }
 
-
     render() {
+        const loading = this.props.data.length > 0 ? false : true;
         return (
             <Layout style={{ padding: '1rem' }}>
                 <Content style={contentStyle}>
@@ -35,10 +22,10 @@ export default class ReactEvents extends Component {
                     <Paragraph>This page shows cryptocurrency related events around the globe...</Paragraph>
 
                     <List
-                    loading={this.state.loading}
+                    loading={loading}
                     itemLayout="vertical"
                     size="large"
-                    dataSource={this.state.data}
+                    dataSource={this.props.data}
                     renderItem={item => (
                     <List.Item
                         key={item.title}
@@ -82,3 +69,11 @@ export default class ReactEvents extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        data: state.events
+    }
+}
+
+export default connect(mapStateToProps, { fetchEvents })(ReactEvents);
