@@ -9,7 +9,7 @@ import { Line } from 'react-chartjs-2';
 import { market_processed_table_keys, market_stat_keys } from '../../constants';
 import chartOptions from '../../ChartConfig';
 import ReactSider from '../Navigation/ReactSider';
-import { thisExpression } from '@babel/types';
+
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -24,6 +24,20 @@ class ReactCoinsDetail extends Component {
         this.props.setSiderMenuItem('coin-detail');
     }
 
+    // helper function to generate chart data from props
+    getChartData = (loading, data, title) => {
+        return {
+            labels: !loading ? data.prices.map(item => new Date(item[0]).toLocaleString()) : [],
+            datasets: [
+                {
+                    label: title,
+                    data: !loading ? this.props.chart_data.prices.map(item => item[1]) : [],
+                    backgroundColor: 'rgba(55, 144, 255, 0.7)'
+                }
+            ]
+        }
+    }
+
     render() {
 
         let finalColumns = [
@@ -34,18 +48,6 @@ class ReactCoinsDetail extends Component {
                 render: item=> <Tag color="purple">{item}</Tag>}, ...market_processed_table_keys.map(item => ({title: item, key: item, dataIndex: item
                 }))
             ]
-
-        const keyCount = Object.keys(this.props.data).length;
-        const chartData = {
-            labels: keyCount > 0 ? this.props.data.market_data.sparkline_7d.price.map((item, index) => index) : [],
-            datasets: [
-                {
-                    label: 'Sparkline 7d',
-                    data: keyCount > 0 ? this.props.data.market_data.sparkline_7d.price : [],
-                    backgroundColor: 'rgba(55, 144, 255, 0.8)'
-                }
-            ]
-        }
 
         const { coingecko_rank } = this.props.data;
         const { market_cap_rank } = this.props.data;
@@ -58,6 +60,17 @@ class ReactCoinsDetail extends Component {
         const { last_updated } = this.props.data; 
         
         const loading = Object.keys(this.props.data).length > 0 ? false : true;
+        const coinMarketKeys = Object.keys(this.props.chart_data);
+        const pricesLoading = coinMarketKeys.includes('prices') ? false : true;
+        const marketCapsLoading = coinMarketKeys.includes('market_caps') ? false : true;
+        const totalVolumesLoading = coinMarketKeys.includes('total_volumes') ? false : true;
+        
+        
+        // Generate chart data for Chart.js 
+        const { chart_data } = this.props;
+        const chartPricesData = this.getChartData(pricesLoading, chart_data, 'Prices 7 Day')
+        const chartMarketCapsData = this.getChartData(marketCapsLoading, chart_data,'Market Caps 7 Day')
+        const chartTotalVolumesData = this.getChartData(totalVolumesLoading, chart_data,'Total Volumes 7 Day')
 
         return (
             <React.Fragment>
@@ -125,13 +138,17 @@ class ReactCoinsDetail extends Component {
                                 columns={finalColumns}>
                                 </Table>
 
-                                <Title level={3} style={titleStyle}>
-                                    7 Day Sparkline
-                                </Title>
-                                <Paragraph>Each unit on the x-axis represents 1 hour.</Paragraph>
+                                <Title level={3} style={titleStyle}>Prices Chart</Title>
+                                <Paragraph>Prices in USD for the past 7 days. Datetimes are converted from unix to locale.</Paragraph>
+                                <Line data={chartPricesData} options={chartOptions}/>
 
-                                <Line data={chartData} options={chartOptions}/>
+                                <Title level={3} style={titleStyle}>Market Caps Chart</Title>
+                                <Paragraph>Market cap data from the past 7 days. Datetimes are converted from unix to locale.</Paragraph>
+                                <Line data={chartMarketCapsData} options={chartOptions}/>
 
+                                <Title level={3} style={titleStyle}>Total Volumes Chart</Title>
+                                <Paragraph>Total Volumes data from the past 7 days. Datetimes are converted from unix to locale.</Paragraph>
+                                <Line data={chartTotalVolumesData} options={chartOptions}/>
                             </React.Fragment>
                         }                    
                     </Content>
@@ -143,7 +160,8 @@ class ReactCoinsDetail extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        data: state.coin_details
+        data: state.coin_details,
+        chart_data: state.coin_market_details
     }
 }
 

@@ -54,9 +54,8 @@ const coinMarketDetailsReducer = (state={}, action) => {
     const { type, payload } = action;
 
     switch(type) {
-        case 'GET_COIN_MARKET_DETAILS':
-            console.log(payload);
-            return state;
+        case 'GET_COIN_CHART_DETAILS':
+            return payload;
         default:
             return state;
     }

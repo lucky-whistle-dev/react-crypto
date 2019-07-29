@@ -6,7 +6,7 @@ export default {
                 display:false
             },
             ticks: {
-                maxTicksLimit: 16
+                maxTicksLimit: 7
             }
         }],
         yAxes: [{
@@ -14,7 +14,7 @@ export default {
                 display:false
             },
             ticks: {
-                maxTicksLimit: 6
+                maxTicksLimit: 5
             }
         }]
     }
