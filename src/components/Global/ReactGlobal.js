@@ -1,31 +1,28 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { fetchGlobal } from '../../redux_actions';
 import { Col, Statistic, Card, Row, Layout, Typography } from 'antd';
 import { contentStyle, colStyle, cardStyle } from '../../styles';
+
+
 const { Content } = Layout;
 const { Paragraph, Title } = Typography;
 
-export default class ReactGlobal extends Component {
-    state = {
-        data: {},
-        loading: true
-    }
-    
+class ReactGlobal extends Component {
+
     componentDidMount() {
-        axios.get("https://api.coingecko.com/api/v3/global")
-        .then(res => this.setState({ data: res.data.data },
-            ()=>this.setState({ loading: !this.state.loading })))
+        this.props.fetchGlobal()
     }
 
     render() {
-        const { loading } = this.state;
+        const loading = Object.keys(this.props.data).length > 0 ? false : true;
         const {
             active_cryptocurrencies, 
             market_cap_change_percentage_24h_usd,
             ongoing_icos, 
             upcoming_icos, 
             ended_icos, 
-            markets} = this.state.data
+            markets} = this.props.data
         return (
         <Layout style={{ padding: '1rem' }}>
             <Content style={contentStyle}>
@@ -74,4 +71,16 @@ export default class ReactGlobal extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        data: state.global
+    } 
+}
+
+const mapActionsToProps = {
+    fetchGlobal
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(ReactGlobal);
 

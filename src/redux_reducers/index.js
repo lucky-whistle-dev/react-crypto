@@ -6,7 +6,18 @@ const globalReducer = (state={}, action) => {
 
     switch(type) {
         case 'GET_GLOBAL':
-            return payload.data.data
+            return payload.data
+        default:
+            return state
+    }
+}
+
+const exchangesReducer = (state=[], action) => {
+    const { type, payload } = action;
+
+    switch(type) {
+        case 'GET_EXCHANGES':
+            return payload
         default:
             return state
     }
@@ -39,5 +50,6 @@ const statusUpdatesReducer = (state=[], action) => {
 export const rootReducer = combineReducers({
     events: eventReducer,
     status_updates: statusUpdatesReducer,
-    global: globalReducer
+    global: globalReducer,
+    exchanges: exchangesReducer
 })

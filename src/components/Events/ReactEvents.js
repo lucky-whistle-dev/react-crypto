@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Layout, List, Tag, Timeline, Typography, Icon } from 'antd';
 import { contentStyle } from '../../styles';
-import { fetchEvents } from '../../actions';
+import { fetchEvents } from '../../redux_actions';
 import { connect } from 'react-redux';
 const { Title, Paragraph } = Typography;
 const { Content } = Layout;

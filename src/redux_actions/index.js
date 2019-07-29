@@ -8,6 +8,14 @@ export const fetchEvents = () => async (dispatch, getState ) => {
     })
 }
 
+export const fetchExchanges = () => async (dispatch, getState ) => {
+    const response = await coinGecko.get('/exchanges')
+    dispatch({
+        type: 'GET_EXCHANGES',
+        payload: response.data
+    })
+}
+
 export const fetchStatusUpdates = () => async (dispatch, getState ) => {
     const response = await coinGecko.get('/status_updates')
     dispatch({
@@ -17,7 +25,7 @@ export const fetchStatusUpdates = () => async (dispatch, getState ) => {
 }
 
 export const fetchGlobal = () => async (dispatch, getState) => {
-    const response = await coinGecko.get('/gloabl')
+    const response = await coinGecko.get('/global')
     dispatch({
         type: 'GET_GLOBAL',
         payload: response.data

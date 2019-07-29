@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Table, Tag, Layout, Typography } from 'antd';
 import { contentStyle } from '../../styles';
+import { connect } from 'react-redux';
+import { fetchExchanges } from '../../redux_actions';
 
 const { Content } = Layout;
 const { Paragraph, Title } = Typography;
 
-export default class ReactExchangesList extends Component {
-    state = {
-        exchanges: [],
-        loading: true
-    }
-    
+
+class ReactExchangesList extends Component {
+
     componentDidMount() {
-        axios.get("https://api.coingecko.com/api/v3/exchanges")
-        .then(res => this.setState({ exchanges: res.data },
-            this.setState({ loading: !this.state.loading })))
+        this.props.fetchExchanges()
     }
+
     render() {
           const columns = [
             {
@@ -48,15 +45,19 @@ export default class ReactExchangesList extends Component {
               }
             ];
 
+        const loading = this.props.data.length > 0 ? false : true;
+
+
+
         return (
             <Layout style={{ padding: '1rem' }}>
                 <Content style={contentStyle}>
                     <Title level={2}>Exchanges List</Title>
                     <Paragraph>This page lists available exchanges.</Paragraph>
-                    <Table 
+                    <Table
                     bordered={true}
-                    loading={this.state.loading}
-                    dataSource={this.state.exchanges} 
+                    loading={loading}
+                    dataSource={this.props.data} 
                     columns={columns} />
                 </Content>
             </Layout>
@@ -64,3 +65,14 @@ export default class ReactExchangesList extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+      data: state.exchanges
+    }
+}
+
+const mapActionsToProps = {
+  fetchExchanges
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(ReactExchangesList);
