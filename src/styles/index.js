@@ -1,3 +1,5 @@
+import { AutoComplete } from "antd";
+
 export const contentStyle = {
     background: '#ffffff',
     padding: '2rem',
@@ -25,4 +27,8 @@ export const iconStyle = {
 
 export const titleStyle = {
     marginTop: '3rem'
+}
+
+export const tableStyle = {
+    overflowX: 'auto'
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Table, Typography } from 'antd';
-import { titleStyle } from '../../styles';
+import { titleStyle, tableStyle } from '../../styles';
 
 const { Title } = Typography;
 
@@ -12,8 +12,8 @@ export default class ReactCoinMarketDetailedStats extends Component {
             <React.Fragment>
                 <Title level={3} style={titleStyle}>Market Data (detailed)</Title>
                 <Table 
+                style={tableStyle}
                 rowKey = "currency"
-                style={{overflowX:'auto'}}
                 bordered 
                 dataSource={data} 
                 columns={columns}>

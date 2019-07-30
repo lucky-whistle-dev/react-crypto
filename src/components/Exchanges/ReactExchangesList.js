@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Table, Tag, Layout, Typography } from 'antd';
-import { contentStyle } from '../../styles';
+import { contentStyle, tableStyle } from '../../styles';
 import { connect } from 'react-redux';
 import ReactSider from '../Navigation/ReactSider';
 import { fetchExchanges, setSiderMenuItem } from '../../redux_actions';
@@ -59,6 +59,7 @@ class ReactExchangesList extends Component {
                     <Title level={2}>Exchanges List</Title>
                     <Paragraph>This page lists available exchanges.</Paragraph>
                     <Table
+                    style={tableStyle}
                     bordered={true}
                     loading={loading}
                     dataSource={this.props.data} 

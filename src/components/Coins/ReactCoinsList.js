@@ -5,7 +5,7 @@ import Highlighter from 'react-highlight-words';
 import { fetchCoins, setSiderMenuItem } from '../../redux_actions';
 import { connect } from 'react-redux';
 import { Layout, Table, Typography, Button, Tag, Input, Icon } from 'antd';
-import { contentStyle } from '../../styles';
+import { contentStyle, tableStyle } from '../../styles';
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
 
@@ -119,6 +119,7 @@ class ReactCoinsList extends Component {
                         <Title level={2}>Coins List</Title>
                         <Paragraph>This page lists cryptocurrencies available through the CoinGecko API. To view details of a given coin, click 'View' button. You can also filter by Id, Symbol or Name to drill down and find a coin.</Paragraph>
                         <Table 
+                        style={tableStyle}
                         bordered={true}
                         loading={loading} 
                         dataSource={this.props.data} 

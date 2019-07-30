@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import ReactSider from '../Navigation/ReactSider';
 import { Layout, Typography, Table, Tag } from 'antd';
-import { contentStyle } from '../../styles';
+import { contentStyle, tableStyle } from '../../styles';
 import { connect } from 'react-redux';
 import { fetchExchangeRates, setSiderMenuItem } from '../../redux_actions';
 
@@ -54,6 +54,7 @@ class ReactExchangeRates extends Component {
                         <Title level={2}>Exchange Rates</Title>
                         <Paragraph>View BTC-to-Currency exchange rates.</Paragraph>
                         <Table
+                        style={tableStyle}
                         dataSource={this.props.data}
                         loading={loading}
                         columns={columns}
