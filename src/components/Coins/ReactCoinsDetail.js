@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchCoinDetails, setSiderMenuItem, fetchCoinMarketDetails } from '../../redux_actions';
 import { Link } from 'react-router-dom';
-import { Layout, Tag, Icon, Table, Skeleton, Row, Col, Button, Card, Typography, Avatar, Statistic } from 'antd';
-import { contentStyle, cardStyle, colStyle, titleStyle } from '../../styles';
+import { Layout, Tag, Icon, Skeleton, Button, Typography, Avatar } from 'antd';
+import { contentStyle, titleStyle } from '../../styles';
 import ReactCoinScores from './ReactCoinScores';
 import { Line } from 'react-chartjs-2';
 import { market_processed_table_keys, market_stat_keys } from '../../constants';
@@ -11,6 +11,8 @@ import chartOptions from '../../ChartConfig';
 import ReactSider from '../Navigation/ReactSider';
 import ReactCoinCommunityStats from './ReactCoinCommunityStats';
 import ReactCoinDeveloperStats from './ReactCoinDeveloperStats';
+import ReactCoinMarketStats from './ReactCoinMarketStats';
+import ReactCoinMarketDetailedStats from './ReactCoinMarketDetailedStats';
 
 
 const { Content } = Layout;
@@ -62,6 +64,7 @@ class ReactCoinsDetail extends Component {
         const { developer_data } = this.props.data;
 
         const { market_data } = this.props.data;
+        const { market_data_processed } = this.props.data
         const { last_updated } = this.props.data; 
         
         const loading = Object.keys(this.props.data).length > 0 ? false : true;
@@ -131,34 +134,19 @@ class ReactCoinsDetail extends Component {
                                 liquidity_score={liquidity_score}
                                 coingecko_score={coingecko_score}/>
                                 
-                                <Title level={3} style={titleStyle}>
-                                    Market Stats
-                                </Title>
-                                <Row gutter={16} style={{textAlign: 'center'}} type="flex">
-                                    {
-                                        market_stat_keys.map((key, index) => (
-                                            <Col key={index} xs={24} sm={24} md={12} lg={8} xl={8} style={colStyle}>
-                                                <Card style={cardStyle}>
-                                                    <Statistic precision={1} title={key} value={market_data[key]}/>
-                                                </Card>
-                                            </Col>
-                                        ))
-                                    }
-                                </Row>
+                                <ReactCoinMarketStats 
+                                market_data={market_data} 
+                                market_stat_keys={market_stat_keys}/>
                                 
-                                <ReactCoinCommunityStats data={community_data}/>
+                                <ReactCoinMarketDetailedStats 
+                                data={this.props.data.market_data_processed} 
+                                columns={finalColumns}/>
 
-                                <ReactCoinDeveloperStats data={developer_data}/>
-                        
+                                <ReactCoinCommunityStats
+                                data={community_data}/>
 
-                                <Title level={3} style={titleStyle}>Detailed market data</Title>
-                                <Table 
-                                rowKey = "currency"
-                                style={{overflowX:'auto'}}
-                                bordered 
-                                dataSource={this.props.data.market_data_processed} 
-                                columns={finalColumns}>
-                                </Table>
+                                <ReactCoinDeveloperStats 
+                                data={developer_data}/>
 
                                 <Title level={3} style={titleStyle}>Prices Chart</Title>
                                 <Paragraph>Prices in USD for the past 7 days. Datetimes are converted from unix to locale.</Paragraph>
