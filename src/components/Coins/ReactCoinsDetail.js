@@ -56,6 +56,9 @@ class ReactCoinsDetail extends Component {
         const { liquidity_score } = this.props.data;
         const { coingecko_score } = this.props.data;
 
+        const { community_data } = this.props.data;
+        const { developer_data } = this.props.data;
+
         const { market_data } = this.props.data;
         const { last_updated } = this.props.data; 
         
@@ -139,6 +142,43 @@ class ReactCoinsDetail extends Component {
                                             </Col>
                                         ))
                                     }
+                                </Row>
+
+                                <Title level={3} style={titleStyle}>
+                                    Community Stats
+                                </Title>
+
+                                <Row gutter={16} style={{textAlign: 'center'}} type="flex">
+                                    { Object.entries(community_data).map(item => {
+                                        if (typeof item[1] !== 'object') {
+                                            return (
+                                            <Col xs={24} sm={24} md={12} lg={8} xl={8} style={colStyle}>
+                                                <Card style={cardStyle}>
+                                                    <Statistic precision={1} title={item[0]} value={item[1]}/>
+                                                </Card>
+                                            </Col>
+                                            )
+                                        }
+                                    })}
+                                </Row>
+                                
+
+                                <Title level={3} style={titleStyle}>
+                                    Developer Stats
+                                </Title>
+
+                                <Row gutter={16} style={{textAlign: 'center'}} type="flex">
+                                    { Object.entries(developer_data).map(item => {
+                                        if (typeof item[1] !== 'object') {
+                                            return (
+                                            <Col xs={24} sm={24} md={12} lg={8} xl={8} style={colStyle}>
+                                                <Card style={cardStyle}>
+                                                    <Statistic precision={1} title={item[0]} value={item[1]}/>
+                                                </Card>
+                                            </Col>
+                                            )
+                                        }
+                                    })}
                                 </Row>
 
                                 <Title level={3} style={titleStyle}>Detailed market data</Title>
