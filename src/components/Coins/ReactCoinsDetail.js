@@ -13,6 +13,7 @@ import ReactCoinCommunityStats from './ReactCoinCommunityStats';
 import ReactCoinDeveloperStats from './ReactCoinDeveloperStats';
 import ReactCoinMarketStats from './ReactCoinMarketStats';
 import ReactCoinMarketDetailedStats from './ReactCoinMarketDetailedStats';
+import ReactCoinDetailSummary from './ReactCoinDetailSummary';
 
 
 const { Content } = Layout;
@@ -60,12 +61,10 @@ class ReactCoinsDetail extends Component {
         const { liquidity_score } = this.props.data;
         const { coingecko_score } = this.props.data;
 
-        const { community_data } = this.props.data;
-        const { developer_data } = this.props.data;
+        const { community_data, developer_data } = this.props.data;
 
-        const { market_data } = this.props.data;
-        const { market_data_processed } = this.props.data
-        const { last_updated } = this.props.data; 
+        const { market_data, market_data_processed } = this.props.data;
+        const { last_updated, name, image } = this.props.data; 
         
         const loading = Object.keys(this.props.data).length > 0 ? false : true;
         const coinMarketKeys = Object.keys(this.props.chart_data);
@@ -108,24 +107,11 @@ class ReactCoinsDetail extends Component {
                                 :
                             <React.Fragment>
                                 
-                                <Title level={2}>
-                                    <Avatar 
-                                    shape="square" 
-                                    size="large" 
-                                    src={this.props.data.image.large}
-                                    style={{marginRight:'1rem'}}/>
-                                    { this.props.data.name }
-                                </Title>
-
-                                <Paragraph>Last updated on <Tag color="green">{last_updated}</Tag></Paragraph>
-
-                                <Button style={{marginBottom: '1rem'}}>
-                                    <Icon type="left" />
-                                    <Link to='/coins'>Back to coins list</Link>
-                                </Button>
-                                <Title level={3} style={{marginTop: '3rem'}}>
-                                    Scores and Ranks
-                                </Title>
+                                <ReactCoinDetailSummary
+                                name={ name }
+                                last_updated = { last_updated }
+                                image={ image }/>
+                                
                                 <ReactCoinScores
                                 coingecko_rank={coingecko_rank}
                                 market_cap_rank={market_cap_rank}
@@ -139,7 +125,7 @@ class ReactCoinsDetail extends Component {
                                 market_stat_keys={market_stat_keys}/>
                                 
                                 <ReactCoinMarketDetailedStats 
-                                data={this.props.data.market_data_processed} 
+                                data={market_data_processed} 
                                 columns={finalColumns}/>
 
                                 <ReactCoinCommunityStats

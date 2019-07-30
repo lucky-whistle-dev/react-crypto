@@ -1,12 +1,17 @@
 import React from 'react'
 import { Row, Col, Card, Statistic } from 'antd';
 import { cardStyle, colStyle } from '../../styles';
-
+import { Typography } from 'antd'
 
 export default function ReactCoinScores(props) {
 
     return (
         <React.Fragment>
+            <Typography.Title 
+            level={3} 
+            style={{marginTop: '3rem'}}>
+                Scores and Ranks
+            </Typography.Title>
             <Row gutter={16} style={{textAlign: 'center'}} type="flex">
                 <Col xs={24} sm={24} md={12} lg={8} xl={8} style={colStyle}>
                     <Card style={cardStyle}>
