@@ -1,9 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Row, Card, Statistic,Col,Typography } from 'antd';
+import { colStyle, cardStyle, titleStyle } from '../../styles';
+
+
+const { Title } = Typography;
 
 
 export default class ReactCoinCommunityStats extends Component {
     render() {
-        const { community_data} = this.props;
+        const { data } = this.props;
         return (
             <React.Fragment>
                 <Title level={3} style={titleStyle}>
@@ -11,10 +16,10 @@ export default class ReactCoinCommunityStats extends Component {
                 </Title>
 
                 <Row gutter={16} style={{textAlign: 'center'}} type="flex">
-                    { Object.entries(community_data).map(item => {
+                    { Object.entries(data).map((item, index) => {
                         if (typeof item[1] !== 'object') {
                             return (
-                            <Col xs={24} sm={24} md={12} lg={8} xl={8} style={colStyle}>
+                            <Col key={index}  xs={24} sm={24} md={12} lg={8} xl={8} style={colStyle}>
                                 <Card style={cardStyle}>
                                     <Statistic precision={1} title={item[0]} value={item[1]}/>
                                 </Card>

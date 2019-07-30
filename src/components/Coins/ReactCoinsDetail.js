@@ -9,6 +9,8 @@ import { Line } from 'react-chartjs-2';
 import { market_processed_table_keys, market_stat_keys } from '../../constants';
 import chartOptions from '../../ChartConfig';
 import ReactSider from '../Navigation/ReactSider';
+import ReactCoinCommunityStats from './ReactCoinCommunityStats';
+import ReactCoinDeveloperStats from './ReactCoinDeveloperStats';
 
 
 const { Content } = Layout;
@@ -144,26 +146,10 @@ class ReactCoinsDetail extends Component {
                                     }
                                 </Row>
                                 
-                                
-                                
+                                <ReactCoinCommunityStats data={community_data}/>
 
-                                <Title level={3} style={titleStyle}>
-                                    Developer Stats
-                                </Title>
-
-                                <Row gutter={16} style={{textAlign: 'center'}} type="flex">
-                                    { Object.entries(developer_data).map(item => {
-                                        if (typeof item[1] !== 'object') {
-                                            return (
-                                            <Col xs={24} sm={24} md={12} lg={8} xl={8} style={colStyle}>
-                                                <Card style={cardStyle}>
-                                                    <Statistic precision={1} title={item[0]} value={item[1]}/>
-                                                </Card>
-                                            </Col>
-                                            )
-                                        }
-                                    })}
-                                </Row>
+                                <ReactCoinDeveloperStats data={developer_data}/>
+                        
 
                                 <Title level={3} style={titleStyle}>Detailed market data</Title>
                                 <Table 
