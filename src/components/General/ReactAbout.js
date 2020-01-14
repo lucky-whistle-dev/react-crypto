@@ -131,7 +131,7 @@ class ReactAbout extends Component {
                     renderItem={c => <List.Item>{c}</List.Item>}
                     />
 
-                    <Title level={3}>Packages used in this project</Title>
+                    <Title level={3}>Packages used in this project:</Title>
                     <Paragraph>The following packages were installed via <strong>npm</strong></Paragraph>
                     
                     <Table
