@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Layout, List, Tag, Typography, Table } from 'antd';
+import { Layout, List, Typography } from 'antd';
 import { contentStyle } from '../../styles';
 import coinGeckoLogo from '../../images/branding/CoinGecko.png';
 import {connect} from 'react-redux';
