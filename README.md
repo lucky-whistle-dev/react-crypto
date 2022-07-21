@@ -138,24 +138,14 @@ I aim to use the following packages:
 - [React documentation](https://reactjs.org/docs/getting-started.html)
 - [Ant Design Documentation](https://ant.design/docs/react/introduce)
 
-# Available Scripts
+# Steps to reproduce
 
-In the project directory, you can run:
+```sh
+# install dependencies and start local server (make sure you have nvm and yarn installed beforehand)
+nvm use
+yarn
+yarn start
 
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# building
+yarn build
+```
