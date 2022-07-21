@@ -25,6 +25,7 @@ export default class ReactCoinDeveloperStats extends Component {
                             </Col>
                             )
                         }
+                        return null
                     })}
                 </Row>
             </React.Fragment>

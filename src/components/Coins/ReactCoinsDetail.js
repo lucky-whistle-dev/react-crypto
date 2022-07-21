@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchCoinDetails, setSiderMenuItem, fetchCoinMarketDetails } from '../../redux_actions';
-import { Link } from 'react-router-dom';
-import { Layout, Tag, Icon, Skeleton, Button, Typography, Avatar } from 'antd';
+import { Layout, Tag, Skeleton, Typography } from 'antd';
 import { contentStyle, titleStyle } from '../../styles';
 import ReactCoinScores from './ReactCoinScores';
 import { Line } from 'react-chartjs-2';

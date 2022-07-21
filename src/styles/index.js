@@ -1,5 +1,3 @@
-import { AutoComplete } from "antd";
-
 export const contentStyle = {
     background: '#ffffff',
     padding: '2rem',
