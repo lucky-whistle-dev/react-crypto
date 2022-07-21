@@ -5,7 +5,7 @@
   "homepage": "https://danielc92.github.io/react-crypto-app",
   "dependencies": {
     "antd": "^4.21.7",
-    "axios": "^0.19.0",
+    "axios": "^0.21.2",
     "chart.js": "^2.8.0",
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
@@ -14,7 +14,7 @@
     "react-highlight-words": "^0.16.0",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "^3.3.0",
+    "react-scripts": "^5.0.0",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0"
   },
