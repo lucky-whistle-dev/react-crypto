@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://danielc92.github.io/react-crypto-app",
   "dependencies": {
-    "antd": "^3.20.6",
+    "antd": "^4.21.7",
     "axios": "^0.19.0",
     "chart.js": "^2.8.0",
     "gh-pages": "^2.0.1",
