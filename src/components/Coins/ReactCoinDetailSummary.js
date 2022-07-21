@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Typography, Tag, Icon, Button, Avatar } from 'antd';
+import { Typography, Tag, Button, Avatar } from 'antd';
+import { ArrowLeftOutlined } from '@ant-design/icons'
 const { Title, Paragraph } = Typography;
 
 
@@ -21,7 +22,7 @@ export default class ReactCoinDetailSummary extends Component {
                 <Paragraph>Last updated on <Tag color="green">{ last_updated }</Tag></Paragraph>
 
                 <Button style={{marginBottom: '1rem'}}>
-                    <Icon type="left" />
+                    <ArrowLeftOutlined/>
                     <Link to='/coins'>Back to coins list</Link>
                 </Button>
             </React.Fragment>

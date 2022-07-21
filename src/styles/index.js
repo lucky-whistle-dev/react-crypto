@@ -20,7 +20,8 @@ export const footerStyle = {
 }
 
 export const iconStyle = {
-    fontSize: '1.25rem'
+    fontSize: '1.25rem',
+    marginRight: "10px"
 }
 
 export const titleStyle = {

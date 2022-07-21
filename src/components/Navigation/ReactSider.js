@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu } from 'antd';
+import {} from 'antd/'
 import { iconStyle } from '../../styles';
+import { 
+    AlertOutlined, 
+    DollarOutlined,
+    TeamOutlined,
+    BankOutlined,
+    GlobalOutlined
+}  from "@ant-design/icons";
 import { connect } from 'react-redux';
 
 const { Sider } = Layout;
@@ -27,7 +35,7 @@ class ReactSider extends Component {
                         key="menu-updates"
                         title={
                         <span>
-                            <Icon type="alert" style={iconStyle}/>Updates
+                            <AlertOutlined style={iconStyle}/>Updates
                         </span>
                         }
                         >
@@ -38,7 +46,7 @@ class ReactSider extends Component {
                         key="menu-coins"
                         title={
                         <span>
-                            <Icon type="dollar" style={iconStyle}/>Coins
+                            <DollarOutlined style={iconStyle}/>Coins
                         </span>
                         }
                         >
@@ -51,7 +59,7 @@ class ReactSider extends Component {
                         key="menu-events"
                         title={
                         <span>
-                            <Icon type="team" style={iconStyle}/>Events
+                            <TeamOutlined  style={iconStyle}/>Events
                         </span>
                         }
                         >
@@ -63,7 +71,7 @@ class ReactSider extends Component {
                     key="menu-exchanges"
                     title={
                         <span>
-                            <Icon type="bank" style={iconStyle}/>
+                            <BankOutlined style={iconStyle}/>
                             Exchanges
                         </span>
                         }>
@@ -75,7 +83,7 @@ class ReactSider extends Component {
                     key="menu-exchange-rates"
                     title={
                         <span>
-                            <Icon type="dollar" style={iconStyle}/>
+                            <DollarOutlined style={iconStyle}/>
                             Exchange Rates
                         </span>
                         }>
@@ -88,7 +96,7 @@ class ReactSider extends Component {
                         key="menu-global"
                         title={
                         <span>
-                            <Icon type="global" style={iconStyle}/>
+                            <GlobalOutlined style={iconStyle}/>
                             Global
                         </span>
                         }

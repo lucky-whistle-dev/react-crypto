@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Layout, List, Tag, Timeline, Typography, Icon } from 'antd';
+import { Layout, List, Tag, Timeline, Typography } from 'antd';
+import { ClockCircleFilled } from '@ant-design/icons'
 import { contentStyle } from '../../styles';
 import ReactSider from '../Navigation/ReactSider';
 import { fetchEvents, setSiderMenuItem } from '../../redux_actions';
@@ -55,11 +56,14 @@ class ReactEvents extends Component {
                         <Timeline>
                             <Timeline.Item 
                             color="blue"
-                            dot={<Icon type="clock-circle-o" style={{ fontSize: '16px' }} />}>Event starts on <span style={{fontWeight: 500}}>{ item.start_date }</span>
+                            dot={ <ClockCircleFilled style={{ fontSize: '16px' }} />}
+                            
+                            >Event starts on <span style={{fontWeight: 500}}>{ item.start_date }</span>
                             </Timeline.Item>
                             <Timeline.Item 
                             color="red"
-                            dot={<Icon type="clock-circle-o" style={{ fontSize: '16px' }} />}>Event ends on <span style={{fontWeight: 500}}>{ item.end_date }</span>
+                            dot={<ClockCircleFilled style={{ fontSize: '16px' }} />}
+                            >Event ends on <span style={{fontWeight: 500}}>{ item.end_date }</span>
                             </Timeline.Item>
                         </Timeline>
                         

@@ -102,7 +102,7 @@ class ReactHome extends Component {
               </Col>
             ))}
           </Row>
-          <Paragraph>Icons provided by flaticon.</Paragraph>
+          <Paragraph>icons provided by flaticon.</Paragraph>
         </Content>
       </Layout>
     );

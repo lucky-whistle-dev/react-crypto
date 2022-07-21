@@ -16,77 +16,6 @@ class ReactAbout extends Component {
 
     render() {
 
-        const packages = [
-            {
-                name: 'antd',
-                version: '^3.20.6',
-                purpose: ''
-            },
-            {
-                name: 'gh-pages',
-                version: '^2.0.1',
-                purpose: ''
-            },
-            {
-                name: 'react',
-                version: '^16.8.6',
-                purpose: ''
-            },
-            {
-                name: 'react-dom',
-                version: '^16.8.6',
-                purpose: ''
-            },
-            {
-                name: 'react-router-dom',
-                version: '^5.0.1',
-                purpose: ''
-            },
-            {
-                name: 'react-scripts',
-                version: '3.0.1',
-                purpose: ''
-            },
-            {
-                name: 'react-chartjs-2',
-                version: '^2.7.6',
-                purpose: ''
-            },
-            {
-                name: 'axios',
-                version :'^0.19.0',
-                purpose: ''
-            },
-            {
-                name: 'redux-thunk',
-                version :'^2.3.0',
-                purpose: ''
-            },
-            {
-                name: 'redux',
-                version :'^4.0.4',
-                purpose: ''
-            },
-            {
-                name: 'react-redux',
-                version: '^7.1.0',
-                purpose: ''
-            }
-            ];
-
-            const columns = [
-            {
-                title: 'Name',
-                dataIndex: 'name',
-                key: 'name',
-            },
-            {
-                title: 'Version',
-                dataIndex: 'version',
-                key: 'version',
-                render: item => <Tag color="green">{item}</Tag>
-            }];
-            
             const challenges = [
                 'Organizing large amounts of data from third party API.'
                 ,'Complex routing within nested components.'
@@ -129,17 +58,7 @@ class ReactAbout extends Component {
                     bordered
                     dataSource={challenges}
                     renderItem={c => <List.Item>{c}</List.Item>}
-                    />
-
-                    <Title level={3}>Packages used in this project:</Title>
-                    <Paragraph>The following packages were installed via <strong>npm</strong></Paragraph>
-                    
-                    <Table
-                    bordered
-                    pagination={false} 
-                    dataSource={packages} 
-                    columns={columns}></Table>
-                    
+                    />                    
                 </Content>
             </Layout>
         )

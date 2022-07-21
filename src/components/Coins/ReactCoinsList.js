@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import Highlighter from 'react-highlight-words';
 import { fetchCoins, setSiderMenuItem } from '../../redux_actions';
 import { connect } from 'react-redux';
-import { Layout, Table, Typography, Button, Tag, Input, Icon } from 'antd';
+import { Layout, Table, Typography, Button, Tag, Input } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
 import { contentStyle, tableStyle } from '../../styles';
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -32,7 +33,7 @@ class ReactCoinsList extends Component {
             <Button
                 type="primary"
                 onClick={() => this.handleSearch(selectedKeys, confirm)}
-                icon="search"
+                icon={<SearchOutlined/>}
                 size="small"
                 style={{ width: 90, marginRight: 8 }}
             >
@@ -44,7 +45,7 @@ class ReactCoinsList extends Component {
             </div>
         ),
         filterIcon: filtered => (
-            <Icon type="search" style={{ color: filtered ? '#1890ff' : undefined }} />
+            <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />
         ),
         onFilter: (value, record) =>
             record[dataIndex]

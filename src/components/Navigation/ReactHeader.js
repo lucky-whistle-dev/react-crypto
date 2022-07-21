@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu } from 'antd';
 import { iconStyle } from '../../styles';
+import { HomeOutlined, InfoCircleOutlined, GithubOutlined, AreaChartOutlined } from "@ant-design/icons";
 import logoImage from '../../images/logo/logo.png';
 import { connect } from 'react-redux';
 import { setHeaderMenuItem } from '../../redux_actions'; 
@@ -32,22 +33,23 @@ class ReactHeader extends Component {
                         </Menu.Item>
                         <Menu.Item key="home" onClick={()=>this.props.setHeaderMenuItem('home')}>
                             <Link to="/">
-                                <Icon type="home" style={iconStyle}/>Home
+                                
+                                <HomeOutlined style={iconStyle}/>Home
                             </Link>
                         </Menu.Item>
                         <Menu.Item key="dashboard" onClick={()=>this.props.setHeaderMenuItem('dashboard')}>
                             <Link to="/status/list">
-                                <Icon type="area-chart" style={iconStyle}/>Dashboard
+                                <AreaChartOutlined  style={iconStyle}/>Dashboard
                             </Link>
                         </Menu.Item>
                         <Menu.Item key="about" onClick={()=>this.props.setHeaderMenuItem('about')}>
                             <Link to="/about">
-                                <Icon type="info-circle" style={iconStyle}/>About
+                                <InfoCircleOutlined style={iconStyle}/>About
                             </Link>
                         </Menu.Item>
                         <Menu.Item key="source">
                             <a rel="noopener noreferrer" target="_blank" href="https://github.com/danielc92/react-crypto-app">
-                                <Icon theme="filled" type="github" style={iconStyle}/>Source
+                                <GithubOutlined style={iconStyle}/>Source
                             </a>
                         </Menu.Item>
                     </Menu>
