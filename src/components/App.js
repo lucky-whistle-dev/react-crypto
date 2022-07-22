@@ -1,26 +1,26 @@
-import React, { Component } from 'react';
-import ReactCoinsList from './Coins/ReactCoinsList';
-import ReactCoinsDetail from './Coins/ReactCoinsDetail';
-import ReactHome from './General/ReactHome';
-import ReactAbout from './General/ReactAbout';
-import ReactEvents from './Events/ReactEvents';
-import ReactEmpty from './Empty/ReactEmpty';
-import ReactGlobal from './Global/ReactGlobal';
-import { Route } from 'react-router-dom';
-import { Layout } from 'antd';
-import ReactHeader from './Navigation/ReactHeader';
-import ReactExchangesList from './Exchanges/ReactExchangesList';
-import ReactExchangeRates from './ExchangeRates/ReactExchangeRates';
-import ReactFooter from './Navigation/ReactFooter';
+import React, { Component } from 'react'
+import ReactCoinsList from './Coins/ReactCoinsList'
+import ReactCoinsDetail from './Coins/ReactCoinsDetail'
+import ReactHome from './General/ReactHome'
+import ReactAbout from './General/ReactAbout'
+import ReactEvents from './Events/ReactEvents'
+import ReactEmpty from './Empty/ReactEmpty'
+import ReactGlobal from './Global/ReactGlobal'
+import { Route } from 'react-router-dom'
+import { Layout } from 'antd'
+import ReactHeader from './Navigation/ReactHeader'
+import ReactExchangesList from './Exchanges/ReactExchangesList'
+import ReactExchangeRates from './ExchangeRates/ReactExchangeRates'
+import ReactFooter from './Navigation/ReactFooter'
 import './App.css'
-import ReactAssetPlatforms from './AssetPlatforms/ReactAssetPlatforms';
+import ReactAssetPlatforms from './AssetPlatforms/ReactAssetPlatforms'
 
-//[NOTE] React prefix used with React.Components in order to differentiate from Ant Design UI components.
+// [NOTE] React prefix used with React.Components in order to differentiate from Ant Design UI components.
 
 export default class App extends Component {
-    render() {
-        return (
-            <Layout style={{minHeight: '100vh', lineHeight: '1.6rem'}}>    
+  render () {
+    return (
+            <Layout style={{ minHeight: '100vh', lineHeight: '1.6rem' }}>
                 <ReactHeader/>
                 <Layout>
                     <Route path='/' exact component={ReactHome}/>
@@ -36,6 +36,6 @@ export default class App extends Component {
                 </Layout>
                 <ReactFooter/>
             </Layout>
-        )
-    }
+    )
+  }
 }

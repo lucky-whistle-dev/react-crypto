@@ -1,5 +1,5 @@
-import axios from 'axios';
+import axios from 'axios'
 
 export default axios.create({
-    baseURL: 'https://api.coingecko.com/api/v3'
+  baseURL: 'https://api.coingecko.com/api/v3'
 })

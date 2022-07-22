@@ -1,23 +1,22 @@
-import React, { Component } from 'react';
-import { Layout, List, Tag, Timeline, Typography } from 'antd';
+import React, { Component } from 'react'
+import { Layout, List, Tag, Timeline, Typography } from 'antd'
 import { ClockCircleFilled } from '@ant-design/icons'
-import { contentStyle } from '../../styles';
-import ReactSider from '../Navigation/ReactSider';
-import { fetchEvents, setSiderMenuItem } from '../../redux_actions';
-import { connect } from 'react-redux';
-const { Title, Paragraph } = Typography;
-const { Content } = Layout;
+import { contentStyle } from '../../styles'
+import ReactSider from '../Navigation/ReactSider'
+import { fetchEvents, setSiderMenuItem } from '../../redux_actions'
+import { connect } from 'react-redux'
+const { Title, Paragraph } = Typography
+const { Content } = Layout
 
 class ReactEvents extends Component {
+  componentDidMount () {
+    this.props.fetchEvents()
+    this.props.setSiderMenuItem('events-list')
+  }
 
-    componentDidMount() {
-        this.props.fetchEvents()
-        this.props.setSiderMenuItem('events-list')
-    }
-
-    render() {
-        const loading = this.props.data.length > 0 ? false : true;
-        return (
+  render () {
+    const loading = !(this.props.data.length > 0)
+    return (
             <React.Fragment>
                 <ReactSider/>
                 <Layout style={{ padding: '1rem' }}>
@@ -36,7 +35,7 @@ class ReactEvents extends Component {
                         extra={
                         <img
                             className="responsive-image"
-                            style={{maxWidth: '400px'}}
+                            style={{ maxWidth: '400px' }}
                             alt={item.title}
                             src={item.screenshot}
                         />
@@ -48,44 +47,44 @@ class ReactEvents extends Component {
                         />
                         {item.description.slice(0, 500)}...
 
-                        <div style={{margin: '1.5rem 0rem'}} >
+                        <div style={{ margin: '1.5rem 0rem' }} >
                             <Tag color="blue">Type: {item.type}</Tag>
                             <Tag color="blue">Location: {item.country}</Tag>
                         </div>
 
                         <Timeline>
-                            <Timeline.Item 
+                            <Timeline.Item
                             color="blue"
                             dot={ <ClockCircleFilled style={{ fontSize: '16px' }} />}
-                            
-                            >Event starts on <span style={{fontWeight: 500}}>{ item.start_date }</span>
+
+                            >Event starts on <span style={{ fontWeight: 500 }}>{ item.start_date }</span>
                             </Timeline.Item>
-                            <Timeline.Item 
+                            <Timeline.Item
                             color="red"
                             dot={<ClockCircleFilled style={{ fontSize: '16px' }} />}
-                            >Event ends on <span style={{fontWeight: 500}}>{ item.end_date }</span>
+                            >Event ends on <span style={{ fontWeight: 500 }}>{ item.end_date }</span>
                             </Timeline.Item>
                         </Timeline>
-                        
+
                     </List.Item>
                     )}
                 />
                 </Content>
             </Layout>
             </React.Fragment>
-        )
-    }
+    )
+  }
 }
 
 const mapStateToProps = (state) => {
-    return {
-        data: state.events
-    }
+  return {
+    data: state.events
+  }
 }
 
 const mapActionsToProps = {
-    fetchEvents, 
-    setSiderMenuItem
+  fetchEvents,
+  setSiderMenuItem
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(ReactEvents);
+export default connect(mapStateToProps, mapActionsToProps)(ReactEvents)

@@ -18,5 +18,9 @@
         "react"
     ],
     "rules": {
+        "camelcase": "off",
+        "react/prop-types": "warn",
+        "no-case-declarations": "warn"
     }
+
 }

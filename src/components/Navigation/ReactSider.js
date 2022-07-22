@@ -1,28 +1,28 @@
-import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
-import { Layout, Menu } from 'antd';
-import {} from 'antd/'
-import { iconStyle } from '../../styles';
-import { 
-    AlertOutlined, 
-    DollarOutlined,
-    TeamOutlined,
-    BankOutlined,
-    GlobalOutlined
-}  from "@ant-design/icons";
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import { Layout, Menu } from 'antd'
 
-const { Sider } = Layout;
-const {SubMenu} = Menu;
+import { iconStyle } from '../../styles'
+import {
+  AlertOutlined,
+  DollarOutlined,
+  TeamOutlined,
+  BankOutlined,
+  GlobalOutlined
+} from '@ant-design/icons'
+import { connect } from 'react-redux'
+
+const { Sider } = Layout
+const { SubMenu } = Menu
 
 class ReactSider extends Component {
-    render() {
-        return (
+  render () {
+    return (
             <React.Fragment>
-                <Sider 
+                <Sider
                 breakpoint="md"
                 collapsedWidth="0"
-                width={240} 
+                width={240}
                 style={{ background: '#fff' }}>
                     <Menu
                     mode="inline"
@@ -53,19 +53,19 @@ class ReactSider extends Component {
                         <Menu.Item key="coin-list"><Link to='/coins'>Coin Listing</Link></Menu.Item>
                         <Menu.Item key="coin-detail"><Link to='/coins/bitcoin'>Coin Detail View</Link></Menu.Item>
                     </SubMenu>
-                    
+
                     {/* Events Sub Menu */}
                     <SubMenu
                         key="menu-events"
                         title={
                         <span>
-                            <TeamOutlined  style={iconStyle}/>Events
+                            <TeamOutlined style={iconStyle}/>Events
                         </span>
                         }
                         >
                         <Menu.Item key="events-list"><Link to='/events/list'>Events Listing</Link></Menu.Item>
                     </SubMenu>
-                    
+
                     {/* Exchanges Menu */}
                     <SubMenu
                     key="menu-exchanges"
@@ -90,7 +90,6 @@ class ReactSider extends Component {
                     <Menu.Item key="exchange-rates-list"><Link to='/exchange-rates'>Exchange Rates Listing</Link></Menu.Item>
                     </SubMenu>
 
-
                     {/* Global Sub Menu */}
                     <SubMenu
                         key="menu-global"
@@ -106,15 +105,14 @@ class ReactSider extends Component {
                     </Menu>
                 </Sider>
             </React.Fragment>
-        )
-    }
+    )
+  }
 }
 
 const mapStateToProps = (state) => {
-    return {
-        sider_selected: state.sider_selected
-    }
-
+  return {
+    sider_selected: state.sider_selected
+  }
 }
 
 export default connect(mapStateToProps)(ReactSider)
