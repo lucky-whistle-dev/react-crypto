@@ -9,7 +9,15 @@ export const GET_GLOBAL = 'GET_GLOBAL';
 export const SET_HEADER_MENU_ITEM = 'SET_HEADER_MENU_ITEM';
 export const SET_SIDER_MENU_ITEM = 'SET_SIDER_MENU_ITEM'
 export const GET_STATUS_UPDATES = 'GET_STATUS_UPDATES';
+export const GET_ASSET_PLATFORMS = "GET_ASSET_PLATFORMS";
 
+export const fetchAssetPlatforms = () => async (dispatch, getState) => {
+    const response = await coinGecko.get('/asset_platforms')
+    dispatch({
+        type: GET_ASSET_PLATFORMS,
+        payload: response.data
+    })
+}
 
 export const fetchCoins = () => async (dispatch, getState ) => {
     const response = await coinGecko.get('/coins/list')

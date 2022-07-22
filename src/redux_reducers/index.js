@@ -9,8 +9,21 @@ import {GET_COIN_LIST,
         GET_GLOBAL,
         GET_STATUS_UPDATES,
         SET_HEADER_MENU_ITEM,
-        SET_SIDER_MENU_ITEM } from '../redux_actions';
+        SET_SIDER_MENU_ITEM,
+        GET_ASSET_PLATFORMS
+    } from '../redux_actions';
 
+
+const assetPlatformsReducer = (state=[], action) => {
+    const {type, payload} = action;
+
+    switch(type) {
+        case GET_ASSET_PLATFORMS:
+            return payload
+        default:
+            return state
+    }
+}
 
 const coinsReducer = (state=[], action) => {
     const { type, payload } = action;
@@ -139,7 +152,7 @@ const headerMenuItemReducer = (state='', action) => {
     }
 }
 
-const siderMenuItemReducer = (state='status-list', action) => {
+const siderMenuItemReducer = (state='asset-platforms', action) => {
     const { type, payload } = action;
     
     switch(type) {
@@ -161,5 +174,6 @@ export const rootReducer = combineReducers({
     coin_details: coinDetailsReducer,
     coin_market_details: coinMarketDetailsReducer,
     header_selected: headerMenuItemReducer,
-    sider_selected: siderMenuItemReducer
+    sider_selected: siderMenuItemReducer,
+    asset_platforms: assetPlatformsReducer
 })

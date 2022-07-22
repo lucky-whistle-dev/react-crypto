@@ -13,7 +13,7 @@ import ReactExchangesList from './Exchanges/ReactExchangesList';
 import ReactExchangeRates from './ExchangeRates/ReactExchangeRates';
 import ReactFooter from './Navigation/ReactFooter';
 import './App.css'
-import ReactStatusUpdates from './StatusUpdates/ReactStatusUpdates';
+import ReactAssetPlatforms from './AssetPlatforms/ReactAssetPlatforms';
 
 //[NOTE] React prefix used with React.Components in order to differentiate from Ant Design UI components.
 
@@ -32,7 +32,7 @@ export default class App extends Component {
                     <Route path='/empty' exact component={ReactEmpty}/>
                     <Route path='/events/list' exact component={ReactEvents}/>
                     <Route path='/exchange-rates' exact component={ReactExchangeRates}/>
-                    <Route path='/status/list' exact component={ReactStatusUpdates}/>
+                    <Route path='/asset-platforms' exact component={ReactAssetPlatforms}/>
                 </Layout>
                 <ReactFooter/>
             </Layout>

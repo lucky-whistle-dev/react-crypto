@@ -35,11 +35,11 @@ class ReactSider extends Component {
                         key="menu-updates"
                         title={
                         <span>
-                            <AlertOutlined style={iconStyle}/>Updates
+                            <AlertOutlined style={iconStyle}/>General
                         </span>
                         }
                         >
-                        <Menu.Item key="status-list"><Link to='/status/list'>Updates Listing</Link></Menu.Item>
+                        <Menu.Item key="asset-platforms"><Link to='/asset-platforms'>Asset Platforms</Link></Menu.Item>
                     </SubMenu>
                    {/* Coin Sub Menu */}
                     <SubMenu
