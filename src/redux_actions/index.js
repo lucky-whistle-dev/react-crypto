@@ -8,7 +8,6 @@ export const GET_EXCHANGES_LIST = 'GET_EXCHANGES_LIST';
 export const GET_GLOBAL = 'GET_GLOBAL';
 export const SET_HEADER_MENU_ITEM = 'SET_HEADER_MENU_ITEM';
 export const SET_SIDER_MENU_ITEM = 'SET_SIDER_MENU_ITEM'
-export const GET_STATUS_UPDATES = 'GET_STATUS_UPDATES';
 export const GET_ASSET_PLATFORMS = "GET_ASSET_PLATFORMS";
 
 export const fetchAssetPlatforms = () => async (dispatch, getState) => {
@@ -64,14 +63,6 @@ export const fetchExchanges = () => async (dispatch, getState ) => {
     const response = await coinGecko.get('/exchanges')
     dispatch({
         type: GET_EXCHANGES_LIST,
-        payload: response.data
-    })
-}
-
-export const fetchStatusUpdates = () => async (dispatch, getState ) => {
-    const response = await coinGecko.get('/status_updates')
-    dispatch({
-        type: GET_STATUS_UPDATES,
         payload: response.data
     })
 }

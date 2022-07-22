@@ -7,7 +7,6 @@ import {GET_COIN_LIST,
         GET_EXCHANGES_LIST,
         GET_EXCHANGE_RATES,
         GET_GLOBAL,
-        GET_STATUS_UPDATES,
         SET_HEADER_MENU_ITEM,
         SET_SIDER_MENU_ITEM,
         GET_ASSET_PLATFORMS
@@ -130,17 +129,6 @@ const eventReducer = (state=[], action) => {
     }
 }
 
-const statusUpdatesReducer = (state=[], action) => {
-    const { type, payload } = action;
-
-    switch(type) {
-        case GET_STATUS_UPDATES:
-            return payload.status_updates
-        default: 
-            return state
-    }
-}
-
 const headerMenuItemReducer = (state='', action) => {
     const { type, payload } = action;
     
@@ -166,7 +154,6 @@ const siderMenuItemReducer = (state='asset-platforms', action) => {
 
 export const rootReducer = combineReducers({
     events: eventReducer,
-    status_updates: statusUpdatesReducer,
     global: globalReducer,
     exchanges: exchangesReducer,
     exchange_rates: exchangeRatesReducer,
