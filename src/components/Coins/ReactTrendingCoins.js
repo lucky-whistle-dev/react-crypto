@@ -27,32 +27,34 @@ class ReactTrendingCoins extends Component {
             <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
 
               {
-                this.props.data?.coins?.map(coin =>
+                this.props.data?.coins?.map(coin => {
+                  const { item } = coin
 
-                  <Col key={coin.symbol} className="gutter-row" span={8}>
+                  return (<Col key={coin.symbol} className="gutter-row" span={6}>
                     <Badge.Ribbon text={
-                      `rank: ${coin.item.market_cap_rank}`
+                      `rank: ${item.market_cap_rank}`
                     } color="green">
                       <Card
-                        key={coin.item.id}
+                        key={item.id}
                         style={{ marginBottom: '16px' }}
                         cover={
                           <img
                             alt="example"
-                            src={coin.item.large}
+                            src={item.large}
                             style={{ padding: '40px' }}
                           />
                         }
 
                       >
                         <Meta
-                          avatar={<Avatar src={coin.item.thumb} />}
-                          title={`${coin.item.name} (${coin.item.symbol})`}
-                          description={`${coin.item.slug} has a score of ${coin.item.score}, and an exchange value of ${coin.item.price_btc} (btc conversion rate)`}
+                          avatar={<Avatar src={item.thumb} />}
+                          title={`${item.name} (${item.symbol})`}
+                          description={`${item.slug} has a score of ${item.score}, and an exchange value of ${item.price_btc} (btc conversion rate)`}
                         />
                       </Card>
                     </Badge.Ribbon>
-                  </Col>
+                  </Col>)
+                }
                 )
               }
             </Row>
