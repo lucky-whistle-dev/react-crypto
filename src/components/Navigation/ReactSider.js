@@ -6,7 +6,6 @@ import { iconStyle } from '../../styles'
 import {
   AlertOutlined,
   DollarOutlined,
-  TeamOutlined,
   BankOutlined,
   GlobalOutlined
 } from '@ant-design/icons'
@@ -52,18 +51,6 @@ class ReactSider extends Component {
                         >
                         <Menu.Item key="coin-list"><Link to='/coins'>Coin Listing</Link></Menu.Item>
                         <Menu.Item key="coin-detail"><Link to='/coins/bitcoin'>Coin Detail View</Link></Menu.Item>
-                    </SubMenu>
-
-                    {/* Events Sub Menu */}
-                    <SubMenu
-                        key="menu-events"
-                        title={
-                        <span>
-                            <TeamOutlined style={iconStyle}/>Events
-                        </span>
-                        }
-                        >
-                        <Menu.Item key="events-list"><Link to='/events/list'>Events Listing</Link></Menu.Item>
                     </SubMenu>
 
                     {/* Exchanges Menu */}

@@ -3,7 +3,6 @@ import ReactCoinsList from './Coins/ReactCoinsList'
 import ReactCoinsDetail from './Coins/ReactCoinsDetail'
 import ReactHome from './General/ReactHome'
 import ReactAbout from './General/ReactAbout'
-import ReactEvents from './Events/ReactEvents'
 import ReactEmpty from './Empty/ReactEmpty'
 import ReactGlobal from './Global/ReactGlobal'
 import { Route } from 'react-router-dom'
@@ -30,7 +29,6 @@ export default class App extends Component {
                     <Route path='/exchanges/list' exact component={ReactExchangesList}/>
                     <Route path='/global' exact component={ReactGlobal}/>
                     <Route path='/empty' exact component={ReactEmpty}/>
-                    <Route path='/events/list' exact component={ReactEvents}/>
                     <Route path='/exchange-rates' exact component={ReactExchangeRates}/>
                     <Route path='/asset-platforms' exact component={ReactAssetPlatforms}/>
                 </Layout>
