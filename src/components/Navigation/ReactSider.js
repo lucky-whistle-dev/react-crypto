@@ -39,6 +39,7 @@ class ReactSider extends Component {
                         }
                         >
                         <Menu.Item key="asset-platforms"><Link to='/asset-platforms'>Asset Platforms</Link></Menu.Item>
+                        <Menu.Item key="trending-coins"><Link to='/trending-coins'>Trending coins</Link></Menu.Item>
                     </SubMenu>
                    {/* Coin Sub Menu */}
                     <SubMenu

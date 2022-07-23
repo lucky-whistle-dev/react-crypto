@@ -10,7 +10,8 @@ import {
   GET_GLOBAL,
   SET_HEADER_MENU_ITEM,
   SET_SIDER_MENU_ITEM,
-  GET_ASSET_PLATFORMS
+  GET_ASSET_PLATFORMS,
+  GET_TRENDING_COINS
 } from '../redux_actions'
 
 const assetPlatformsReducer = (state = [], action) => {
@@ -18,6 +19,17 @@ const assetPlatformsReducer = (state = [], action) => {
 
   switch (type) {
     case GET_ASSET_PLATFORMS:
+      return payload
+    default:
+      return state
+  }
+}
+
+const coinsTrendingReducer = (state = [], action) => {
+  const { type, payload } = action
+
+  switch (type) {
+    case GET_TRENDING_COINS:
       return payload
     default:
       return state
@@ -153,6 +165,7 @@ export const rootReducer = combineReducers({
   coins: coinsReducer,
   coin_details: coinDetailsReducer,
   coin_market_details: coinMarketDetailsReducer,
+  trending_coins: coinsTrendingReducer,
   header_selected: headerMenuItemReducer,
   sider_selected: siderMenuItemReducer,
   asset_platforms: assetPlatformsReducer

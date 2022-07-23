@@ -10,6 +10,7 @@ import { Layout } from 'antd'
 import ReactHeader from './Navigation/ReactHeader'
 import ReactExchangesList from './Exchanges/ReactExchangesList'
 import ReactExchangeRates from './ExchangeRates/ReactExchangeRates'
+import ReactTrendingCoins from './Coins/ReactTrendingCoins'
 import ReactFooter from './Navigation/ReactFooter'
 import './App.css'
 import ReactAssetPlatforms from './AssetPlatforms/ReactAssetPlatforms'
@@ -24,6 +25,7 @@ export default class App extends Component {
                 <Layout>
                     <Route path='/' exact component={ReactHome}/>
                     <Route path='/about' exact component={ReactAbout}/>
+                    <Route path='/trending-coins' exact component={ReactTrendingCoins}/>
                     <Route path='/coins' exact component={ReactCoinsList}/>
                     <Route path='/coins/:coinId/' exact component={ReactCoinsDetail}/>
                     <Route path='/exchanges/list' exact component={ReactExchangesList}/>
