@@ -86,63 +86,63 @@ class ReactCoinsDetail extends Component {
       'rgba(26, 201, 166, 0.7)')
 
     return (
-            <React.Fragment>
-                <ReactSider/>
-                <Layout style={{ padding: '1rem' }}>
-                    <Content style={contentStyle}>
-                        {
-                            loading
-                              ? <React.Fragment>
-                                <Skeleton active/>
-                                <Skeleton active/>
-                                <Skeleton active/>
-                                <Skeleton active/>
-                            </React.Fragment>
-                              : <React.Fragment>
+      <React.Fragment>
+        <ReactSider/>
+        <Layout style={{ padding: '1rem' }}>
+          <Content style={contentStyle}>
+            {
+              loading
+                ? <React.Fragment>
+                  <Skeleton active/>
+                  <Skeleton active/>
+                  <Skeleton active/>
+                  <Skeleton active/>
+                </React.Fragment>
+                : <React.Fragment>
 
-                                <ReactCoinDetailSummary
-                                name={ name }
-                                last_updated = { last_updated }
-                                image={ image }/>
+                  <ReactCoinDetailSummary
+                    name={ name }
+                    last_updated = { last_updated }
+                    image={ image }/>
 
-                                <ReactCoinScores
-                                coingecko_rank={coingecko_rank}
-                                market_cap_rank={market_cap_rank}
-                                developer_score={developer_score}
-                                community_score={community_score}
-                                liquidity_score={liquidity_score}
-                                coingecko_score={coingecko_score}/>
+                  <ReactCoinScores
+                    coingecko_rank={coingecko_rank}
+                    market_cap_rank={market_cap_rank}
+                    developer_score={developer_score}
+                    community_score={community_score}
+                    liquidity_score={liquidity_score}
+                    coingecko_score={coingecko_score}/>
 
-                                <ReactCoinMarketStats
-                                market_data={market_data}
-                                market_stat_keys={market_stat_keys}/>
+                  <ReactCoinMarketStats
+                    market_data={market_data}
+                    market_stat_keys={market_stat_keys}/>
 
-                                <ReactCoinMarketDetailedStats
-                                data={market_data_processed}
-                                columns={finalColumns}/>
+                  <ReactCoinMarketDetailedStats
+                    data={market_data_processed}
+                    columns={finalColumns}/>
 
-                                <ReactCoinCommunityStats
-                                data={community_data}/>
+                  <ReactCoinCommunityStats
+                    data={community_data}/>
 
-                                <ReactCoinDeveloperStats
-                                data={developer_data}/>
+                  <ReactCoinDeveloperStats
+                    data={developer_data}/>
 
-                                <Title level={3} style={titleStyle}>Prices Chart</Title>
-                                <Paragraph>Prices in USD for the past 7 days. Datetimes are converted from unix to locale.</Paragraph>
-                                <Line data={chartPricesData} options={chartOptions}/>
+                  <Title level={3} style={titleStyle}>Prices Chart</Title>
+                  <Paragraph>Prices in USD for the past 7 days. Datetimes are converted from unix to locale.</Paragraph>
+                  <Line data={chartPricesData} options={chartOptions}/>
 
-                                <Title level={3} style={titleStyle}>Market Caps Chart</Title>
-                                <Paragraph>Market cap data from the past 7 days. Datetimes are converted from unix to locale.</Paragraph>
-                                <Line data={chartMarketCapsData} options={chartOptions}/>
+                  <Title level={3} style={titleStyle}>Market Caps Chart</Title>
+                  <Paragraph>Market cap data from the past 7 days. Datetimes are converted from unix to locale.</Paragraph>
+                  <Line data={chartMarketCapsData} options={chartOptions}/>
 
-                                <Title level={3} style={titleStyle}>Total Volumes Chart</Title>
-                                <Paragraph>Total Volumes data from the past 7 days. Datetimes are converted from unix to locale.</Paragraph>
-                                <Line data={chartTotalVolumesData} options={chartOptions}/>
-                            </React.Fragment>
-                        }
-                    </Content>
-                </Layout>
-            </React.Fragment>
+                  <Title level={3} style={titleStyle}>Total Volumes Chart</Title>
+                  <Paragraph>Total Volumes data from the past 7 days. Datetimes are converted from unix to locale.</Paragraph>
+                  <Line data={chartTotalVolumesData} options={chartOptions}/>
+                </React.Fragment>
+            }
+          </Content>
+        </Layout>
+      </React.Fragment>
     )
   }
 }

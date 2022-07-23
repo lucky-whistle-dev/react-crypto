@@ -20,22 +20,22 @@ import ReactAssetPlatforms from './AssetPlatforms/ReactAssetPlatforms'
 export default class App extends Component {
   render () {
     return (
-            <Layout style={{ minHeight: '100vh', lineHeight: '1.6rem' }}>
-                <ReactHeader/>
-                <Layout>
-                    <Route path='/' exact component={ReactHome}/>
-                    <Route path='/about' exact component={ReactAbout}/>
-                    <Route path='/trending-coins' exact component={ReactTrendingCoins}/>
-                    <Route path='/coins' exact component={ReactCoinsList}/>
-                    <Route path='/coins/:coinId/' exact component={ReactCoinsDetail}/>
-                    <Route path='/exchanges/list' exact component={ReactExchangesList}/>
-                    <Route path='/global' exact component={ReactGlobal}/>
-                    <Route path='/empty' exact component={ReactEmpty}/>
-                    <Route path='/exchange-rates' exact component={ReactExchangeRates}/>
-                    <Route path='/asset-platforms' exact component={ReactAssetPlatforms}/>
-                </Layout>
-                <ReactFooter/>
-            </Layout>
+      <Layout style={{ minHeight: '100vh', lineHeight: '1.6rem' }}>
+        <ReactHeader/>
+        <Layout>
+          <Route path='/' exact component={ReactHome}/>
+          <Route path='/about' exact component={ReactAbout}/>
+          <Route path='/trending-coins' exact component={ReactTrendingCoins}/>
+          <Route path='/coins' exact component={ReactCoinsList}/>
+          <Route path='/coins/:coinId/' exact component={ReactCoinsDetail}/>
+          <Route path='/exchanges/list' exact component={ReactExchangesList}/>
+          <Route path='/global' exact component={ReactGlobal}/>
+          <Route path='/empty' exact component={ReactEmpty}/>
+          <Route path='/exchange-rates' exact component={ReactExchangeRates}/>
+          <Route path='/asset-platforms' exact component={ReactAssetPlatforms}/>
+        </Layout>
+        <ReactFooter/>
+      </Layout>
     )
   }
 }

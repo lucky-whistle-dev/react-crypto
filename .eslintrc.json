@@ -21,7 +21,8 @@
         "camelcase": "off",
         "react/prop-types": "warn",
         "no-case-declarations": "warn",
-        "no-unused-vars": "warn"
+        "no-unused-vars": "warn",
+        "indent": ["error", 2]
     },
     "ignorePatterns": [
         "node_modules",

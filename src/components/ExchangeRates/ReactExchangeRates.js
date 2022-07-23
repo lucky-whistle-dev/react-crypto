@@ -43,22 +43,22 @@ class ReactExchangeRates extends Component {
 
     const loading = !(this.props.data.length > 0)
     return (
-            <React.Fragment>
-                <ReactSider/>
-                <Layout style={{ padding: '1rem' }}>
-                    <Content className="text-focus-in" style={{ ...contentStyle }}>
-                        <Title level={2}>Exchange Rates</Title>
-                        <Paragraph>View BTC-to-Currency exchange rates.</Paragraph>
-                        <Table
-                        style={tableStyle}
-                        dataSource={this.props.data}
-                        loading={loading}
-                        columns={columns}
-                        >
-                        </Table>
-                    </Content>
-                </Layout>
-            </React.Fragment>
+      <React.Fragment>
+        <ReactSider/>
+        <Layout style={{ padding: '1rem' }}>
+          <Content className="text-focus-in" style={{ ...contentStyle }}>
+            <Title level={2}>Exchange Rates</Title>
+            <Paragraph>View BTC-to-Currency exchange rates.</Paragraph>
+            <Table
+              style={tableStyle}
+              dataSource={this.props.data}
+              loading={loading}
+              columns={columns}
+            >
+            </Table>
+          </Content>
+        </Layout>
+      </React.Fragment>
     )
   }
 }

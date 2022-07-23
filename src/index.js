@@ -19,9 +19,9 @@ const store = createStore(rootReducer, /* preloadedState, */ composeEnhancers(
 ))
 
 ReactDOM.render(
-    <Provider store={store}>
-        <HashRouter>
-            <App/>
-        </HashRouter>
-    </Provider>,
-    document.getElementById('root'))
+  <Provider store={store}>
+    <HashRouter>
+      <App/>
+    </HashRouter>
+  </Provider>,
+  document.getElementById('root'))

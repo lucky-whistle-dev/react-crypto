@@ -41,47 +41,47 @@ class ReactAssetPlatforms extends Component {
     // const loading = this.props.data.length > 0 ? false : true;
 
     return (
-            <React.Fragment>
-                <ReactSider/>
-                <Layout style={{ padding: '1rem' }}>
-                <Content style={contentStyle}>
-                    <Title level={2}>Asset Platforms</Title>
-                    <Paragraph>A list of available asset platforms.</Paragraph>
-                    <Row gutter={16} style={{ textAlign: 'center' }} type="flex">
+      <React.Fragment>
+        <ReactSider/>
+        <Layout style={{ padding: '1rem' }}>
+          <Content style={contentStyle}>
+            <Title level={2}>Asset Platforms</Title>
+            <Paragraph>A list of available asset platforms.</Paragraph>
+            <Row gutter={16} style={{ textAlign: 'center' }} type="flex">
 
-                        <Col xs={24} sm={24} md={8} lg={8} xl={8} style={colStyle}>
-                        </Col>
-                    </Row>
+              <Col xs={24} sm={24} md={8} lg={8} xl={8} style={colStyle}>
+              </Col>
+            </Row>
 
-                     <Table
-                        style={tableStyle}
-                        bordered={true}
-                        dataSource={this.props.data}
-                        columns={[
-                          {
-                            title: 'Id',
-                            dataIndex: 'id',
-                            key: 'id'
-                          },
-                          {
-                            title: 'Chain identifier',
-                            dataIndex: 'chain_identifier',
-                            key: 'chain_identifier'
-                          },
-                          {
-                            title: 'Name',
-                            dataIndex: 'name',
-                            key: 'name'
-                          },
-                          {
-                            title: 'Short name',
-                            dataIndex: 'short_name',
-                            key: 'short_name'
-                          }
-                        ]}/>
-                </Content>
-            </Layout>
-            </React.Fragment>
+            <Table
+              style={tableStyle}
+              bordered={true}
+              dataSource={this.props.data}
+              columns={[
+                {
+                  title: 'Id',
+                  dataIndex: 'id',
+                  key: 'id'
+                },
+                {
+                  title: 'Chain identifier',
+                  dataIndex: 'chain_identifier',
+                  key: 'chain_identifier'
+                },
+                {
+                  title: 'Name',
+                  dataIndex: 'name',
+                  key: 'name'
+                },
+                {
+                  title: 'Short name',
+                  dataIndex: 'short_name',
+                  key: 'short_name'
+                }
+              ]}/>
+          </Content>
+        </Layout>
+      </React.Fragment>
     )
   }
 }

@@ -17,33 +17,33 @@ class ReactCoinsList extends Component {
 
   getColumnSearchProps = dataIndex => ({
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
-            <div style={{ padding: 8 }}>
-            <Input
-                ref={node => {
-                  this.searchInput = node
-                }}
-                placeholder={`Search ${dataIndex}`}
-                value={selectedKeys[0]}
-                onChange={e => setSelectedKeys(e.target.value ? [e.target.value] : [])}
-                onPressEnter={() => this.handleSearch(selectedKeys, confirm)}
-                style={{ width: 188, marginBottom: 8, display: 'block' }}
-            />
-            <Button
-                type="primary"
-                onClick={() => this.handleSearch(selectedKeys, confirm)}
-                icon={<SearchOutlined/>}
-                size="small"
-                style={{ width: 90, marginRight: 8 }}
-            >
+      <div style={{ padding: 8 }}>
+        <Input
+          ref={node => {
+            this.searchInput = node
+          }}
+          placeholder={`Search ${dataIndex}`}
+          value={selectedKeys[0]}
+          onChange={e => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+          onPressEnter={() => this.handleSearch(selectedKeys, confirm)}
+          style={{ width: 188, marginBottom: 8, display: 'block' }}
+        />
+        <Button
+          type="primary"
+          onClick={() => this.handleSearch(selectedKeys, confirm)}
+          icon={<SearchOutlined/>}
+          size="small"
+          style={{ width: 90, marginRight: 8 }}
+        >
                 Search
-            </Button>
-            <Button onClick={() => this.handleReset(clearFilters)} size="small" style={{ width: 90 }}>
+        </Button>
+        <Button onClick={() => this.handleReset(clearFilters)} size="small" style={{ width: 90 }}>
                 Reset
-            </Button>
-            </div>
+        </Button>
+      </div>
     ),
     filterIcon: filtered => (
-            <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />
+      <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />
     ),
     onFilter: (value, record) =>
       record[dataIndex]
@@ -56,12 +56,12 @@ class ReactCoinsList extends Component {
       }
     },
     render: text => (
-            <Highlighter
-            highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
-            searchWords={[this.state.searchText]}
-            autoEscape
-            textToHighlight={text.toString()}
-            />
+      <Highlighter
+        highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
+        searchWords={[this.state.searchText]}
+        autoEscape
+        textToHighlight={text.toString()}
+      />
     )
   })
 
@@ -111,21 +111,21 @@ class ReactCoinsList extends Component {
       }
     ]
     return (
-            <React.Fragment>
-                <ReactSider/>
-                <Layout style={{ padding: '1rem' }}>
-                    <Content style={contentStyle}>
-                        <Title level={2}>Coins List</Title>
-                        <Paragraph>This page lists cryptocurrencies available through the CoinGecko API. To view details of a given coin, click &apos;View&apos; button. You can also filter by Id, Symbol or Name to drill down and find a coin.</Paragraph>
-                        <Table
-                        style={tableStyle}
-                        bordered={true}
-                        loading={loading}
-                        dataSource={this.props.data}
-                        columns={columns}/>
-                    </Content>
-                </Layout>
-            </React.Fragment>
+      <React.Fragment>
+        <ReactSider/>
+        <Layout style={{ padding: '1rem' }}>
+          <Content style={contentStyle}>
+            <Title level={2}>Coins List</Title>
+            <Paragraph>This page lists cryptocurrencies available through the CoinGecko API. To view details of a given coin, click &apos;View&apos; button. You can also filter by Id, Symbol or Name to drill down and find a coin.</Paragraph>
+            <Table
+              style={tableStyle}
+              bordered={true}
+              loading={loading}
+              dataSource={this.props.data}
+              columns={columns}/>
+          </Content>
+        </Layout>
+      </React.Fragment>
 
     )
   }

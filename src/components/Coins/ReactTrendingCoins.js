@@ -17,55 +17,55 @@ class ReactTrendingCoins extends Component {
 
   render () {
     return (
-            <React.Fragment>
-                <ReactSider/>
-                <Layout style={{ padding: '1rem' }}>
-                    <Content style={contentStyle}>
-                        <Title level={2}>Trending Coins</Title>
-                        <Paragraph>View coins that are trending today.</Paragraph>
+      <React.Fragment>
+        <ReactSider/>
+        <Layout style={{ padding: '1rem' }}>
+          <Content style={contentStyle}>
+            <Title level={2}>Trending Coins</Title>
+            <Paragraph>View coins that are trending today.</Paragraph>
 
-                        <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+            <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
 
-                        {
-                          this.props.data.coins.map(coin =>
+              {
+                this.props.data.coins.map(coin =>
 
-                            <Col key={coin.symbol} className="gutter-row" span={8}>
-<Badge.Ribbon text={
-  `rank: ${coin.item.market_cap_rank}`
-} color="green">
-                            <Card
-                            key={coin.item.id}
-                            style={{ marginBottom: '16px' }}
-                            cover={
-                              <img
-                              alt="example"
-                              src={coin.item.large}
-                              style={{ padding: '40px' }}
-                              />
-                            }
-
-                        >
-                          <Meta
-                            avatar={<Avatar src={coin.item.thumb} />}
-                            title={`${coin.item.name} (${coin.item.symbol})`}
-                            description={`${coin.item.slug} has a score of ${coin.item.score}, and an exchange value of ${coin.item.price_btc} (btc conversion rate)`}
-                            />
-                        </Card>
-                            </Badge.Ribbon>
-                        </Col>
-                          )
+                  <Col key={coin.symbol} className="gutter-row" span={8}>
+                    <Badge.Ribbon text={
+                      `rank: ${coin.item.market_cap_rank}`
+                    } color="green">
+                      <Card
+                        key={coin.item.id}
+                        style={{ marginBottom: '16px' }}
+                        cover={
+                          <img
+                            alt="example"
+                            src={coin.item.large}
+                            style={{ padding: '40px' }}
+                          />
                         }
-                        </Row>
-                        <code>
-                          <pre>
-                            {
-                              JSON.stringify(this.props.data, null, 2)
-                            }
-                          </pre>
-                        </code>
-                    </Content>
-                </Layout>
-            </React.Fragment>
+
+                      >
+                        <Meta
+                          avatar={<Avatar src={coin.item.thumb} />}
+                          title={`${coin.item.name} (${coin.item.symbol})`}
+                          description={`${coin.item.slug} has a score of ${coin.item.score}, and an exchange value of ${coin.item.price_btc} (btc conversion rate)`}
+                        />
+                      </Card>
+                    </Badge.Ribbon>
+                  </Col>
+                )
+              }
+            </Row>
+            <code>
+              <pre>
+                {
+                  JSON.stringify(this.props.data, null, 2)
+                }
+              </pre>
+            </code>
+          </Content>
+        </Layout>
+      </React.Fragment>
 
     )
   }

@@ -48,21 +48,21 @@ class ReactExchangesList extends Component {
     const loading = !(this.props.data.length > 0)
 
     return (
-          <React.Fragment>
-          <ReactSider/>
-            <Layout style={{ padding: '1rem' }}>
-                <Content style={contentStyle}>
-                    <Title level={2}>Exchanges List</Title>
-                    <Paragraph>This page lists available exchanges.</Paragraph>
-                    <Table
-                    style={tableStyle}
-                    bordered={true}
-                    loading={loading}
-                    dataSource={this.props.data}
-                    columns={columns} />
-                </Content>
-            </Layout>
-            </React.Fragment>
+      <React.Fragment>
+        <ReactSider/>
+        <Layout style={{ padding: '1rem' }}>
+          <Content style={contentStyle}>
+            <Title level={2}>Exchanges List</Title>
+            <Paragraph>This page lists available exchanges.</Paragraph>
+            <Table
+              style={tableStyle}
+              bordered={true}
+              loading={loading}
+              dataSource={this.props.data}
+              columns={columns} />
+          </Content>
+        </Layout>
+      </React.Fragment>
     )
   }
 }
